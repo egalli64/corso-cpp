@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
 
-class Player
-{
+/**
+ * @brief A more structured class
+ */
+class Player {
 private:
     int id_;
     double score_;
@@ -15,8 +17,7 @@ public:
     void increaseScore(double delta) { score_ += delta; }
 };
 
-int main()
-{
+int main() {
     Player tom(34, 3.12);
 
     cout << tom.id() << ' ' << tom.score() << endl;

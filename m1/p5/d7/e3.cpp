@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Player
-{
+class Player {
 private:
     static int count_;
     int id_;
@@ -21,19 +20,16 @@ public:
 
 int Player::count_ = 0;
 
-void Player::print_count()
-{
+void Player::print_count() {
     cout << "Current number of players: " << count_ << endl;
 }
 
-void another_function()
-{
+void another_function() {
     Player bob(12, 3.7);
     Player::print_count();
 }
 
-int main()
-{
+int main() {
     Player::print_count();
 
     Player tom(42, 33.12);

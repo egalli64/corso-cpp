@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Player
-{
+class Player {
 private:
     int id_;
     double score_;
@@ -10,15 +9,18 @@ private:
 public:
     // Player() = delete; // explicitly no default ctor
     // Player() = default; // force default ctor
-    Player(int id, double score) : id_{ id }, score_{ score } {} // plain ctor
-    ~Player() { cout << "dtor!" << endl; }                   // dtor
+
+    // plain ctor
+    Player(int id, double score) : id_{ id }, score_{ score } {}
+
+    // dtor
+    ~Player() { cout << "dtor!" << endl; }
 
     int id() { return id_; }
     double score() { return score_; }
 };
 
-int main()
-{
+int main() {
     // default ctor not available!
     // Player tom;
 

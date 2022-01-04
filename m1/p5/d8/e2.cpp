@@ -4,8 +4,7 @@ using namespace std;
 /**
  * @brief A function object (aka functor)
  */
-class Adder
-{
+class Adder {
 private:
     int addendum_;
 
@@ -15,8 +14,7 @@ public:
     int operator()(int value) const { return value + addendum_; }
 };
 
-int main()
-{
+int main() {
     Adder add42(42);
     cout << add42(18) << endl;
 }

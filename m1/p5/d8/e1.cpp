@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Player
-{
+class Player {
 private:
     int id_;
     double score_;
@@ -16,15 +15,13 @@ public:
     void increaseScore(double delta) { score_ += delta; }
 };
 
-// put-to overload specific for Player
-ostream& operator<<(ostream& os, const Player& item)
-{
+// put-to output stream overload for Player
+ostream& operator<<(ostream& os, const Player& item) {
     os << item.id() << " " << item.score();
     return os;
 }
 
-int main()
-{
+int main() {
     Player tom(42, 33.12);
     tom.increaseScore(3.3);
 

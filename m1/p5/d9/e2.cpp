@@ -2,8 +2,7 @@
 #include<string>
 using namespace std;
 
-namespace my
-{
+namespace my {
     template <typename T>
     void swap(T& left, T& right) {
         T temp = left;

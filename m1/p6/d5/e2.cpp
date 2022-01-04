@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Animal
-{
+class Animal {
 private:
     string name_;
 public:
@@ -13,8 +12,7 @@ public:
     virtual string fullName() = 0;
 };
 
-class Dog : public Animal
-{
+class Dog : public Animal {
 private:
     string owner_;
 public:
@@ -27,14 +25,12 @@ public:
     }
 };
 
-void bobFunction()
-{
+void bobFunction() {
     Dog bob("Bob", "Robert Smith");
     cout << bob.fullName() << endl;
 }
 
-int main()
-{
+int main() {
     bobFunction();
 
     Dog* chip = new Dog("Chip", "Charlie Parker");
