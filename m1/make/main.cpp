@@ -5,6 +5,6 @@
 using namespace std;
 
 int main() {
-    cout << "Hello from main" << endl;
+    cout << "Hello from main\n";
     other_hello("Other hello");
 }

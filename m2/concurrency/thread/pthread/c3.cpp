@@ -8,7 +8,7 @@ static pthread_mutex_t lock_1 = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t lock_2 = PTHREAD_MUTEX_INITIALIZER;
 
 void info(const char* head) {
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << '\n';
 }
 
 void* ordered(void*) {
@@ -31,7 +31,7 @@ int main() {
     for(int i = 0; i < 2; ++i) {
         int status = pthread_create(&tids[i], nullptr, ordered, nullptr);
         if (status != 0) {
-            cout << "Can't create thread " << i << ", error code " << status << endl;
+            cout << "Can't create thread " << i << ", error code " << status << '\n';
         }
     }
 

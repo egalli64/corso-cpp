@@ -9,7 +9,7 @@ void print(const vector<int>& items, const string& label) {
     for (const auto& item : items) {
         cout << item << ' ';
     }
-    cout << ']' << endl;
+    cout << "]\n";
 }
 
 template<typename IT>

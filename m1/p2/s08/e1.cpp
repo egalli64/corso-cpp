@@ -2,14 +2,14 @@
 using namespace std;
 
 int main() {
-    cout << "char* " << sizeof(char*) << endl;
-    cout << "double* " << sizeof(double*) << endl;
-    cout << endl;
+    cout << "char* " << sizeof(char*) << '\n';
+    cout << "double* " << sizeof(double*) << '\n';
+    cout << '\n';
 
     char c = 'x';
     char* pc = &c;
 
-    cout << c << ' ' << *pc << ' ' << static_cast<void*>(pc) << endl;
+    cout << c << ' ' << *pc << ' ' << static_cast<void*>(pc) << '\n';
     *pc = 'z';
-    cout << c << ' ' << *pc << endl;
+    cout << c << ' ' << *pc << '\n';
 }

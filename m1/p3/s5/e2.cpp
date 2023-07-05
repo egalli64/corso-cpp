@@ -2,8 +2,8 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    cout << argv[0] << " has " << argc - 1 << " parameters" << endl;
+    cout << argv[0] << " has " << argc - 1 << " parameters\n";
     for (int i = 1; i < argc; ++i) {
-        cout << i << ") " << argv[i] << endl;
+        cout << i << ") " << argv[i] << '\n';
     }
 }

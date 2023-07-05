@@ -26,5 +26,5 @@ int main() {
  * @brief Defining a free function
  */
 void printHello() {
-    cout << "Hello" << endl;
+    cout << "Hello\n";
 }

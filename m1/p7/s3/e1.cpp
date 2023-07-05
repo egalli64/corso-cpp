@@ -5,7 +5,7 @@ void print(int* data, int size) {
     for (int i = 0; i < size; ++i) {
         cout << data[i] << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
@@ -14,7 +14,7 @@ int main() {
     for(size_t i = 0; i < sizeof(sValues) / sizeof(int); ++i) {
         cout << sValues[i] << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     print(sValues, sizeof(sValues) / sizeof(int));
 

@@ -6,7 +6,7 @@ void sayHello(int count = 1) {
     for (int i = 0; i < count; ++i) {
         cout << " hello";
     }
-    cout << "!" << endl;
+    cout << "!\n";
 }
 
 int main() {

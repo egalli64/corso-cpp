@@ -7,12 +7,12 @@ void print(const list<string>& data) {
     for (const string& cur : data) {
         cout << cur << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
     list<string> empty;
-    cout << "Size of an empty list is " << empty.size() << endl;
+    cout << "Size of an empty list is " << empty.size() << '\n';
 
     list<string> data{ "tom", "bob", "kim" };
     print(data);

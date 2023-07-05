@@ -9,8 +9,8 @@ int main() {
 
     int target{ 2 };
     auto itTwo = find(values.begin(), values.end(), target);
-    cout << target << (itTwo == values.end() ? " not " : " ") << "found" << endl;
+    cout << target << (itTwo == values.end() ? " not " : " ") << "found\n";
 
     int sum = accumulate(values.begin(), values.end(), 0);
-    cout << "Sum of values is " << sum << endl;
+    cout << "Sum of values is " << sum << '\n';
 }

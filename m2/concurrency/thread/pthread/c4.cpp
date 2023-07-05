@@ -10,7 +10,7 @@ static pthread_mutex_t lock_plain = PTHREAD_MUTEX_INITIALIZER;
 
 void infoAtTime(const char* head) {
     pthread_mutex_lock(&lock_plain);
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << " @time " << time(nullptr) << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << " @time " << time(nullptr) << '\n';
     pthread_mutex_unlock(&lock_plain);
 }
 
@@ -40,7 +40,7 @@ int main() {
     for (int i = 0; i < 2; ++i) {
         int status = pthread_create(&tids[i], nullptr, timed, nullptr);
         if (status != 0) {
-            cout << "Can't create thread " << i << ", error code " << status << endl;
+            cout << "Can't create thread " << i << ", error code " << status << '\n';
         }
     }
 

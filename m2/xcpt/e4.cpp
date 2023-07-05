@@ -5,7 +5,7 @@ void risky(int value) {
     if (value == 1) {
         throw 42;
     }
-    cout << "Hello" << endl;
+    cout << "Hello\n";
 }
 
 int main(int argc, char** argv) {
@@ -13,9 +13,9 @@ int main(int argc, char** argv) {
         risky(argc);
     }
     catch (int exc) {
-        cout << "Error detected: " << exc << endl;
-        cout << "You should pass at least an argument to this program!" << endl;
+        cout << "Error detected: " << exc << '\n';
+        cout << "You should pass at least an argument to this program!" << '\n';
     }
 
-    cout << "Rest of code" << endl;
+    cout << "Rest of code" << '\n';
 }

@@ -28,7 +28,7 @@ void connect() {
 	} else {
 		std::cout << "error " << sqlca.sqlerrm.sqlerrmc;
 	}
-	std::cout << std::endl;
+	std::cout << '\n';
 
 	EXEC SQL COMMIT WORK RELEASE;
 }

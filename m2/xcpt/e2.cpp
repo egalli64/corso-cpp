@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     int i = 1'000'000'000'000'000'000;
-    cout << "i = " << i << endl;
+    cout << "i = " << i << '\n';
 }

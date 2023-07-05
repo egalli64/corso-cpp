@@ -3,16 +3,16 @@ using namespace std;
 
 int main(int argc, char** argv) {
     if (argc < 2) {
-        cout << "Please, enter a few arguments" << endl;
+        cout << "Please, enter a few arguments\n";
     }
     else {
-        cout << "Arguments NOT starting with an 'x'" << endl;
+        cout << "Arguments NOT starting with an 'x'\n";
         for (int i = 1; i < argc; ++i) {
             if (argv[i][0] == 'x') {
                 continue;
             }
-            cout << i << ") " << argv[i] << endl;
+            cout << i << ") " << argv[i] << '\n';
         }
-        cout << "Done" << endl;
+        cout << "Done\n";
     }
 }

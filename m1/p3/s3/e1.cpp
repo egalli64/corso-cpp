@@ -7,10 +7,10 @@ int main(int argc, char** argv) {
         cout << "The caller didn't pass any parameter\n";
         break;
     case 2:
-        cout << "The first parameter is " << argv[1] << endl;
+        cout << "The first parameter is " << argv[1] << '\n';
         break;
     default:
-        cout << "The last parameter is " << argv[argc - 1] << endl;
+        cout << "The last parameter is " << argv[argc - 1] << '\n';
         break;
     }
 }

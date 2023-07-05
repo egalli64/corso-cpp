@@ -9,21 +9,21 @@ int main() {
     for (int value : raw) {
         cout << value << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     for (int* ptr = raw; ptr != raw + (sizeof(raw) / sizeof(int)); ++ptr) {
         cout << *ptr << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     vector<string> values{ "tom", "bob", "kim" };
     for (const auto& value : values) {
         cout << value << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     for (auto it = values.cbegin(); it != values.cend(); ++it) {
         cout << *it << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }

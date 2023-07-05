@@ -5,9 +5,9 @@ using namespace std;
 
 void print(const unordered_map<string, double>& items) {
     for (const auto& item : items) {
-        cout << item.first << ' ' << item.second << endl;
+        cout << item.first << ' ' << item.second << '\n';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
@@ -18,17 +18,17 @@ int main() {
     
     auto it = data.find("bob");
     if (it != data.end()) {
-        cout << "find bob: " << it->second << endl;
+        cout << "find bob: " << it->second << '\n';
     }
 
-    cout << "at tom: " << data.at("tom") << endl;
+    cout << "at tom: " << data.at("tom") << '\n';
 
     try {
         double joe = data.at("joe");
-        cout << joe << endl;
+        cout << joe << '\n';
     }
     catch (const out_of_range& ex) {
-        cout << "Out of range calling " << ex.what() << " on joe" << endl;
+        cout << "Out of range calling " << ex.what() << " on joe\n";
     }
 
 }

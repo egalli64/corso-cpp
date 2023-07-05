@@ -36,8 +36,8 @@ public:
 
 int main() {
     Dog bob("Bob", "Robert Smith");
-    cout << bob.fullName() << endl;
+    cout << bob.fullName() << '\n';
 
     Poodle tom("Tom", "Thomas Benson");
-    cout << tom.fullName() << endl;
+    cout << tom.fullName() << '\n';
 }

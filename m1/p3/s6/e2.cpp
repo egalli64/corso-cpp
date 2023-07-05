@@ -3,13 +3,13 @@ using namespace std;
 
 int main(int argc, char** argv) {
     if (argc == 1) {
-        cout << argv[0] << " has no parameters" << endl;
+        cout << argv[0] << " has no parameters" << '\n';
     }
     else {
-        cout << "The parameters:" << endl;
+        cout << "The parameters:" << '\n';
         int i = 1;
         do {
-            cout << i << ") " << argv[i] << endl;
+            cout << i << ") " << argv[i] << '\n';
             i += 1;
         } while (i < argc);
     }

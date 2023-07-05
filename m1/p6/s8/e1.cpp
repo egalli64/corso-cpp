@@ -12,7 +12,7 @@ public:
         for (int i = 0; i < count_; ++i) {
             cout << "wag";
         }
-        cout << endl;
+        cout << '\n';
     }
 };
 
@@ -26,7 +26,7 @@ public:
     Dog(const string& name, int count) : Tail(count), name_(name) {}
 
     void bark() {
-        cout << name_ << ": bark!" << endl;
+        cout << name_ << ": bark!\n";
         wag(name_);
     }
 };

@@ -7,7 +7,7 @@ void print(const forward_list<string>& data) {
     for (const string& cur : data) {
         cout << cur << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {

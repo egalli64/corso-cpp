@@ -31,8 +31,8 @@ public:
 
 int main() {
     Point a(8, 1);
-    cout << "Distance from origin is " << a.distanceFromOrigin() << endl;
+    cout << "Distance from origin is " << a.distanceFromOrigin() << '\n';
 
     Point3D b(8, 1, 5);
-    cout << "Distance from origin is " << b.distanceFromOrigin() << endl;
+    cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
 }

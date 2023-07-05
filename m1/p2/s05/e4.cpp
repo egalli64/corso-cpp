@@ -5,13 +5,13 @@ int main() {
     int x = 42;
     int y = 18;
 
-    cout << "x = " << x << endl;
-    cout << "y = " << y << endl;
+    cout << "x = " << x << '\n';
+    cout << "y = " << y << '\n';
 
 
     cout << "\nAssignment operators\n\n";
-    cout << "x += y -> x = " << (x += y) << endl;
-    cout << "x -= y -> x = " << (x -= y) << endl;
-    cout << "++x -> x = " << ++x << endl;
-    cout << "--x -> x = " << --x << endl;
+    cout << "x += y -> x = " << (x += y) << '\n';
+    cout << "x -= y -> x = " << (x -= y) << '\n';
+    cout << "++x -> x = " << ++x << '\n';
+    cout << "--x -> x = " << --x << '\n';
 }

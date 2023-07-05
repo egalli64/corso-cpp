@@ -9,15 +9,15 @@ void print(const vector<T>& values, const string& label) {
     for (const T& value : values) {
         cout << value << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
     vector<int> empty;
-    cout << "Size of an empty vector is " << empty.size() << endl;
+    cout << "Size of an empty vector is " << empty.size() << '\n';
 
     vector<int> anotherEmpty{ };
-    cout << "Size of another empty vector is " << empty.size() << endl;
+    cout << "Size of another empty vector is " << empty.size() << '\n';
 
     vector<int> filled(5, -1);
     print(filled, "A vector filled with a given value");

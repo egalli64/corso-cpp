@@ -22,7 +22,7 @@ inline void Player::increaseScore(double delta) {
 }
 
 inline void print(const Player& player) {
-    cout << "The player has id " << player.id() << " and score " << player.score() << endl;
+    cout << "The player has id " << player.id() << " and score " << player.score() << '\n';
 }
 
 int main() {

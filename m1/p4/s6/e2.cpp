@@ -15,14 +15,14 @@ int main() {
     int a{ 42 };
     int b{ 18 };
 
-    cout << "a is " << a << " b is " << b << endl;
+    cout << "a is " << a << " b is " << b << '\n';
     my::swap(a, b);
-    cout << "a is " << a << " b is " << b << endl;
+    cout << "a is " << a << " b is " << b << '\n';
 
     string s{ "hello" };
     string t{ "ciao" };
 
-    cout << "s is " << s << " t is " << t << endl;
+    cout << "s is " << s << " t is " << t << '\n';
     my::swap(s, t);
-    cout << "s is " << s << " t is " << t << endl;
+    cout << "s is " << s << " t is " << t << '\n';
 }

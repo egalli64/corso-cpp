@@ -8,7 +8,7 @@ private:
 
 public:
     Point(int x, int y) : x_{ x }, y_{ y } {}
-    ~Point() { cout << "dtor " << x_ << ", " << y_ << endl; }
+    ~Point() { cout << "dtor " << x_ << ", " << y_ << '\n'; }
 
     // Point(const Point&) = delete; // no copy ctor
     // Point& operator=(const Point&) = delete; // no assigment operator
@@ -23,7 +23,7 @@ int main() {
     // Point a;
 
     Point b{ 12, 23 };
-    cout << "b: " << b.x() << ", " << b.y() << endl;
+    cout << "b: " << b.x() << ", " << b.y() << '\n';
 
     // compiler generated copy ctor
     Point c = b;
@@ -32,18 +32,18 @@ int main() {
     Point d{ b };
     d.horizontalMove(-7);
 
-    cout << "c is a deep copy _by copy ctor_ of b (right shifted): " << c.x() << ", " << c.y() << endl;
-    cout << "d is a deep copy _by copy ctor_ of b (left shifted): " << d.x() << ", " << d.y() << endl;
-    cout << "b has not changed: " << b.x() << ", " << b.y() << endl;
+    cout << "c is a deep copy _by copy ctor_ of b (right shifted): " << c.x() << ", " << c.y() << '\n';
+    cout << "d is a deep copy _by copy ctor_ of b (left shifted): " << d.x() << ", " << d.y() << '\n';
+    cout << "b has not changed: " << b.x() << ", " << b.y() << '\n';
 
     // compiler generated assigment operator
     d = c;
     d.horizontalMove(-4);
-    cout << "d is a deep copy _by assignment_ of c (left shifted): " << d.x() << ", " << d.y() << endl;
-    cout << "c has not changed: " << c.x() << ", " << c.y() << endl;
+    cout << "d is a deep copy _by assignment_ of c (left shifted): " << d.x() << ", " << d.y() << '\n';
+    cout << "c has not changed: " << c.x() << ", " << c.y() << '\n';
 
     Point& e = b;
     e.horizontalMove(-2);
-    cout << "e is a shallow copy _by reference_ of b (left shifted): " << e.x() << ", " << e.y() << endl;
-    cout << "b HAS changed: " << b.x() << ", " << b.y() << endl;
+    cout << "e is a shallow copy _by reference_ of b (left shifted): " << e.x() << ", " << e.y() << '\n';
+    cout << "b HAS changed: " << b.x() << ", " << b.y() << '\n';
 }

@@ -65,7 +65,7 @@ int main() {
     // auto it = find_if(values.begin(), values.end(), HasSizeEqualTo(4));
     // lambda version
     // auto it = find_if(values.begin(), values.end(), [](const string& x) { return x.size() == 4; });
-    cout << (it != values.end() ? *it : "Not found!") << endl;
+    cout << (it != values.end() ? *it : "Not found!") << '\n';
 
     cout << "Print all string sized 3: ";
     // function version
@@ -78,5 +78,5 @@ int main() {
             cout << s << ' ';
         }
     });
-    cout << endl;
+    cout << '\n';
 }

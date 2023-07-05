@@ -16,5 +16,5 @@ public:
 
 int main() {
     Adder add42(42);
-    cout << add42(18) << endl;
+    cout << add42(18) << '\n';
 }

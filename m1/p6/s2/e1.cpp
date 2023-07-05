@@ -31,11 +31,11 @@ ostream& operator<<(ostream& os, Dog dog) {
 
 int main() {
     Animal tom("Tom");
-    cout << tom << endl;
+    cout << tom << '\n';
 
     Dog bob("Bob", "Robert Smith");
-    cout << bob << endl;
+    cout << bob << '\n';
 
     Dog x;
-    cout << x << endl;
+    cout << x << '\n';
 }

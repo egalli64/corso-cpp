@@ -19,12 +19,12 @@ public:
 
 int main() {
     Point a {34, 3};
-    cout << a.x() << ' ' << a.y() << endl;
+    cout << a.x() << ' ' << a.y() << '\n';
 
     Point* p = &a;
-    cout << p->x() << ' ' << p->y() << endl;
+    cout << p->x() << ' ' << p->y() << '\n';
 
     Point& r = a;
     r.increaseX(5);
-    cout << a.x() << ' ' << a.y() << endl;
+    cout << a.x() << ' ' << a.y() << '\n';
 }

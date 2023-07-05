@@ -8,13 +8,13 @@ int main() {
     int pds[2];
 
     if (pipe(pds)) {
-        cout << "Can't create pipe" << endl;
+        cout << "Can't create pipe\n";
         return 1;
     }
 
     int pid = fork();
     if (pid < 0) {
-        cout << "Can't fork" << endl;
+        cout << "Can't fork\n";
         return 2;
     }
     else if (pid > 0) { // parent
@@ -31,6 +31,6 @@ int main() {
         int n = read(pds[0], buffer, SZ);
         buffer[n] = '\0';
 
-        cout << buffer << endl;
+        cout << buffer << '\n';
     }
 }
