@@ -8,7 +8,7 @@ static pthread_mutex_t lock_1 = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t lock_2 = PTHREAD_MUTEX_INITIALIZER;
 
 void info(const char* head) {
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << '\n';
 }
 
 void* mistake_1(void*) {
@@ -44,12 +44,12 @@ int main() {
 
     int status = pthread_create(&tids[0], nullptr, mistake_1, nullptr);
     if (status != 0) {
-        cout << "Can't create thread 0, error code " << status << endl;
+        cout << "Can't create thread 0, error code " << status << '\n';
     }
 
     status = pthread_create(&tids[1], nullptr, mistake_2, nullptr);
     if (status != 0) {
-        cout << "Can't create thread 1, error code " << status << endl;
+        cout << "Can't create thread 1, error code " << status << '\n';
     }
 
     sleep(2);
@@ -57,10 +57,10 @@ int main() {
     for (int i = 0; i < 2; ++i) {
         cout << "Thread " << tids[i];
         if (pthread_cancel(tids[i]) != 0) {
-            cout << " can't be canceled" << endl;
+            cout << " can't be canceled\n";
         }
         else {
-            cout << " has been canceled " << endl;
+            cout << " has been canceled\n";
         }
     }
 }

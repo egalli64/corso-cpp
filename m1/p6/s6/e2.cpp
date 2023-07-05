@@ -6,7 +6,7 @@ private:
     string name_;
 public:
     Animal(const string& name) : name_(name) {}
-    virtual ~Animal() { cout << "Dtor for " << name_ << endl; }
+    virtual ~Animal() { cout << "Dtor for " << name_ << '\n'; }
 
     const string& name() const { return name_; }
     virtual string fullName() const = 0;
@@ -17,7 +17,7 @@ private:
     string owner_;
 public:
     Dog(const string& name, const string& owner) : Animal(name), owner_(owner) {}
-    ~Dog() { cout << "Dtor for dog owned by " << owner_ << endl; }
+    ~Dog() { cout << "Dtor for dog owned by " << owner_ << '\n'; }
 
     string fullName() const override {
         return Animal::name() + " owned by " + owner_;
@@ -26,17 +26,17 @@ public:
 
 void bobFunction() {
     Dog bob("Bob", "Robert Smith");
-    cout << bob.fullName() << endl;
+    cout << bob.fullName() << '\n';
 }
 
 int main() {
     bobFunction();
 
     Dog* chip = new Dog("Chip", "Charlie Parker");
-    cout << chip->fullName() << endl;
+    cout << chip->fullName() << '\n';
     delete chip;
 
     Animal* dick = new Dog("Dick", "Douglas Adams");
-    cout << dick->fullName() << endl;
+    cout << dick->fullName() << '\n';
     delete dick;
 }

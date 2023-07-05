@@ -2,16 +2,16 @@
 using namespace std;
 
 int main() {
-    cout << "bool " << sizeof(bool) << endl;
-    cout << "char " << sizeof(char) << endl;
-    cout << "short " << sizeof(short) << endl;
-    cout << "int " << sizeof(int) << endl;
-    cout << "long " << sizeof(long) << endl;
-    cout << "long long " << sizeof(long long) << endl;
+    cout << "bool " << sizeof(bool) << '\n';
+    cout << "char " << sizeof(char) << '\n';
+    cout << "short " << sizeof(short) << '\n';
+    cout << "int " << sizeof(int) << '\n';
+    cout << "long " << sizeof(long) << '\n';
+    cout << "long long " << sizeof(long long) << '\n';
 
-    cout << endl;
+    cout << '\n';
 
-    cout << "float " << sizeof(float) << endl;
-    cout << "double " << sizeof(double) << endl;
-    cout << "long double " << sizeof(long double) << endl;
+    cout << "float " << sizeof(float) << '\n';
+    cout << "double " << sizeof(double) << '\n';
+    cout << "long double " << sizeof(long double) << '\n';
 }

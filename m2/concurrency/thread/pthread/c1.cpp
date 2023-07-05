@@ -7,7 +7,7 @@ using namespace std;
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void info(const char* head) {
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << '\n';
 }
 
 void* mistake(void*) {
@@ -28,15 +28,15 @@ int main() {
 
     int status = pthread_create(&tid, nullptr, mistake, nullptr);
     if (status != 0) {
-        cout << "Can't create thread 0, error code " << status << endl;
+        cout << "Can't create thread 0, error code " << status << '\n';
     }
 
     sleep(1);
     
     if (pthread_cancel(tid) != 0) {
-        cout << "Can't cancel execution of thread " << tid << endl;
+        cout << "Can't cancel execution of thread " << tid << '\n';
     }
     else {
-        cout << "Thread " << tid << " has been canceled " << endl;
+        cout << "Thread " << tid << " has been canceled\n";
     }
 }

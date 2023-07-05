@@ -8,15 +8,15 @@ private:
     std::string tag_;
 public:
     ExtendedEntry(int key, const std::string& value, const std::string& tag) : Entry(key, value), tag_(tag) {
-        std::cout << "EE plain ctor for " << value << std::endl;
+        std::cout << "EE plain ctor for " << value << '\n';
     }
 
     void sayHello() const override {
-        std::cout << "EE hello " << value() << tag_ << std::endl;
+        std::cout << "EE hello " << value() << tag_ << '\n';
     }
 
     virtual ~ExtendedEntry() {
-        std::cout << "EE dtor " << value() << ", tag: " << tag_ << std::endl;
+        std::cout << "EE dtor " << value() << ", tag: " << tag_ << '\n';
     }
     
     friend std::ostream& operator<<(std::ostream& os, const ExtendedEntry& entry) {

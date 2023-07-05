@@ -4,7 +4,7 @@ using namespace std;
 
 template <typename T>
 void print(const T& x) {
-    cout << "The value is " << x << endl;
+    cout << "The value is " << x << '\n';
 }
 
 int main() {

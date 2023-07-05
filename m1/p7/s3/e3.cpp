@@ -8,7 +8,7 @@ void print(const array<int, 4>& values, const string& label) {
     for (int cur : values) {
         cout << cur << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
@@ -27,8 +27,8 @@ int main() {
     }
     print(values, "An all element increase");
 
-    cout << "First element in values: " << values.front() << endl;
-    cout << "Last element in values: " << values.back() << endl;
+    cout << "First element in values: " << values.front() << '\n';
+    cout << "Last element in values: " << values.back() << '\n';
 
     values.swap(others);
     print(values, "Swap arrays");

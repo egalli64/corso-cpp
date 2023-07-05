@@ -12,7 +12,7 @@ public:
     }
 
     ~Derived() {
-        std::cout << "Derived dtor" << std::endl;
+        std::cout << "Derived dtor\n";
     }
 };
 

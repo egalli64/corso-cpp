@@ -25,7 +25,7 @@ int main() {
     cin >> size;
 
     if (size < 1 || size > 100'000'000) {
-        cout << "Please, insert a reasonable value" << endl;
+        cout << "Please, insert a reasonable value" << '\n';
         return 0;
     }
 
@@ -36,14 +36,14 @@ int main() {
         scores[casts[i]] += 1;
         cout << casts[i] << ' ';
     }
-    cout << "\n\nAverage: " << avg(casts, size) << endl;
+    cout << "\n\nAverage: " << avg(casts, size) << '\n';
 
     // not used anymore
     delete[] casts;
 
-    cout << "Distribution" << endl;
+    cout << "Distribution" << '\n';
     for (int i = 2; i < MAX_VALUE * 2 + 1; ++i) {
         cout << '[' << i << ": " << static_cast<double>(scores[i]) / size << ']';
     }
-    cout << endl;
+    cout << '\n';
 }

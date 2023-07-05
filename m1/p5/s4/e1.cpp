@@ -16,5 +16,5 @@ struct Point {
 int main() {
     // compiler generated default ctor
     Point a;
-    cout << "Risky, uninitialized point: " << a.x << ' ' << a.y << endl;
+    cout << "Risky, uninitialized point: " << a.x << ' ' << a.y << '\n';
 }

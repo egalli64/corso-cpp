@@ -6,7 +6,7 @@ void print(const array<int, 3>& data) {
     for (int i = 0; i < data.size(); ++i) {
         cout << data[i] << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
     for (size_t i = 0; i < uninitialized.size(); ++i) {
         cout << uninitialized[i] << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     print(uninitialized);
 
@@ -25,24 +25,24 @@ int main() {
     for (auto it = values.cbegin(); it != values.cend(); ++it) {
         cout << *it << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     cout << "loop-increase by iterator: ";
     // auto here is std::array<int, 6>::iterator
     for (auto it = values.begin(); it != values.end(); ++it) {
         cout << ++(*it) << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     cout << "range-for by value: ";
     for (int cur : values) {
         cout << cur << ' ';
     }
-    cout << endl;
+    cout << '\n';
 
     cout << "range-for by const ref: ";
     for (const int& cur : values) {
         cout << cur << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }

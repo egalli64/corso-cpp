@@ -25,5 +25,5 @@ int main() {
     Player tom(42, 33.12);
     tom.increaseScore(3.3);
 
-    cout << "Tom: " << tom << endl;
+    cout << "Tom: " << tom << '\n';
 }

@@ -15,5 +15,5 @@ int main() {
         }
     } while (true);
 
-    cout << "Done!" << endl;
+    cout << "Done!\n";
 }

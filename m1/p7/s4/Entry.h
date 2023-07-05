@@ -11,22 +11,22 @@ private:
     std::string value_;
 public:
     Entry(int key, const std::string& value) : key_(key), value_(value) {
-        std::cout << "Plain ctor for " << value_ << std::endl;
+        std::cout << "Plain ctor for " << value_ << '\n';
     }
 
     Entry(const Entry& other) : key_(other.key_), value_(other.value_) {
-        std::cout << "Copy ctor for " << value_ << std::endl;
+        std::cout << "Copy ctor for " << value_ << '\n';
     }
 
     Entry(Entry&& other) noexcept {
-        std::cout << "Move ctor for " << other.value_ << std::endl;
+        std::cout << "Move ctor for " << other.value_ << '\n';
 
         key_ = std::exchange(other.key_, 0);
         value_ = std::move(other.value_);
     }
 
     Entry& operator=(const Entry& other) {
-        std::cout << "Assigment for " << other.value_ << std::endl;
+        std::cout << "Assigment for " << other.value_ << '\n';
 
         key_ = other.key_;
         value_ = other.value_;
@@ -34,7 +34,7 @@ public:
     }
 
     Entry& operator=(Entry&& other) {
-        std::cout << "Move assigment for " << other.value_ << std::endl;
+        std::cout << "Move assigment for " << other.value_ << '\n';
 
         key_ = std::exchange(other.key_, 0);
         value_ = std::move(other.value_);
@@ -48,11 +48,11 @@ public:
     void setValue(const std::string& value) { value_ = value; }
 
     virtual void sayHello() const {
-        std::cout << "Hello " << value() << std::endl;
+        std::cout << "Hello " << value() << '\n';
     }
 
     virtual ~Entry() {
-        std::cout << "dtor " << key_ << ' ' << value_ << std::endl;
+        std::cout << "dtor " << key_ << ' ' << value_ << '\n';
     }
 };
 

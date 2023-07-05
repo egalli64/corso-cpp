@@ -14,12 +14,12 @@ public:
         for (int i = 0; i < SZ; ++i) {
             hand_[i] = rand() % 10;
         }
-        cout << "Ctor (new + loop) " << id_ << endl;
+        cout << "Ctor (new + loop) " << id_ << '\n';
     }
 
     ~Player() {
         delete[] hand_;
-        cout << "Dtor " << id_ << endl;
+        cout << "Dtor " << id_ << '\n';
     }
 
     Player(const Player& other) {
@@ -29,7 +29,7 @@ public:
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Copy ctor (new + loop) " << id_ << endl;
+        cout << "Copy ctor (new + loop) " << id_ << '\n';
     }
 
     Player& operator=(const Player& other) {
@@ -40,7 +40,7 @@ public:
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Assigment (loop) " << id_ << endl;
+        cout << "Assigment (loop) " << id_ << '\n';
         return *this;
     }
 
@@ -50,7 +50,7 @@ public:
 
         other.id_ = 0;
         other.hand_ = nullptr;
-        cout << "Move ctor (cheap!): " << id_ << endl;
+        cout << "Move ctor (cheap!): " << id_ << '\n';
     }
 
     Player& operator=(Player&& other) {
@@ -62,7 +62,7 @@ public:
         other.id_ = 0;
         other.hand_ = nullptr;
 
-        cout << "Move assigment (cheap!): " << id_ << endl;
+        cout << "Move assigment (cheap!): " << id_ << '\n';
         return *this;
     }
 
@@ -71,12 +71,12 @@ public:
         for (int i = 0; i < SZ; ++i) {
             cout << hand_[i] << ' ';
         }
-        cout << ']' << endl;
+        cout << "]\n";
     }
 };
 
 void swapCopy(Player& left, Player& right) {
-    cout << "Swap by copy" << endl;
+    cout << "Swap by copy\n";
 
     Player buffer = left;
     left = right;
@@ -84,7 +84,7 @@ void swapCopy(Player& left, Player& right) {
 }
 
 void swapMove(Player& left, Player& right) {
-    cout << "Swap by move" << endl;
+    cout << "Swap by move\n";
 
     Player buffer = move(left);
     left = move(right);

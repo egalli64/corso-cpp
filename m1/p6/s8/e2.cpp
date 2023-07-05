@@ -12,7 +12,7 @@ public:
         for (int i = 0; i < count_; ++i) {
             cout << "wag";
         }
-        cout << endl;
+        cout << '\n';
     }
 };
 
@@ -26,12 +26,12 @@ public:
     Dog(const string& name, int count) : Tail(count), name_(name) {}
 
     void bark() {
-        cout << name_ << ": bark!" << endl;
+        cout << name_ << ": bark!\n";
         wag(name_);
     }
 
     virtual void eat() {
-        cout << name_ << ": eat" << endl;
+        cout << name_ << ": eat\n";
     }
 };
 
@@ -40,7 +40,7 @@ public:
     Poodle(const string& name) : Dog(name, 2) {}
 
     void eat() override {
-        cout << name_ << ": eat" << endl;
+        cout << name_ << ": eat\n";
         wag(name_);
     }
 };

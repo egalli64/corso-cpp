@@ -30,8 +30,8 @@ public:
 
 int main() {
     Couple couple(4, 3);
-    cout << "Couple: " << couple << endl;
+    cout << "Couple: " << couple << '\n';
 
     Point point(8, 1);
-    cout << "Point: " << point << " distance from origin is " << point.distanceFromOrigin() << endl;
+    cout << "Point: " << point << " distance from origin is " << point.distanceFromOrigin() << '\n';
 }

@@ -39,11 +39,11 @@ int main() {
     Point a{ 12, 5, "A" };
 
     cout << "Operator <<() --> ";
-    cout << a << endl;
+    cout << a << '\n';
 
     cout << "Operator string() --> ";
-    cout << static_cast<string>(a) << endl;
+    cout << static_cast<string>(a) << '\n';
 
     cout << "Method write() --> ";
-    a.write(cout) << endl;
+    a.write(cout) << '\n';
 }

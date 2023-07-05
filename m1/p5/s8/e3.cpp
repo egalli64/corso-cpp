@@ -21,7 +21,7 @@ public:
 int Player::count_ = 0;
 
 void Player::printCount() {
-    cout << "Current number of players: " << count_ << endl;
+    cout << "Current number of players: " << count_ << '\n';
 }
 
 void another_function() {

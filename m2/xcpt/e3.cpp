@@ -7,5 +7,5 @@ int main(int argc, char** argv) {
         throw 42;
     }
 
-    cout << "The first argument is: " << argv[1] << endl;
+    cout << "The first argument is: " << argv[1] << '\n';
 }

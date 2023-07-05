@@ -6,9 +6,9 @@ using namespace std;
 int main() {
     pthread_t id = pthread_self();
 
-    cout << "This thread has id " << id << endl;
+    cout << "This thread has id " << id << '\n';
 
     if(pthread_equal(id, id)) {
-        cout << "A thread is equal to itself" << endl;
+        cout << "A thread is equal to itself\n";
     }
 }

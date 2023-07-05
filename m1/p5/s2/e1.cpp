@@ -11,16 +11,16 @@ struct Point {
 
 int main() {
     Point a{ 5,7 };
-    cout << a.x << ' ' << a.y << endl;
+    cout << a.x << ' ' << a.y << '\n';
 
     Point* p = &a;
-    cout << p->x << ' ' << p->y << endl;
+    cout << p->x << ' ' << p->y << '\n';
 
     Point& r = a;
     r.x += 5;
-    cout << r.x << ' ' << r.y << endl;
+    cout << r.x << ' ' << r.y << '\n';
 
     // !!! not initialized !!!
     Point b;
-    cout << b.x << ' ' << b.y << endl;
+    cout << b.x << ' ' << b.y << '\n';
 }

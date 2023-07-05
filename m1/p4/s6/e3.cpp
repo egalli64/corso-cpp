@@ -28,11 +28,11 @@ string sum(string* values, int size) {
 
 int main() {
     int a[]{ 42, 12, 27 };
-    cout << "Int sum is " << sum(a, 3) << endl;
+    cout << "Int sum is " << sum(a, 3) << '\n';
 
     double d[]{ 42.23, 12.84, 27.22 };
-    cout << "Double sum is " << sum(d, 3) << endl;
+    cout << "Double sum is " << sum(d, 3) << '\n';
 
     string s[]{ "hello", "ciao", "hola" };
-    cout << "String sum is " << sum(s, 3) << endl;
+    cout << "String sum is " << sum(s, 3) << '\n';
 }

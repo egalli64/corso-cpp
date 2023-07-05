@@ -20,5 +20,5 @@ public:
 
 int main() {
     Animal tom("Tom");
-    cout << tom.name() << endl;
+    cout << tom.name() << '\n';
 }

@@ -63,12 +63,12 @@ int main()
 {
     Day cur{ Day::MON };
 
-    cout << "Current day is " << cur << endl;
-    cout << "Pre-decrement of current day: " << --cur << endl;
-    cout << "Pre-increment of current day: " << ++cur << endl;
-    cout << "Post-increment of current day: " << cur++ << endl;
-    cout << "Current day is " << cur << endl;
-    cout << "Post-decrement of current day: " << cur-- << endl;
-    cout << "Post-decrement of current day: " << cur-- << endl;
-    cout << "Current day is " << cur << endl;
+    cout << "Current day is " << cur << '\n';
+    cout << "Pre-decrement of current day: " << --cur << '\n';
+    cout << "Pre-increment of current day: " << ++cur << '\n';
+    cout << "Post-increment of current day: " << cur++ << '\n';
+    cout << "Current day is " << cur << '\n';
+    cout << "Post-decrement of current day: " << cur-- << '\n';
+    cout << "Post-decrement of current day: " << cur-- << '\n';
+    cout << "Current day is " << cur << '\n';
 }

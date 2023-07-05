@@ -8,7 +8,7 @@ void print(const vector<T>& values, const string& label) {
     for (const T& value : values) {
         cout << value << ' ';
     }
-    cout << endl;
+    cout << '\n';
 }
 
 int main() {

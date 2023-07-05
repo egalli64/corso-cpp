@@ -5,7 +5,7 @@
 using namespace std;
 
 void info(const char* head) {
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << '\n';
 }
 
 void* nuller(void*) {
@@ -31,21 +31,21 @@ int main() {
     {   // create a thread that does not return anything
         int status = pthread_create(&tids[0], nullptr, nuller, nullptr);
         if (status != 0) {
-            cout << "Can't create thread 0, error code " << status << endl;
+            cout << "Can't create thread 0, error code " << status << '\n';
         }
     }
 
     {   // create a thread that returns a long
         int status = pthread_create(&tids[1], nullptr, life, nullptr);
         if (status != 0) {
-            cout << "Can't create thread 1, error code " << status << endl;
+            cout << "Can't create thread 1, error code " << status << '\n';
         }
     }
 
     {   // create a thread that hangs
         int status = pthread_create(&tids[2], nullptr, hanger, nullptr);
         if (status != 0) {
-            cout << "Can't create thread 2, error code " << status << endl;
+            cout << "Can't create thread 2, error code " << status << '\n';
         }
     }
 
@@ -53,15 +53,15 @@ int main() {
         void* result;
         pthread_join(tids[i], &result);
         if (result != nullptr) {
-            cout << "Thread " << tids[i] << " returned " << reinterpret_cast<long>(result) << endl;
+            cout << "Thread " << tids[i] << " returned " << reinterpret_cast<long>(result) << '\n';
         }
     }
 
     if (pthread_cancel(tids[2]) != 0) {
-        cout << "Can't cancel execution of thread " << tids[2] << endl;
+        cout << "Can't cancel execution of thread " << tids[2] << '\n';
     }
     else {
-        cout << "Thread " << tids[2] << " has been canceled " << endl;
+        cout << "Thread " << tids[2] << " has been canceled " << '\n';
     }
 
     info("Main thread");

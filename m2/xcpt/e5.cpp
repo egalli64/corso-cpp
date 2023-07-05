@@ -10,8 +10,8 @@ int main() {
         risky();
     }
     catch (...) {
-        cout << "Something went wrong" << endl;
+        cout << "Something went wrong\n";
     }
 
-    cout << "Bye" << endl;
+    cout << "Bye\n";
 }

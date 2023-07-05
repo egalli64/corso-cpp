@@ -21,14 +21,14 @@ public:
 
 int main() {
     Animal tom("Tom");
-    cout << tom.name() << endl;
+    cout << tom.name() << '\n';
 
     NonPolimorphicDog bob("Bob", "Robert Smith");
-    cout << bob.name() << endl;
+    cout << bob.name() << '\n';
 
-    cout << "Looping on the animals in a NON polimorphic way" << endl;
+    cout << "Looping on the animals in a NON polimorphic way\n";
     Animal* animals[] = { &tom, &bob };
     for (Animal* pa : animals) {
-        cout << pa->name() << endl;
+        cout << pa->name() << '\n';
     }
 }

@@ -7,12 +7,13 @@ int main() {
     unsigned int y = 18;
 
     cout << "\nBitwise operators\n\n";
-    cout << "x = " << x << " (" << bitset<8>(x) << ')' << endl;
-    cout << "y = " << y << " (" << bitset<8>(y) << ')' << endl;
-    cout << endl;
+    cout << "x = " << x << " (" << bitset<8>(x) << ')' << '\n';
+    cout << "y = " << y << " (" << bitset<8>(y) << ')' << '\n';
+    cout << '\n';
 
-    cout << "x & y = " << bitset<8>(x & y) << endl;
-    cout << "x | y = " << bitset<8>(x | y) << endl;
-    cout << "x ^ y = " << bitset<8>(x ^ y) << endl;
-    cout << "~x = " << bitset<8>(~x) << endl; // alt-126, altGr-ì
+    cout << "x & y = " << bitset<8>(x & y) << '\n';
+    cout << "x | y = " << bitset<8>(x | y) << '\n';
+    cout << "x ^ y = " << bitset<8>(x ^ y) << '\n';
+    // '~' topleft on US keyboard, or alt-126, or altGr-ì
+    cout << "~x = " << bitset<8>(~x) << '\n'; 
 }

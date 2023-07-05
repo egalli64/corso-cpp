@@ -6,5 +6,5 @@ int main(int argc, char** argv) {
     if (argc == 1) {
         cout << " The caller didn't pass any argument";
     }
-    cout << endl;
+    cout << '\n';
 }

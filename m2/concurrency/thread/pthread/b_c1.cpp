@@ -8,7 +8,7 @@ static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void info(const char* head) {
     pthread_mutex_lock(&lock);
-    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << endl;
+    cout << head << ": pid " << getpid() << ", tid " << pthread_self() << '\n';
     pthread_mutex_unlock(&lock);
 }
 
@@ -23,7 +23,7 @@ int main() {
     for (int i = 0; i < 10; ++i) {
         int status = pthread_create(&tids[i], nullptr, messenger, nullptr);
         if (status != 0) {
-            cout << "Can't create thread 0, error code " << status << endl;
+            cout << "Can't create thread 0, error code " << status << '\n';
         }
     }
 

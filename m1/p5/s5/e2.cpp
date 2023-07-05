@@ -5,7 +5,7 @@ struct Node {
     int value;
     Node* next;
     ~Node() {
-        cout << "Node " << value << " deleted" << endl;
+        cout << "Node " << value << " deleted\n";
     }
 };
 
@@ -15,11 +15,11 @@ private:
     // TODO: keep tail as data member, simplify pushBack()
 public:
     SinglyLinkedList() : head(nullptr) {
-        cout << "Default ctor" << endl;
+        cout << "Default ctor\n";
     }
 
     SinglyLinkedList(const SinglyLinkedList& other) : head(nullptr) {
-        cout << "Copy ctor" << endl;
+        cout << "Copy ctor\n";
 
         for (Node* cur = other.head; cur != nullptr; cur = cur->next) {
             pushBack(cur->value);
@@ -27,7 +27,7 @@ public:
     }
 
     SinglyLinkedList& operator=(const SinglyLinkedList& other) {
-        cout << "Assignment operator" << endl;
+        cout << "Assignment operator\n";
 
         clear();
 
@@ -41,7 +41,7 @@ public:
     void pushFront(int value) {
         Node* node = new Node{ value, head };
         head = node;
-        cout << "New head is " << value << endl;
+        cout << "New head is " << value << '\n';
     }
 
     void pushBack(int value) {
@@ -56,7 +56,7 @@ public:
                 tail = tail->next;
             }
             tail->next = node;
-            cout << "New tail is " << value << endl;
+            cout << "New tail is " << value << '\n';
         }
     }
 
@@ -65,7 +65,7 @@ public:
         for (Node* cur = head; cur != nullptr; cur = cur->next) {
             cout << cur->value << ' ';
         }
-        cout << "]" << endl;
+        cout << "]\n";
     }
 
     void clear() {
@@ -78,11 +78,11 @@ public:
             count += 1;
         }
 
-        cout << count << " item(s) deleted" << endl;
+        cout << count << " item(s) deleted\n";
     }
 
     ~SinglyLinkedList() {
-        cout << "Dtor" << endl;
+        cout << "Dtor\n";
         clear();
     }
 };

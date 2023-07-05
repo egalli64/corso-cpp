@@ -19,8 +19,8 @@ int main() {
         risky();
     }
     catch (exception& me) {
-        cout << me.what() << endl;
+        cout << me.what() << '\n';
     }
 
-    cout << "Bye" << endl;
+    cout << "Bye\n";
 }

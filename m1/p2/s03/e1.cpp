@@ -3,6 +3,6 @@ using namespace std;
 
 int main() {
     int a = 42;
-    cout << sizeof(int) << endl;
-    cout << sizeof(a) << endl;
+    cout << sizeof(int) << '\n';
+    cout << sizeof(a) << '\n';
 }

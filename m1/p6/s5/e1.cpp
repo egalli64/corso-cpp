@@ -34,10 +34,10 @@ int main() {
     // Animal animal("Tom");
 
     Dog bob("Bob", "Robert Smith");
-    cout << bob.name() << endl;
-    cout << bob.fullName() << endl;
+    cout << bob.name() << '\n';
+    cout << bob.fullName() << '\n';
 
-    cout << "It is a polimorphic dog" << endl;
+    cout << "It is a polimorphic dog\n";
     Animal* pa = &bob;
-    cout << pa->fullName() << endl;
+    cout << pa->fullName() << '\n';
 }
