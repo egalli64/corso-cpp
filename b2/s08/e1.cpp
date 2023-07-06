@@ -21,12 +21,6 @@ int main()
     *pc = 'z';
     cout << c << ' ' << *pc << '\n';
 
-    pc = nullptr;
-    cout << pc << '\n';
-
-    // Segmentation fault
-    // cout << *pc;
-
     // a double and a pointer to double
     double d = M_PI;
     double *pd = &d;
