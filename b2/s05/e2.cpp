@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Operators: comparison, logical
+ */
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
     int x = 42;
     int y = 18;
 
