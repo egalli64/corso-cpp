@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Variable declaration, initialization, definition, assignment
+ */
 #include <iostream>
 using namespace std;
 
