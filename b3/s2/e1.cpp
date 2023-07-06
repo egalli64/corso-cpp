@@ -1,0 +1,17 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * if
+ */
+#include <iostream>
+using namespace std;
+
+int main(int argc, char **argv)
+{
+    cout << "Hello!\n";
+    if (argc == 1)
+    {
+        cout << "The caller didn't pass any argument\n";
+    }
+    cout << "Bye\n";
+}
