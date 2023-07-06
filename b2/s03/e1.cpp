@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * sizeof()
+ */
 #include <iostream>
 using namespace std;
 
