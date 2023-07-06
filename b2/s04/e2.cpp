@@ -1,9 +1,17 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Fundamental types
+ */
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
     bool b_false = false;
     bool b_true = true;
+
+    // implicit cast to boolean
     bool b_narrowed = 42;
     cout << "Boolean in C++ is actually a very small integer: " << b_false << ", ";
     cout << b_true << ", " << b_narrowed << '\n';

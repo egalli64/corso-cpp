@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Fundamental types
+ */
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
     cout << "bool " << sizeof(bool) << '\n';
     cout << "char " << sizeof(char) << '\n';
     cout << "short " << sizeof(short) << '\n';

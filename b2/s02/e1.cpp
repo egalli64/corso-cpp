@@ -6,7 +6,8 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
     // a is declared as int, but not initialized
     int a;
     // when compiled with -Wall flag -> warning: access to uninitialized variable
