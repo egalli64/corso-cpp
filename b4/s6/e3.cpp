@@ -1,12 +1,19 @@
-#include<iostream>
-#include<string>
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * template specialization
+ */
+#include <iostream>
+#include <string>
 using namespace std;
 
 template <typename T>
-T sum(T* values, int size) {
+T sum(T *values, int size)
+{
     T result{};
 
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         result += values[i];
     }
 
@@ -14,10 +21,12 @@ T sum(T* values, int size) {
 }
 
 template <>
-string sum(string* values, int size) {
+string sum(string *values, int size)
+{
     string result{};
 
-    for (int i = 0; i < size - 1; ++i) {
+    for (int i = 0; i < size - 1; ++i)
+    {
         result += values[i];
         result.append(", ");
     }
@@ -26,13 +35,14 @@ string sum(string* values, int size) {
     return result;
 }
 
-int main() {
-    int a[]{ 42, 12, 27 };
+int main()
+{
+    int a[]{42, 12, 27};
     cout << "Int sum is " << sum(a, 3) << '\n';
 
-    double d[]{ 42.23, 12.84, 27.22 };
+    double d[]{42.23, 12.84, 27.22};
     cout << "Double sum is " << sum(d, 3) << '\n';
 
-    string s[]{ "hello", "ciao", "hola" };
+    string s[]{"hello", "ciao", "hola"};
     cout << "String sum is " << sum(s, 3) << '\n';
 }

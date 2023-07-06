@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * function
+ */
 #include <iostream>
 using namespace std;
 
@@ -16,7 +21,8 @@ void empty() {}
  *
  * @return int resulting status of the program, zero for success
  */
-int main() {
+int main()
+{
     // invoking functions
     printHello();
     empty();
@@ -25,6 +31,7 @@ int main() {
 /**
  * @brief Defining a free function
  */
-void printHello() {
+void printHello()
+{
     cout << "Hello\n";
 }
