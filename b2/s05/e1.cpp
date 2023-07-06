@@ -1,8 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Operators: assignment, arithmetic, string concatenation
+ */
 #include <iostream>
-#include <bitset>
 using namespace std;
 
-int main() {
+int main()
+{
     int x = 42;
     int y = 18;
 
@@ -20,7 +25,7 @@ int main() {
     cout << "x % y = " << x % y << '\n';
 
     cout << "\nString concatenation\n\n";
-    string s{ "Hello" };
-    string t{ "World!" };
+    string s{"Hello"};
+    string t{"World!"};
     cout << s + ", " + t << '\n';
 }
