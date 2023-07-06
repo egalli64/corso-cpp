@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * constants
+ */
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
     cout << "\nConstants\n\n";
     // evaluated at compile time
     constexpr auto x = 18;
@@ -17,16 +23,28 @@ int main() {
     cout << "y = " << y << '\n';
 
     // simple enumeration
-    enum { ALPHA, BETA = 28 };
+    enum
+    {
+        ALPHA,
+        BETA = 28
+    };
 
     cout << "ALPHA is " << ALPHA << " and BETA is " << BETA << '\n';
 
     // improved enumeration - scoped and strongly typed
-    enum class GreekLetter { ALPHA = 42, BETA };
+    enum class GreekLetter
+    {
+        ALPHA = 42,
+        BETA
+    };
     cout << "ALPHA is " << static_cast<int>(GreekLetter::ALPHA);
     cout << " and BETA is " << static_cast<int>(GreekLetter::BETA) << '\n';
 
-    enum class WeekendDay : bool { SAT, SUN };
+    enum class WeekendDay : bool
+    {
+        SAT,
+        SUN
+    };
     cout << "SAT is " << static_cast<int>(WeekendDay::SAT);
     cout << " and SUN is " << static_cast<int>(WeekendDay::SUN) << '\n';
 }
