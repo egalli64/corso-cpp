@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * by value
+ */
 #include <iostream>
 using namespace std;
 
-void wontSwap(int left, int right) {
+void wontSwap(int left, int right)
+{
     cout << "Called by value: left is " << left << " and right is " << right << '\n';
 
     int temp = left;
@@ -11,7 +17,8 @@ void wontSwap(int left, int right) {
     cout << "Called by value: left is " << left << " and right is " << right << '\n';
 }
 
-int main() {
+int main()
+{
     int a = 42;
     int b = 18;
 
