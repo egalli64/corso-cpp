@@ -1,14 +1,20 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * casts
+ */
 #include <iostream>
 #include <string>
 using namespace std;
 
-int main() {
+int main()
+{
     // implicit narrowing
     int x = 42.7;
     // error: explicit narrowing required
     // int y {42.7};
 
-    int y{ static_cast<int>(42.7) };
+    int y{static_cast<int>(42.7)};
     // automatic type deduction (here: double)
     auto z = 42.7;
 
