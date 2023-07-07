@@ -1,10 +1,16 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * class
+ */
 #include <iostream>
 using namespace std;
 
 /**
  * @brief A more structured class
  */
-class Point {
+class Point
+{
 private:
     int x_;
     int y_;
@@ -17,14 +23,15 @@ public:
     void increaseX(int delta) { x_ += delta; }
 };
 
-int main() {
-    Point a {34, 3};
+int main()
+{
+    Point a{34, 3};
     cout << a.x() << ' ' << a.y() << '\n';
 
-    Point* p = &a;
+    Point *p = &a;
     cout << p->x() << ' ' << p->y() << '\n';
 
-    Point& r = a;
+    Point &r = a;
     r.increaseX(5);
     cout << a.x() << ' ' << a.y() << '\n';
 }
