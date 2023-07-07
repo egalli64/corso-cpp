@@ -1,13 +1,19 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * shallow vs deep copy
+ */
 #include <iostream>
 using namespace std;
 
-class Point {
+class Point
+{
 private:
     int x_;
     int y_;
 
 public:
-    Point(int x, int y) : x_{ x }, y_{ y } {}
+    Point(int x, int y) : x_{x}, y_{y} {}
     ~Point() { cout << "dtor " << x_ << ", " << y_ << '\n'; }
 
     // Point(const Point&) = delete; // no copy ctor
@@ -18,18 +24,19 @@ public:
     void horizontalMove(int delta) { x_ += delta; }
 };
 
-int main() {
+int main()
+{
     // no compiler generated default ctor
     // Point a;
 
-    Point b{ 12, 23 };
+    Point b{12, 23};
     cout << "b: " << b.x() << ", " << b.y() << '\n';
 
     // compiler generated copy ctor
     Point c = b;
     c.horizontalMove(12);
 
-    Point d{ b };
+    Point d{b};
     d.horizontalMove(-7);
 
     cout << "c is a deep copy _by copy ctor_ of b (right shifted): " << c.x() << ", " << c.y() << '\n';
@@ -42,7 +49,7 @@ int main() {
     cout << "d is a deep copy _by assignment_ of c (left shifted): " << d.x() << ", " << d.y() << '\n';
     cout << "c has not changed: " << c.x() << ", " << c.y() << '\n';
 
-    Point& e = b;
+    Point &e = b;
     e.horizontalMove(-2);
     cout << "e is a shallow copy _by reference_ of b (left shifted): " << e.x() << ", " << e.y() << '\n';
     cout << "b HAS changed: " << b.x() << ", " << b.y() << '\n';
