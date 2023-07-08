@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * inline
+ */
 #include <iostream>
 using namespace std;
 
-class Player {
+class Player
+{
 private:
     int id_;
     double score_;
@@ -17,16 +23,20 @@ public:
     void increaseScore(double delta);
 };
 
-inline void Player::increaseScore(double delta) {
+inline void Player::increaseScore(double delta)
+{
     score_ += delta;
 }
 
-inline void print(const Player& player) {
+// an inline free function
+inline void print(const Player &player)
+{
     cout << "The player has id " << player.id() << " and score " << player.score() << '\n';
 }
 
-int main() {
-    Player tom(42, 33.12);
+int main()
+{
+    Player tom{42, 33.12};
     tom.increaseScore(3.3);
 
     print(tom);
