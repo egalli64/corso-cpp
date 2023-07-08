@@ -1,7 +1,13 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * operator overloading
+ */
 #include <iostream>
 using namespace std;
 
-class Player {
+class Player
+{
 private:
     int id_;
     double score_;
@@ -16,13 +22,15 @@ public:
 };
 
 // put-to output stream overload for Player
-ostream& operator<<(ostream& os, const Player& item) {
+ostream &operator<<(ostream &os, const Player &item)
+{
     os << '{' << item.id() << ", " << item.score() << '}';
     return os;
 }
 
-int main() {
-    Player tom(42, 33.12);
+int main()
+{
+    Player tom{42, 33.12};
     tom.increaseScore(3.3);
 
     cout << "Tom: " << tom << '\n';

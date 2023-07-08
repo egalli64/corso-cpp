@@ -1,10 +1,27 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * operator overloading
+ */
 #include <iostream>
 using namespace std;
 
-enum class Day { MON, TUE, WED, THU, FRI, SAT, SUN, SZ = 7 };
+enum class Day
+{
+    MON,
+    TUE,
+    WED,
+    THU,
+    FRI,
+    SAT,
+    SUN,
+    SZ = 7
+};
 
-ostream& operator<<(ostream& os, const Day& day) {
-    switch (day) {
+ostream &operator<<(ostream &os, const Day &day)
+{
+    switch (day)
+    {
     case Day::MON:
         os << "Monday";
         break;
@@ -34,26 +51,30 @@ ostream& operator<<(ostream& os, const Day& day) {
 }
 
 // prefix ++
-Day& operator++(Day& day) {
+Day &operator++(Day &day)
+{
     day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::SZ)));
     return day;
 }
 
 // postfix ++
-Day operator++(Day& day, int) {
+Day operator++(Day &day, int)
+{
     Day cur = day;
     day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::SZ)));
     return cur;
 }
 
 // prefix --
-Day& operator--(Day& day) {
+Day &operator--(Day &day)
+{
     day = (day == Day::MON) ? Day::SUN : static_cast<Day>((static_cast<int>(day) - 1));
     return day;
 }
 
 // postfix --
-Day operator--(Day& day, int) {
+Day operator--(Day &day, int)
+{
     Day cur = day;
     day = (day == Day::MON) ? Day::SUN : static_cast<Day>((static_cast<int>(day) - 1));
     return cur;
@@ -61,7 +82,7 @@ Day operator--(Day& day, int) {
 
 int main()
 {
-    Day cur{ Day::MON };
+    Day cur{Day::MON};
 
     cout << "Current day is " << cur << '\n';
     cout << "Pre-decrement of current day: " << --cur << '\n';
