@@ -1,0 +1,53 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * inheritance
+ */
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+private:
+    const string name_;
+
+public:
+    Animal() : name_("Unkwnown"){};
+    Animal(const string &name) : name_(name) {}
+
+    const string &name() const { return name_; }
+};
+
+ostream &operator<<(ostream &os, const Animal &animal)
+{
+    return os << animal.name();
+}
+
+class Dog : public Animal
+{
+private:
+    const string owner_;
+
+public:
+    Dog() : owner_("none") {}
+    Dog(const string &name, const string &owner) : Animal(name), owner_(owner) {}
+
+    const string &owner() const { return owner_; }
+};
+
+ostream &operator<<(ostream &os, Dog dog)
+{
+    return os << dog.name() << " owned by " << dog.owner();
+}
+
+int main()
+{
+    Animal tom{"Tom"};
+    cout << tom << '\n';
+
+    Dog bob{"Bob", "Robert Smith"};
+    cout << bob << '\n';
+
+    Dog x;
+    cout << x << '\n';
+}
