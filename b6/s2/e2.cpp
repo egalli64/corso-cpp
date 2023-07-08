@@ -1,11 +1,18 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * inheritance
+ */
 #include <cmath>
 #include <iostream>
 using namespace std;
 
-class Couple {
+class Couple
+{
 private:
     int first_;
     int second_;
+
 public:
     Couple(const int first, const int second) : first_(first), second_(second) {}
 
@@ -15,20 +22,24 @@ public:
     void second(const int second) { second_ = second; }
 };
 
-ostream& operator<<(ostream& os, const Couple& couple) {
+ostream &operator<<(ostream &os, const Couple &couple)
+{
     return os << '(' << couple.first() << ", " << couple.second() << ')';
 }
 
-class Point : public Couple {
+class Point : public Couple
+{
 public:
     Point(const int x, const int y) : Couple(x, y) {}
 
-    double distanceFromOrigin() const {
+    double distanceFromOrigin() const
+    {
         return sqrt(first() * first() + second() * second());
     }
 };
 
-int main() {
+int main()
+{
     Couple couple(4, 3);
     cout << "Couple: " << couple << '\n';
 
