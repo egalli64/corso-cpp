@@ -1,50 +1,64 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * move is cheap
+ */
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Player {
+class Player
+{
 private:
     static const int SZ = 5;
     int id_;
-    int* hand_;
+    int *hand_;
 
 public:
-    Player(int id) : id_(id) {
+    explicit Player(int id) : id_(id)
+    {
         hand_ = new int[SZ];
-        for (int i = 0; i < SZ; ++i) {
+        for (int i = 0; i < SZ; ++i)
+        {
             hand_[i] = rand() % 10;
         }
-        cout << "Ctor (new + loop) " << id_ << '\n';
+        cout << "Ctor (costly) " << id_ << '\n';
     }
 
-    ~Player() {
+    ~Player()
+    {
         delete[] hand_;
         cout << "Dtor " << id_ << '\n';
     }
 
-    Player(const Player& other) {
+    Player(const Player &other)
+    {
         id_ = other.id_;
         hand_ = new int[SZ];
-        for (int i = 0; i < SZ; ++i) {
+        for (int i = 0; i < SZ; ++i)
+        {
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Copy ctor (new + loop) " << id_ << '\n';
+        cout << "Copy ctor (costly) " << id_ << '\n';
     }
 
-    Player& operator=(const Player& other) {
+    Player &operator=(const Player &other)
+    {
         id_ = other.id_;
 
         // hand size is fixed, no need to delete
-        for (int i = 0; i < SZ; ++i) {
+        for (int i = 0; i < SZ; ++i)
+        {
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Assigment (loop) " << id_ << '\n';
+        cout << "Assigment (cheaper than ctor) " << id_ << '\n';
         return *this;
     }
 
-    Player(Player&& other) {
+    Player(Player &&other)
+    {
         id_ = other.id_;
         hand_ = other.hand_;
 
@@ -53,7 +67,8 @@ public:
         cout << "Move ctor (cheap!): " << id_ << '\n';
     }
 
-    Player& operator=(Player&& other) {
+    Player &operator=(Player &&other)
+    {
         id_ = other.id_;
 
         delete[] hand_;
@@ -66,16 +81,19 @@ public:
         return *this;
     }
 
-    void print() const {
+    void print() const
+    {
         cout << id_ << ": [ ";
-        for (int i = 0; i < SZ; ++i) {
+        for (int i = 0; i < SZ; ++i)
+        {
             cout << hand_[i] << ' ';
         }
         cout << "]\n";
     }
 };
 
-void swapCopy(Player& left, Player& right) {
+void swapCopy(Player &left, Player &right)
+{
     cout << "Swap by copy\n";
 
     Player buffer = left;
@@ -83,7 +101,8 @@ void swapCopy(Player& left, Player& right) {
     right = buffer;
 }
 
-void swapMove(Player& left, Player& right) {
+void swapMove(Player &left, Player &right)
+{
     cout << "Swap by move\n";
 
     Player buffer = move(left);
@@ -91,20 +110,19 @@ void swapMove(Player& left, Player& right) {
     right = move(buffer);
 }
 
-int main() {
-    Player p1(1);
-    Player p2(2);
-
+int main()
+{
+    Player p1{1};
     p1.print();
+
+    Player p2{2};
     p2.print();
 
     swapCopy(p1, p2);
-
     p1.print();
     p2.print();
-    
-    swapMove(p1, p2);
 
+    swapMove(p1, p2);
     p1.print();
     p2.print();
 }
