@@ -1,20 +1,28 @@
-#include <iostream>
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * SL list
+ */
+#include<iostream>
 #include <list>
 #include <string>
 using namespace std;
 
-void print(const list<string>& data) {
-    for (const string& cur : data) {
+void print(const list<string> &data)
+{
+    for (const string &cur : data)
+    {
         cout << cur << ' ';
     }
     cout << '\n';
 }
 
-int main() {
+int main()
+{
     list<string> empty;
     cout << "Size of an empty list is " << empty.size() << '\n';
 
-    list<string> data{ "tom", "bob", "kim" };
+    list<string> data{"tom", "bob", "kim"};
     print(data);
 
     data.push_front("zoe");
