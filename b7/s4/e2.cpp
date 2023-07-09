@@ -1,18 +1,26 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * SL vector - resize
+ */
 #include <iostream>
 #include <vector>
 using namespace std;
 
-template<typename T>
-void print(const vector<T>& values, const string& label) {
+template <typename T>
+void print(const vector<T> &values, const string &label)
+{
     cout << label << ": ";
-    for (const T& value : values) {
+    for (const T &value : values)
+    {
         cout << value << ' ';
     }
     cout << '\n';
 }
 
-int main() {
-    vector<int> given{ 6, 4, 3 };
+int main()
+{
+    vector<int> given{6, 4, 3};
     print(given, "A vector with a few given values");
 
     given.resize(4);
