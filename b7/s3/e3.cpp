@@ -1,18 +1,26 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * SL Array
+ */
 #include <iostream>
 #include <array>
 #include <string>
 using namespace std;
 
-void print(const array<int, 4>& values, const string& label) {
+void print(const array<int, 4> &values, const string &label)
+{
     cout << label << ": ";
-    for (int cur : values) {
+    for (int cur : values)
+    {
         cout << cur << ' ';
     }
     cout << '\n';
 }
 
-int main() {
-    array<int, 4> values{ 6, 3, 7 };
+int main()
+{
+    array<int, 4> values{6, 3, 7};
     print(values, "An array");
 
     // all elements implicitly initialized to 0
@@ -22,7 +30,8 @@ int main() {
     others.fill(-1);
     print(others, "An array filled with -1");
 
-    for (int& cur : values) {
+    for (int &cur : values)
+    {
         cur += 1;
     }
     print(values, "An all element increase");
