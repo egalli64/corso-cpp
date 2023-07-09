@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * no polymorphism on statically vector!
+ */
 #include <iostream>
 #include <memory>
 #include <string>
@@ -6,25 +11,27 @@ using namespace std;
 
 #include "ExtendedEntry.h"
 
-int main() {
+int main()
+{
     cout << "Statically typed vector - no polymorphism!\n";
-    vector<Entry> values{ {1, "Tom"}, {2, "Bob"} };
+    vector<Entry> values{{1, "Tom"}, {2, "Bob"}};
 
     cout << "*** values: ";
-    for (const Entry& cur : values) {
+    for (const Entry &cur : values)
+    {
         cout << cur << ' ';
     }
     cout << '\n';
 
     cout << "*** Kim is pushed back into the vector\n";
-    values.push_back({ 3, "Kim" });
+    values.push_back({3, "Kim"});
     cout << "*** Obi is emplaced into the vector\n";
     values.emplace_back(4, "Obi");
 
     cout << "*** Wim is defined and then says hello\n";
 
     {
-        ExtendedEntry wim{ 5, "Wim", "!!!" };
+        ExtendedEntry wim{5, "Wim", "!!!"};
         wim.sayHello();
 
         // BAD! Wim is sliced off !!!
@@ -35,15 +42,18 @@ int main() {
     }
 
     cout << "*** Everyone say hello (as Entry!)\n";
-    for (const Entry& cur : values) {
+    for (const Entry &cur : values)
+    {
         cur.sayHello();
     }
 
-    ExtendedEntry* ee = dynamic_cast<ExtendedEntry*>(&values[4]);
-    if (ee == nullptr) {
+    ExtendedEntry *ee = dynamic_cast<ExtendedEntry *>(&values[4]);
+    if (ee == nullptr)
+    {
         cout << "*** Wim is not seen as an ExtendedEntry anymore!\n";
     }
-    else {
+    else
+    {
         cout << "You should not see this line\n";
     }
 
