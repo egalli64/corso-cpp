@@ -1,38 +1,49 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Private inheritance
+ */
 #include <iostream>
 using namespace std;
 
-class Tail {
+class Tail
+{
 private:
     int count_;
+
 public:
     Tail(int count) : count_(count) {}
 
-    void wag(const string& name) const {
+    void wag(const string &name) const
+    {
         cout << name << ": ";
-        for (int i = 0; i < count_; ++i) {
+        for (int i = 0; i < count_; ++i)
+        {
             cout << "wag";
         }
         cout << '\n';
     }
 };
 
-/**
- * @brief Dog has-a Tail
- */
-class Dog : private Tail {
+// Dog has-a Tail
+class Dog : private Tail
+{
 private:
     string name_;
-public:
-    Dog(const string& name, int count) : Tail(count), name_(name) {}
 
-    void bark() {
+public:
+    Dog(const string &name, int count) : Tail(count), name_(name) {}
+
+    void bark()
+    {
         cout << name_ << ": bark!\n";
         wag(name_);
     }
 };
 
-int main() {
-    Dog tom("Tom", 3);
+int main()
+{
+    Dog tom{"Tom", 3};
     tom.bark();
     // Tail methods are not part of the dog interface
     // tom.wag();
