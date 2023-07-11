@@ -1,5 +1,9 @@
 /*
- * c++ -pthread -o a.out e3c_ref_lambda.cpp
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * No need of std::ref(), std::cref() on lambda
+ *
+ * g++ -pthread -o a.out e3c_ref_lambda.cpp
  */
 #include <functional>
 #include <iostream>

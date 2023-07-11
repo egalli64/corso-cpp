@@ -1,5 +1,10 @@
 /*
- * c++ -pthread -o a.out e2_detach.cpp
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * The main thread could detach from a child thread, so that it could terminate without waiting for it
+ * It should call pthread_exit (Linux) to terminate safely without killing the other threads
+ *
+ * g++ -pthread -o a.out e2_detach.cpp
  */
 #include <iostream>
 #include <thread>
