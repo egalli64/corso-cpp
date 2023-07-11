@@ -4,7 +4,6 @@
  * inline
  */
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -31,7 +30,7 @@ inline void Player::increaseScore(double delta)
 // an inline free function
 inline void print(const Player &player)
 {
-    cout << "The player has id " << player.id() << " and score " << player.score() << '\n';
+    std::cout << "The player has id " << player.id() << " and score " << player.score() << '\n';
 }
 
 int main()

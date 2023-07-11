@@ -4,7 +4,6 @@
  * operator overloading
  */
 #include <iostream>
-using namespace std;
 
 enum class Day
 {
@@ -18,7 +17,7 @@ enum class Day
     SZ = 7
 };
 
-ostream &operator<<(ostream &os, const Day &day)
+std::ostream &operator<<(std::ostream &os, const Day &day)
 {
     switch (day)
     {
@@ -84,12 +83,12 @@ int main()
 {
     Day cur{Day::MON};
 
-    cout << "Current day is " << cur << '\n';
-    cout << "Pre-decrement of current day: " << --cur << '\n';
-    cout << "Pre-increment of current day: " << ++cur << '\n';
-    cout << "Post-increment of current day: " << cur++ << '\n';
-    cout << "Current day is " << cur << '\n';
-    cout << "Post-decrement of current day: " << cur-- << '\n';
-    cout << "Post-decrement of current day: " << cur-- << '\n';
-    cout << "Current day is " << cur << '\n';
+    std::cout << "Current day is " << cur << '\n';
+    std::cout << "Pre-decrement of current day: " << --cur << '\n';
+    std::cout << "Pre-increment of current day: " << ++cur << '\n';
+    std::cout << "Post-increment of current day: " << cur++ << '\n';
+    std::cout << "Current day is " << cur << '\n';
+    std::cout << "Post-decrement of current day: " << cur-- << '\n';
+    std::cout << "Post-decrement of current day: " << cur-- << '\n';
+    std::cout << "Current day is " << cur << '\n';
 }

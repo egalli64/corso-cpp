@@ -5,7 +5,6 @@
  */
 #include <iostream>
 #include <memory>
-using namespace std;
 
 class Player
 {
@@ -17,7 +16,7 @@ public:
     Player(int id, double score) : id_(id), score_(score) {}
     ~Player()
     {
-        cout << "dtor " << id_ << ' ' << score_ << '\n';
+        std::cout << "dtor " << id_ << ' ' << score_ << '\n';
     }
 
     int id() { return id_; }
@@ -29,14 +28,14 @@ int main()
 {
     Player p1{1, 102.12};
     p1.increaseScore(12.21);
-    cout << p1.id() << ' ' << p1.score() << '\n';
+    std::cout << p1.id() << ' ' << p1.score() << '\n';
 
     Player *p2 = new Player(2, 203.45);
     p2->increaseScore(23.3);
-    cout << p2->id() << ' ' << p2->score() << '\n';
+    std::cout << p2->id() << ' ' << p2->score() << '\n';
     delete p2;
 
-    unique_ptr<Player> p3 = make_unique<Player>(3, 45.3);
+    std::unique_ptr<Player> p3 = std::make_unique<Player>(3, 45.3);
     p3->increaseScore(23.3);
-    cout << p3->id() << ' ' << p3->score() << '\n';
+    std::cout << p3->id() << ' ' << p3->score() << '\n';
 }

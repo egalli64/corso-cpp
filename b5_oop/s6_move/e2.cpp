@@ -5,7 +5,6 @@
  */
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Player
 {
@@ -22,13 +21,13 @@ public:
         {
             hand_[i] = rand() % 10;
         }
-        cout << "Ctor (costly) " << id_ << '\n';
+        std::cout << "Ctor (costly) " << id_ << '\n';
     }
 
     ~Player()
     {
         delete[] hand_;
-        cout << "Dtor " << id_ << '\n';
+        std::cout << "Dtor " << id_ << '\n';
     }
 
     Player(const Player &other)
@@ -40,7 +39,7 @@ public:
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Copy ctor (costly) " << id_ << '\n';
+        std::cout << "Copy ctor (costly) " << id_ << '\n';
     }
 
     Player &operator=(const Player &other)
@@ -53,7 +52,7 @@ public:
             hand_[i] = other.hand_[i];
         }
 
-        cout << "Assigment (cheaper than ctor) " << id_ << '\n';
+        std::cout << "Assigment (cheaper than ctor) " << id_ << '\n';
         return *this;
     }
 
@@ -64,7 +63,7 @@ public:
 
         other.id_ = 0;
         other.hand_ = nullptr;
-        cout << "Move ctor (cheap!): " << id_ << '\n';
+        std::cout << "Move ctor (cheap!): " << id_ << '\n';
     }
 
     Player &operator=(Player &&other)
@@ -77,37 +76,37 @@ public:
         other.id_ = 0;
         other.hand_ = nullptr;
 
-        cout << "Move assigment (cheap!): " << id_ << '\n';
+        std::cout << "Move assigment (cheap!): " << id_ << '\n';
         return *this;
     }
 
     void print() const
     {
-        cout << id_ << ": [ ";
+        std::cout << id_ << ": [ ";
         for (int i = 0; i < SZ; ++i)
         {
-            cout << hand_[i] << ' ';
+            std::cout << hand_[i] << ' ';
         }
-        cout << "]\n";
+        std::cout << "]\n";
     }
 };
 
 void swapCopy(Player &left, Player &right)
 {
-    cout << "Swap by copy\n";
+    std::cout << "Swap by copy\n";
 
-    Player buffer = left;
+    Player buffer{left};
     left = right;
     right = buffer;
 }
 
 void swapMove(Player &left, Player &right)
 {
-    cout << "Swap by move\n";
+    std::cout << "Swap by move\n";
 
-    Player buffer = move(left);
-    left = move(right);
-    right = move(buffer);
+    Player buffer = std::move(left);
+    left = std::move(right);
+    right = std::move(buffer);
 }
 
 int main()

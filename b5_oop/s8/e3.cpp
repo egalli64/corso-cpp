@@ -4,7 +4,6 @@
  * static
  */
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -17,13 +16,13 @@ public:
     Player(int id, double score) : id_(id), score_(score)
     {
         count_ += 1;
-        cout << "Ctor, count is " << count_ << '\n';
+        std::cout << "Ctor, count is " << count_ << '\n';
     }
 
     ~Player()
     {
         count_ -= 1;
-        cout << "Dtor, count is " << count_ << '\n';
+        std::cout << "Dtor, count is " << count_ << '\n';
     }
 
     int id() const { return id_; }
@@ -37,7 +36,7 @@ int Player::count_ = 0;
 
 void Player::printCount()
 {
-    cout << "Current number of players: " << count_ << '\n';
+    std::cout << "Current number of players: " << count_ << '\n';
 }
 
 void another_function()
