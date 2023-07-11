@@ -4,11 +4,10 @@
  * sizeof()
  */
 #include <iostream>
-using namespace std;
 
 int main()
 {
     int a = 42;
-    cout << sizeof(int) << '\n';
-    cout << sizeof(a) << '\n';
+    std::cout << sizeof(int) << '\n';
+    std::cout << sizeof(a) << '\n';
 }

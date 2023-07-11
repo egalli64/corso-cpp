@@ -4,11 +4,10 @@
  * constants
  */
 #include <iostream>
-using namespace std;
 
 int main()
 {
-    cout << "\nConstants\n\n";
+    std::cout << "\nConstants\n\n";
     // evaluated at compile time
     constexpr auto x = 18;
 
@@ -16,11 +15,11 @@ int main()
     // x += 1;
 
     // won't change
-    const auto y = 42;
+    const auto y{42};
     //	y += 1; // error!
 
-    cout << "x = " << x << '\n';
-    cout << "y = " << y << '\n';
+    std::cout << "x is " << x << '\n';
+    std::cout << "y is " << y << '\n';
 
     // simple enumeration
     enum
@@ -29,7 +28,7 @@ int main()
         BETA = 28
     };
 
-    cout << "ALPHA is " << ALPHA << " and BETA is " << BETA << '\n';
+    std::cout << "ALPHA is " << ALPHA << " and BETA is " << BETA << '\n';
 
     // improved enumeration - scoped and strongly typed
     enum class GreekLetter
@@ -37,14 +36,14 @@ int main()
         ALPHA = 42,
         BETA
     };
-    cout << "ALPHA is " << static_cast<int>(GreekLetter::ALPHA);
-    cout << " and BETA is " << static_cast<int>(GreekLetter::BETA) << '\n';
+    std::cout << "ALPHA is " << static_cast<int>(GreekLetter::ALPHA);
+    std::cout << " and BETA is " << static_cast<int>(GreekLetter::BETA) << '\n';
 
     enum class WeekendDay : bool
     {
         SAT,
         SUN
     };
-    cout << "SAT is " << static_cast<int>(WeekendDay::SAT);
-    cout << " and SUN is " << static_cast<int>(WeekendDay::SUN) << '\n';
+    std::cout << "SAT is " << static_cast<int>(WeekendDay::SAT);
+    std::cout << " and SUN is " << static_cast<int>(WeekendDay::SUN) << '\n';
 }
