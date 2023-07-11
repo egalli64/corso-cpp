@@ -5,26 +5,26 @@
  * function object as first class variable
  */
 #include <algorithm>
-#include <vector>
 #include <iostream>
 #include <iterator>
+#include <vector>
 
 namespace
 {
-    void print(const std::vector<int> &data, const std::string &message = "")
-    {
-        std::cout << message << ": ";
-        copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
-        std::cout << '\n';
-    }
+void print(const std::vector<int> &data, const std::string &message = "")
+{
+    std::cout << message << ": ";
+    copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 }
+} // namespace
 
 class OddFirst
 {
-private:
+  private:
     bool natural_;
 
-public:
+  public:
     OddFirst(bool natural) : natural_(natural)
     {
         std::cout << "Odd first " << (natural_ ? "natural" : "inverse");

@@ -7,14 +7,19 @@
 
 class Animal
 {
-private:
+  private:
     const std::string name_;
 
-public:
+  public:
     Animal() : name_("Unkwnown"){};
-    Animal(const std::string &name) : name_(name) {}
+    Animal(const std::string &name) : name_(name)
+    {
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
 };
 
 std::ostream &operator<<(std::ostream &os, const Animal &animal)
@@ -24,14 +29,21 @@ std::ostream &operator<<(std::ostream &os, const Animal &animal)
 
 class Dog : public Animal
 {
-private:
+  private:
     const std::string owner_;
 
-public:
-    Dog() : owner_("none") {}
-    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
+  public:
+    Dog() : owner_("none")
+    {
+    }
+    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    {
+    }
 
-    const std::string &owner() const { return owner_; }
+    const std::string &owner() const
+    {
+        return owner_;
+    }
 };
 
 std::ostream &operator<<(std::ostream &os, Dog dog)

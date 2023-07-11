@@ -9,16 +9,19 @@
 #include <iostream>
 #include <thread>
 
-namespace {
-    void a_function() {
-        std::cout << "Enter task\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds{ 100 });
-        std::cout << "Task done!\n";
-    }
+namespace
+{
+void a_function()
+{
+    std::cout << "Enter task\n";
+    std::this_thread::sleep_for(std::chrono::milliseconds{100});
+    std::cout << "Task done!\n";
 }
+} // namespace
 
-int main() {
-    std::thread t1{ a_function };
+int main()
+{
+    std::thread t1{a_function};
     std::cout << "Do not wait for task\n";
     t1.detach();
 

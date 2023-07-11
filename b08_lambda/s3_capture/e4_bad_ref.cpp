@@ -8,21 +8,18 @@
 
 namespace
 {
-    std::function<void()> veryBad()
-    {
-        int x = 42;
+std::function<void()> veryBad()
+{
+    int x = 42;
 
-        auto result = [&x]()
-        {
-            std::cout << "Captured is " << x << '\n';
-        };
+    auto result = [&x]() { std::cout << "Captured is " << x << '\n'; };
 
-        std::cout << "Inside function is alright. ";
-        result();
+    std::cout << "Inside function is alright. ";
+    result();
 
-        return result;
-    }
+    return result;
 }
+} // namespace
 
 int main()
 {

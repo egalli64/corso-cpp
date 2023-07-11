@@ -13,32 +13,34 @@
 
 namespace
 {
-    void loop1KOn(char c)
+void loop1KOn(char c)
+{
+    for (int i = 0; i < 1'000; i++)
     {
-        for (int i = 0; i < 1'000; i++)
-        {
-            std::cout << c;
-        }
+        std::cout << c;
     }
-
-    class Greeter
-    {
-    private:
-        std::string greet_;
-
-    public:
-        Greeter(const std::string &greet) : greet_(greet) {}
-        void operator()() const
-        {
-            loop1KOn(greet_[0]);
-
-            std::cout << greet_;
-            std::cout << " from ";
-            std::cout << std::this_thread::get_id();
-            std::cout << '\n';
-        }
-    };
 }
+
+class Greeter
+{
+  private:
+    std::string greet_;
+
+  public:
+    Greeter(const std::string &greet) : greet_(greet)
+    {
+    }
+    void operator()() const
+    {
+        loop1KOn(greet_[0]);
+
+        std::cout << greet_;
+        std::cout << " from ";
+        std::cout << std::this_thread::get_id();
+        std::cout << '\n';
+    }
+};
+} // namespace
 
 int main()
 {
@@ -47,7 +49,7 @@ int main()
     std::thread t1{Greeter("Hello")};
     std::thread t2{Greeter("Goodbye")};
 
-    std::string message {"Welcome"};
+    std::string message{"Welcome"};
     loop1KOn(message[0]);
     std::cout << message << " from the main thread ";
     std::cout << std::this_thread::get_id();

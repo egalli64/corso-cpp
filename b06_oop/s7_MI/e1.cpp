@@ -7,42 +7,57 @@
 
 class Animal
 {
-private:
+  private:
     std::string name_;
 
-public:
+  public:
     Animal(const std::string &name) : name_(name)
     {
         std::cout << "Animal ctor for " << name << '\n';
     }
-    ~Animal() { std::cout << "Animal dtor for " << name_ << '\n'; }
+    ~Animal()
+    {
+        std::cout << "Animal dtor for " << name_ << '\n';
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
 };
 
 class Player
 {
-private:
+  private:
     std::string game_;
 
-public:
+  public:
     Player(const std::string &game) : game_(game)
     {
         std::cout << "Player ctor for " << game << '\n';
     }
-    ~Player() { std::cout << "Player dtor for " << game_ << '\n'; }
+    ~Player()
+    {
+        std::cout << "Player dtor for " << game_ << '\n';
+    }
 
-    const std::string &game() const { return game_; }
+    const std::string &game() const
+    {
+        return game_;
+    }
 };
 
 class Dog : public Animal, Player
 {
-public:
+  public:
     Dog(const std::string &name, const std::string &game) : Animal(name), Player(game)
     {
         std::cout << "Dog ctor" << '\n';
     }
-    ~Dog() { std::cout << "Dog dtor" << '\n'; }
+    ~Dog()
+    {
+        std::cout << "Dog dtor" << '\n';
+    }
 
     void message()
     {

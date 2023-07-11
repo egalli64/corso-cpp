@@ -8,12 +8,12 @@
 
 class Player
 {
-private:
+  private:
     int id_;
     double *scores_;
     int size_;
 
-public:
+  public:
     explicit Player(int id, int size = 3) : id_{id}, scores_{new double[size]}, size_{size}
     {
         std::cout << "Ctor " << id_ << '\n';
@@ -33,9 +33,15 @@ public:
     Player(Player &&other);
     Player &operator=(Player &&other);
 
-    int id() { return id_; }
+    int id()
+    {
+        return id_;
+    }
 
-    bool isGoodPosition(int pos) { return scores_ != nullptr && pos >= 0 && pos < size_; }
+    bool isGoodPosition(int pos)
+    {
+        return scores_ != nullptr && pos >= 0 && pos < size_;
+    }
 
     void addToScore(double score, int pos = 0)
     {
@@ -49,7 +55,10 @@ public:
         }
     }
 
-    double score(int pos) { return isGoodPosition(pos) ? scores_[pos] : NAN; }
+    double score(int pos)
+    {
+        return isGoodPosition(pos) ? scores_[pos] : NAN;
+    }
 };
 
 Player::Player(const Player &other) : id_{other.id_}, scores_{new double[other.size_]}, size_{other.size_}

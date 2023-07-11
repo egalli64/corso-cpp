@@ -20,8 +20,7 @@ void print(const std::vector<int> &items, const std::string &label)
 
 // it is not difficult to create own "algorithm" similar to the standard ones
 // here, an in-place modifier that squares each value in an interval
-template <typename IT>
-void square(IT first, IT last)
+template <typename IT> void square(IT first, IT last)
 {
     while (first != last)
     {

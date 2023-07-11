@@ -17,10 +17,10 @@ struct Node
 
 class SinglyLinkedList
 {
-private:
+  private:
     Node *head;
     // TODO: keep tail as data member, simplify pushBack()
-public:
+  public:
     SinglyLinkedList() : head(nullptr)
     {
         std::cout << "Default ctor\n";

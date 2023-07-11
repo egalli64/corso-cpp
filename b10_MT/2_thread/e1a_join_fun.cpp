@@ -12,23 +12,23 @@
 
 namespace
 {
-    void loop1KOn(char c)
+void loop1KOn(char c)
+{
+    for (int i = 0; i < 1'000; i++)
     {
-        for (int i = 0; i < 1'000; i++)
-        {
-            std::cout << c;
-        }
-    }
-
-    void greeter(const std::string &greet)
-    {
-        loop1KOn(greet[0]);
-        std::cout << greet;
-        std::cout << " from thread ";
-        std::cout << std::this_thread::get_id();
-        std::cout << '\n';
+        std::cout << c;
     }
 }
+
+void greeter(const std::string &greet)
+{
+    loop1KOn(greet[0]);
+    std::cout << greet;
+    std::cout << " from thread ";
+    std::cout << std::this_thread::get_id();
+    std::cout << '\n';
+}
+} // namespace
 
 int main()
 {
@@ -37,7 +37,7 @@ int main()
     std::thread t1{greeter, "Hello"};
     std::thread t2{greeter, "Goodbye"};
 
-    std::string message {"Welcome"};
+    std::string message{"Welcome"};
     loop1KOn(message[0]);
     std::cout << message << " from the main thread ";
     std::cout << std::this_thread::get_id();

@@ -8,15 +8,23 @@
 
 class Point
 {
-private:
+  private:
     const int x_;
     const int y_;
 
-public:
-    Point(const int x, const int y) : x_(x), y_(y) {}
+  public:
+    Point(const int x, const int y) : x_(x), y_(y)
+    {
+    }
 
-    int x() const { return x_; }
-    int y() const { return y_; }
+    int x() const
+    {
+        return x_;
+    }
+    int y() const
+    {
+        return y_;
+    }
 
     virtual double distanceFromOrigin() const
     {
@@ -26,11 +34,13 @@ public:
 
 class Point3D : public Point
 {
-private:
+  private:
     const int z_;
 
-public:
-    Point3D(const int x, const int y, const int z) : Point(x, y), z_(z) {}
+  public:
+    Point3D(const int x, const int y, const int z) : Point(x, y), z_(z)
+    {
+    }
 
     double distanceFromOrigin() const override
     {

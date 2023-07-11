@@ -10,16 +10,27 @@
  */
 class Point
 {
-private:
+  private:
     int x_;
     int y_;
 
-public:
-    Point(int x, int y) : x_(x), y_(y) {}
+  public:
+    Point(int x, int y) : x_(x), y_(y)
+    {
+    }
 
-    int x() { return x_; }
-    int y() { return y_; }
-    void increaseX(int delta) { x_ += delta; }
+    int x()
+    {
+        return x_;
+    }
+    int y()
+    {
+        return y_;
+    }
+    void increaseX(int delta)
+    {
+        x_ += delta;
+    }
 };
 
 int main()

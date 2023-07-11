@@ -8,34 +8,43 @@
 // Bad virtual class, the dtor is not virtual!
 class BadVirtualAnimal
 {
-private:
+  private:
     std::string name_;
 
-public:
+  public:
     BadVirtualAnimal(const std::string &name) : name_(name)
     {
         std::cout << "BadVirtualAnimal ctor " << name << '\n';
     }
 
     // it should be virtual!
-    ~BadVirtualAnimal() { std::cout << "BadVirtualAnimal dtor for " << name_ << '\n'; }
+    ~BadVirtualAnimal()
+    {
+        std::cout << "BadVirtualAnimal dtor for " << name_ << '\n';
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
     virtual std::string fullName() const = 0;
 };
 
 class Dog : public BadVirtualAnimal
 {
-private:
+  private:
     std::string owner_;
 
-public:
+  public:
     Dog(const std::string &name, const std::string &owner) : BadVirtualAnimal(name), owner_(owner)
     {
         std::cout << "Dog ctor " << owner << '\n';
     }
 
-    ~Dog() { std::cout << "Dog dtor, owner " << owner_ << '\n'; }
+    ~Dog()
+    {
+        std::cout << "Dog dtor, owner " << owner_ << '\n';
+    }
 
     std::string fullName() const override
     {

@@ -7,20 +7,34 @@
 
 class Point
 {
-private:
+  private:
     int x_;
     int y_;
 
-public:
-    Point(int x, int y) : x_{x}, y_{y} {}
-    ~Point() { std::cout << "dtor " << x_ << ", " << y_ << '\n'; }
+  public:
+    Point(int x, int y) : x_{x}, y_{y}
+    {
+    }
+    ~Point()
+    {
+        std::cout << "dtor " << x_ << ", " << y_ << '\n';
+    }
 
     // Point(const Point&) = delete; // no copy ctor
     // Point& operator=(const Point&) = delete; // no assigment operator
 
-    int x() { return x_; }
-    int y() { return y_; }
-    void horizontalMove(int delta) { x_ += delta; }
+    int x()
+    {
+        return x_;
+    }
+    int y()
+    {
+        return y_;
+    }
+    void horizontalMove(int delta)
+    {
+        x_ += delta;
+    }
 };
 
 int main()

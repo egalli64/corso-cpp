@@ -7,17 +7,28 @@
 
 class Player
 {
-private:
+  private:
     int id_;
     double score_;
 
-public:
-    Player(int id, double score) : id_(id), score_(score) {}
+  public:
+    Player(int id, double score) : id_(id), score_(score)
+    {
+    }
 
-    int id() const { return id_; }
-    double score() const { return score_; }
+    int id() const
+    {
+        return id_;
+    }
+    double score() const
+    {
+        return score_;
+    }
     // it could be invoked only on a non-const object
-    void increaseScore(double delta) { score_ += delta; }
+    void increaseScore(double delta)
+    {
+        score_ += delta;
+    }
 };
 
 int main()

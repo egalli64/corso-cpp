@@ -3,8 +3,8 @@
  *
  * SL Array
  */
-#include <iostream>
 #include <array>
+#include <iostream>
 #include <string>
 
 void print(const std::array<int, 4> &values, const std::string &label)

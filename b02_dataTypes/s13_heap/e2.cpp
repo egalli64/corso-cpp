@@ -3,9 +3,9 @@
  *
  * stack / heap
  */
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 const int MAX_VALUE = 6;
 

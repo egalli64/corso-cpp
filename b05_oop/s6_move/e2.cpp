@@ -8,12 +8,12 @@
 
 class Player
 {
-private:
+  private:
     static const int SZ = 5;
     int id_;
     int *hand_;
 
-public:
+  public:
     explicit Player(int id) : id_(id)
     {
         hand_ = new int[SZ];

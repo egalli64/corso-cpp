@@ -3,17 +3,17 @@
  *
  * A derived class
  */
-#ifndef PAO_CPP_M1_P7_S4_EXTENDED_ENTRY_H
-#define PAO_CPP_M1_P7_S4_EXTENDED_ENTRY_H
+#ifndef CORSO_CPP_B7_S4_EXTENDED_ENTRY_H
+#define CORSO_CPP_B7_S4_EXTENDED_ENTRY_H
 
 #include "Entry.h"
 
 class ExtendedEntry : public Entry
 {
-private:
+  private:
     std::string tag_;
 
-public:
+  public:
     ExtendedEntry(int key, const std::string &value, const std::string &tag) : Entry(key, value), tag_(tag)
     {
         std::cout << "EE plain ctor for " << value << '\n';
@@ -35,4 +35,4 @@ public:
     }
 };
 
-#endif // PAO_CPP_M1_P7_S4_EXTENDED_ENTRY_H
+#endif // CORSO_CPP_B7_S4_EXTENDED_ENTRY_H

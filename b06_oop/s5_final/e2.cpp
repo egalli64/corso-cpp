@@ -8,13 +8,18 @@
 // A final class
 class Animal final
 {
-private:
+  private:
     std::string name_;
 
-public:
-    Animal(const std::string &name) : name_(name) {}
+  public:
+    Animal(const std::string &name) : name_(name)
+    {
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
 };
 
 // can't extend a final class

@@ -7,26 +7,36 @@
 
 class Animal
 {
-private:
+  private:
     std::string name_;
 
-public:
-    Animal(const std::string &name) : name_(name) {}
+  public:
+    Animal(const std::string &name) : name_(name)
+    {
+    }
 
     // it is not virtual, not meant for overriding
-    std::string name() const { return "Animal " + name_; }
+    std::string name() const
+    {
+        return "Animal " + name_;
+    }
 };
 
 class NonPolimorphicDog : public Animal
 {
-private:
+  private:
     std::string owner_;
 
-public:
-    NonPolimorphicDog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
+  public:
+    NonPolimorphicDog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    {
+    }
 
     // it is _not_ an override!
-    std::string name() const { return Animal::name() + " owned by " + owner_; }
+    std::string name() const
+    {
+        return Animal::name() + " owned by " + owner_;
+    }
 };
 
 int main()

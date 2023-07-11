@@ -8,17 +8,31 @@
 
 class Couple
 {
-private:
+  private:
     int first_;
     int second_;
 
-public:
-    Couple(const int first, const int second) : first_(first), second_(second) {}
+  public:
+    Couple(const int first, const int second) : first_(first), second_(second)
+    {
+    }
 
-    int first() const { return first_; }
-    int second() const { return second_; }
-    void first(const int first) { first_ = first; }
-    void second(const int second) { second_ = second; }
+    int first() const
+    {
+        return first_;
+    }
+    int second() const
+    {
+        return second_;
+    }
+    void first(const int first)
+    {
+        first_ = first;
+    }
+    void second(const int second)
+    {
+        second_ = second;
+    }
 };
 
 std::ostream &operator<<(std::ostream &os, const Couple &couple)
@@ -28,8 +42,10 @@ std::ostream &operator<<(std::ostream &os, const Couple &couple)
 
 class Point : public Couple
 {
-public:
-    Point(const int x, const int y) : Couple(x, y) {}
+  public:
+    Point(const int x, const int y) : Couple(x, y)
+    {
+    }
 
     double distanceFromOrigin() const
     {

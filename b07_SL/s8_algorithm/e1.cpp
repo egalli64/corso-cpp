@@ -4,8 +4,8 @@
  * SL algorithm: find, accumulate
  */
 #include <algorithm>
-#include <numeric>
 #include <iostream>
+#include <numeric>
 #include <vector>
 
 int main()

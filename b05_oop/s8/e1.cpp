@@ -7,16 +7,24 @@
 
 class Player
 {
-private:
+  private:
     int id_;
     double score_;
 
-public:
-    Player(int id, double score) : id_(id), score_(score) {}
+  public:
+    Player(int id, double score) : id_(id), score_(score)
+    {
+    }
 
     // implicit inline
-    int id() const { return id_; }
-    double score() const { return score_; }
+    int id() const
+    {
+        return id_;
+    }
+    double score() const
+    {
+        return score_;
+    }
 
     // explicit inline in definition
     void increaseScore(double delta);

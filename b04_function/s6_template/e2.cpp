@@ -8,14 +8,13 @@
 
 namespace my
 {
-    template <typename T>
-    void swap(T &left, T &right)
-    {
-        T temp{left};
-        left = right;
-        right = temp;
-    }
+template <typename T> void swap(T &left, T &right)
+{
+    T temp{left};
+    left = right;
+    right = temp;
 }
+} // namespace my
 
 int main()
 {

@@ -3,4 +3,6 @@
  *
  * The simplest C++ program
  */
-int main() {}
+int main()
+{
+}

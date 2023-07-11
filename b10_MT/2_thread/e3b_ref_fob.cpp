@@ -13,20 +13,22 @@
 
 namespace
 {
-    class Adder
-    {
-    private:
-        const std::vector<int> &values_;
-        int &result_;
+class Adder
+{
+  private:
+    const std::vector<int> &values_;
+    int &result_;
 
-    public:
-        Adder(const std::vector<int> &values, int &result) : values_(values), result_(result) {}
-        void operator()() const
-        {
-            result_ = std::accumulate(values_.begin(), values_.end(), 0);
-        }
-    };
-}
+  public:
+    Adder(const std::vector<int> &values, int &result) : values_(values), result_(result)
+    {
+    }
+    void operator()() const
+    {
+        result_ = std::accumulate(values_.begin(), values_.end(), 0);
+    }
+};
+} // namespace
 
 int main()
 {

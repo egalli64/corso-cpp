@@ -7,11 +7,13 @@
 
 class Tail
 {
-private:
+  private:
     int count_;
 
-public:
-    Tail(int count) : count_(count) {}
+  public:
+    Tail(int count) : count_(count)
+    {
+    }
 
     void wag(const std::string &name) const
     {
@@ -27,11 +29,13 @@ public:
 // Dog has-a Tail, and shares its access to derived classes
 class Dog : protected Tail
 {
-protected:
+  protected:
     std::string name_;
 
-public:
-    Dog(const std::string &name, int count) : Tail(count), name_(name) {}
+  public:
+    Dog(const std::string &name, int count) : Tail(count), name_(name)
+    {
+    }
 
     void bark()
     {
@@ -47,8 +51,10 @@ public:
 
 class Poodle : public Dog
 {
-public:
-    Poodle(const std::string &name) : Dog(name, 2) {}
+  public:
+    Poodle(const std::string &name) : Dog(name, 2)
+    {
+    }
 
     void eat() override
     {

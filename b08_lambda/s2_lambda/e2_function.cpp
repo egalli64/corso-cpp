@@ -5,24 +5,24 @@
  * function as first class variable
  */
 #include <algorithm>
-#include <vector>
 #include <iostream>
 #include <iterator>
+#include <vector>
 
 namespace
 {
-    void print(const std::string &message, const std::vector<int> &data)
-    {
-        std::cout << message << ": ";
-        copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
-        std::cout << '\n';
-    }
-
-    bool largerFirst(int left, int right)
-    {
-        return left > right;
-    }
+void print(const std::string &message, const std::vector<int> &data)
+{
+    std::cout << message << ": ";
+    copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 }
+
+bool largerFirst(int left, int right)
+{
+    return left > right;
+}
+} // namespace
 
 int main()
 {

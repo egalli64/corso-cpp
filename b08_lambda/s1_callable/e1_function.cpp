@@ -10,20 +10,20 @@
 
 namespace
 {
-	void print(const std::string &message)
-	{
-		std::cout << message << '\n';
-	}
+void print(const std::string &message)
+{
+    std::cout << message << '\n';
 }
+} // namespace
 
 int main()
 {
-	print("A function is a callable");
+    print("A function is a callable");
 
-	void (*pf)(const std::string &) = &print;
-	pf("A pointer to function is commonly used in C");
+    void (*pf)(const std::string &) = &print;
+    pf("A pointer to function is commonly used in C");
 
-	std::vector<std::string> names{"Tom", "Bob", "Kim"};
-	std::cout << "Passing a function to another function:\n";
-	std::for_each(names.begin(), names.end(), print);
+    std::vector<std::string> names{"Tom", "Bob", "Kim"};
+    std::cout << "Passing a function to another function:\n";
+    std::for_each(names.begin(), names.end(), print);
 }

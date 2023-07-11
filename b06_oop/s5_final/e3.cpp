@@ -8,24 +8,31 @@
 // An abstract class
 class Animal
 {
-private:
+  private:
     std::string name_;
 
-public:
-    Animal(const std::string &name) : name_(name) {}
+  public:
+    Animal(const std::string &name) : name_(name)
+    {
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
     // pure virtual method
     virtual std::string fullName() = 0;
 };
 
 class Dog : public Animal
 {
-private:
+  private:
     std::string owner_;
 
-public:
-    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
+  public:
+    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    {
+    }
 
     std::string fullName() override final
     {
@@ -35,8 +42,10 @@ public:
 
 class Poodle : public Dog
 {
-public:
-    Poodle(const std::string &name, const std::string &owner) : Dog(name, owner) {}
+  public:
+    Poodle(const std::string &name, const std::string &owner) : Dog(name, owner)
+    {
+    }
 
     // can't override a final method
     // string fullName() override { return "Poodle " + Dog::fullName(); }
