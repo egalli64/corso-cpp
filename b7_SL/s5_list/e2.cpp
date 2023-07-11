@@ -6,20 +6,19 @@
 #include <iostream>
 #include <forward_list>
 #include <string>
-using namespace std;
 
-void print(const forward_list<string> &data)
+void print(const std::forward_list<std::string> &data)
 {
-    for (const string &cur : data)
+    for (const std::string &cur : data)
     {
-        cout << cur << ' ';
+        std::cout << cur << ' ';
     }
-    cout << '\n';
+    std::cout << '\n';
 }
 
 int main()
 {
-    forward_list<string> data{"tom", "bob", "kim"};
+    std::forward_list<std::string> data{"tom", "bob", "kim"};
     print(data);
 
     data.push_front("zoe");

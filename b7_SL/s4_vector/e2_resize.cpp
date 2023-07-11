@@ -5,22 +5,21 @@
  */
 #include <iostream>
 #include <vector>
-using namespace std;
 
 template <typename T>
-void print(const vector<T> &values, const string &label)
+void print(const std::vector<T> &values, const std::string &label)
 {
-    cout << label << ": ";
+    std::cout << label << ": ";
     for (const T &value : values)
     {
-        cout << value << ' ';
+        std::cout << value << ' ';
     }
-    cout << '\n';
+    std::cout << '\n';
 }
 
 int main()
 {
-    vector<int> given{6, 4, 3};
+    std::vector<int> given{6, 4, 3};
     print(given, "A vector with a few given values");
 
     given.resize(4);

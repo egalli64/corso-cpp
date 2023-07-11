@@ -5,16 +5,15 @@
  */
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int main()
 {
-    vector<int> values;
-    cout << "-- empty vector" << '\n';
-    cout << "Size is " << values.size() << '\n';
-    cout << "Capacity is " << values.capacity() << '\n';
+    std::vector<int> values;
+    std::cout << "-- empty vector" << '\n';
+    std::cout << "Size is " << values.size() << '\n';
+    std::cout << "Capacity is " << values.capacity() << '\n';
 
-    cout << "-- adding elements" << '\n';
+    std::cout << "-- adding elements" << '\n';
     // inserting in a given position could be very slow - elements on its right should be moved
     values.insert(values.begin(), 12);
     // an initializer list could be provided
@@ -26,8 +25,8 @@ int main()
     // usually fastest
     values.emplace_back(42);
 
-    cout << "Size is " << values.size() << '\n';
-    cout << "Capacity is " << values.capacity() << '\n';
-    cout << "First element is " << values.front() << '\n';
-    cout << "Last element is " << values.back() << '\n';
+    std::cout << "Size is " << values.size() << '\n';
+    std::cout << "Capacity is " << values.capacity() << '\n';
+    std::cout << "First element is " << values.front() << '\n';
+    std::cout << "Last element is " << values.back() << '\n';
 }

@@ -6,25 +6,24 @@
 #include <iostream>
 #include <array>
 #include <string>
-using namespace std;
 
-void print(const array<int, 4> &values, const string &label)
+void print(const std::array<int, 4> &values, const std::string &label)
 {
-    cout << label << ": ";
+    std::cout << label << ": ";
     for (int cur : values)
     {
-        cout << cur << ' ';
+        std::cout << cur << ' ';
     }
-    cout << '\n';
+    std::cout << '\n';
 }
 
 int main()
 {
-    array<int, 4> values{6, 3, 7};
+    std::array<int, 4> values{6, 3, 7};
     print(values, "An array");
 
     // all elements implicitly initialized to 0
-    array<int, 4> others{};
+    std::array<int, 4> others{};
     print(others, "A zero-initialized array");
 
     others.fill(-1);
@@ -36,8 +35,8 @@ int main()
     }
     print(values, "An all element increase");
 
-    cout << "First element in values: " << values.front() << '\n';
-    cout << "Last element in values: " << values.back() << '\n';
+    std::cout << "First element in values: " << values.front() << '\n';
+    std::cout << "Last element in values: " << values.back() << '\n';
 
     values.swap(others);
     print(values, "Swap arrays");
