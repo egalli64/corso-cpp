@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Lambda capturing by value
+ */
 #include <iostream>
 
 int main() {
@@ -10,7 +15,7 @@ int main() {
     [] { std::cout << "Hello\n"; }();
 
     // won't compile: no variable captured
-    // [] { std::cout << << a << '\n'; }();
+    // [] { std::cout << "Summing a and b: " << a + b << '\n'; }();
 
     // all required variables captured by value
     [=] { std::cout << "Summing a and b: " << a + b << '\n'; }();
