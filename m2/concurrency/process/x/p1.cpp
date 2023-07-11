@@ -1,29 +1,37 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ */
 #include <iostream>
 #include <string>
 #include <unistd.h>
 
 using namespace std;
 
-int main() {
+int main()
+{
     int pds[2];
 
-    if (pipe(pds)) {
+    if (pipe(pds))
+    {
         cout << "Can't create pipe\n";
         return 1;
     }
 
     int pid = fork();
-    if (pid < 0) {
+    if (pid < 0)
+    {
         cout << "Can't fork\n";
         return 2;
     }
-    else if (pid > 0) { // parent
+    else if (pid > 0)
+    { // parent
         close(pds[0]);
 
-        string message{ "hello world" };
+        string message{"hello world"};
         write(pds[1], message.c_str(), message.size());
     }
-    else { // child
+    else
+    { // child
         close(pds[1]);
 
         const int SZ = 80;

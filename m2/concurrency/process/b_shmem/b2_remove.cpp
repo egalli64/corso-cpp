@@ -1,16 +1,23 @@
-// c++ -Wall b2_remove.cpp -lrt -o b2.exe
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b2_remove.cpp -lrt -o b2.exe
+ */
 #include <boost/interprocess/shared_memory_object.hpp>
 #include <iostream>
 
 namespace bi = boost::interprocess;
 
-namespace {
-    const char* SHMEM_NAME = "MySharedMemory";
+namespace
+{
+const char *SHMEM_NAME = "MySharedMemory";
 }
 
-int main() {
+int main()
+{
     std::cout << SHMEM_NAME;
-    if (!bi::shared_memory_object::remove(SHMEM_NAME)) {
+    if (!bi::shared_memory_object::remove(SHMEM_NAME))
+    {
         std::cout << " not";
     }
     std::cout << " removed\n";

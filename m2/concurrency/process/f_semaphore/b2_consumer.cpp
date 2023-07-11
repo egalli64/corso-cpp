@@ -1,36 +1,46 @@
-// c++ -Wall b2_consumer.cpp -lrt -pthread -o b2.exe
-#include <boost/interprocess/managed_shared_memory.hpp>
-#include <boost/interprocess/sync/interprocess_semaphore.hpp>
-#include <boost/date_time/posix_time/posix_time_duration.hpp>
-#include <boost/date_time/posix_time/posix_time_types.hpp>
-#include <iostream>
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b2_consumer.cpp -lrt -pthread -o b2.exe
+ */
 #include "Cleaner.h"
 #include "MySharedData.h"
+#include <boost/date_time/posix_time/posix_time_duration.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/interprocess/managed_shared_memory.hpp>
+#include <boost/interprocess/sync/interprocess_semaphore.hpp>
+#include <iostream>
 
 namespace bi = boost::interprocess;
 
-namespace {
-    const char* SHMEM_NAME = "MySharedMemory";
-    const char* DATA_NAME = "MySharedData";
-}
+namespace
+{
+const char *SHMEM_NAME = "MySharedMemory";
+const char *DATA_NAME = "MySharedData";
+} // namespace
 
-int main() {
-    bi::managed_shared_memory msm{ bi::open_only, SHMEM_NAME };
+int main()
+{
+    bi::managed_shared_memory msm{bi::open_only, SHMEM_NAME};
 
-    std::pair<MySharedData*, std::size_t> pData = msm.find<MySharedData>(DATA_NAME);
-    if (pData.first) {
+    std::pair<MySharedData *, std::size_t> pData = msm.find<MySharedData>(DATA_NAME);
+    if (pData.first)
+    {
         std::cout << DATA_NAME << " correctly accessed from shared memory\n";
     }
-    else {
+    else
+    {
         std::cout << DATA_NAME << " not found\n";
         return EXIT_FAILURE;
     }
-    MySharedData& data = *pData.first;
+    MySharedData &data = *pData.first;
 
-    while (data.stock > 0) {
+    while (data.stock > 0)
+    {
         boost::posix_time::ptime waitTime(boost::posix_time::microsec_clock::universal_time());
         waitTime += boost::posix_time::seconds(3);
-        if (!data.consume.timed_wait(waitTime)) {
+        if (!data.consume.timed_wait(waitTime))
+        {
             std::cout << "Timeout! ";
             break;
         }

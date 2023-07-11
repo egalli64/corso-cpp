@@ -1,23 +1,33 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * shared_ptr
+ */
+#include "../Thing.h"
 #include <iostream>
 #include <memory>
-#include "../Thing.h"
 
-int main() {
+int main()
+{
     std::shared_ptr<Thing> sp = std::make_shared<Thing>(42);
 
-    if (sp.unique()) {
-        std::shared_ptr<Thing> sp2{ sp };
+    if (sp.unique())
+    {
+        std::shared_ptr<Thing> sp2{sp};
         std::cout << "A new shared ptr created by copy just increase the count\n";
-        if (!sp.unique()) {
+        if (!sp.unique())
+        {
             std::cout << "There are more owners\n";
             std::cout << "The use count is set to " << sp.use_count() << '\n';
         }
     }
-    else {
+    else
+    {
         std::cout << "Unexpected!\n";
     }
 
-    if (sp.unique()) {
+    if (sp.unique())
+    {
         std::cout << "The shared ptr dtor decrease the use count\n";
     }
 

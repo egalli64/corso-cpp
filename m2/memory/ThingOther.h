@@ -1,24 +1,32 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ */
 #ifndef PAO_CPP_M2_MEMORY_THING_OTHER
 #define PAO_CPP_M2_MEMORY_THING_OTHER
 #include "Thing.h"
 
-class ThingOther : public Thing {
-public:
+class ThingOther : public Thing
+{
+  public:
     int z_;
-    ThingOther(int x) : Thing(x), z_(x * 2) {
+    ThingOther(int x) : Thing(x), z_(x * 2)
+    {
         std::cout << "ThingOther ctor\n";
     }
 
-    void hello() const override {
+    void hello() const override
+    {
         std::cout << "ThingOther ";
         Thing::hello();
     }
 
-    void f() {
+    void f()
+    {
         std::cout << "f " << z_ << "\n";
     }
 
-    ~ThingOther() {
+    ~ThingOther()
+    {
         std::cout << "ThingOther dtor\n";
     }
 };
