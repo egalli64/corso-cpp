@@ -4,7 +4,6 @@
  * operator overloading
  */
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -22,7 +21,7 @@ public:
 };
 
 // put-to output stream overload for Player
-ostream &operator<<(ostream &os, const Player &item)
+std::ostream &operator<<(std::ostream &os, const Player &item)
 {
     os << '{' << item.id() << ", " << item.score() << '}';
     return os;
@@ -33,5 +32,5 @@ int main()
     Player tom{42, 33.12};
     tom.increaseScore(3.3);
 
-    cout << "Tom: " << tom << '\n';
+    std::cout << "Tom: " << tom << '\n';
 }

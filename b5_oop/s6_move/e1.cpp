@@ -5,7 +5,6 @@
  */
 #include <cmath>
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -17,12 +16,12 @@ private:
 public:
     explicit Player(int id, int size = 3) : id_{id}, scores_{new double[size]}, size_{size}
     {
-        cout << "Ctor " << id_ << '\n';
+        std::cout << "Ctor " << id_ << '\n';
     }
 
     ~Player()
     {
-        cout << "Dtor " << id_ << ' ' << score(0) << '\n';
+        std::cout << "Dtor " << id_ << ' ' << score(0) << '\n';
         delete[] scores_;
     }
 
@@ -46,7 +45,7 @@ public:
         }
         else
         {
-            cerr << "Position " << pos << " out of bound, score " << score << " ignored\n";
+            std::cerr << "Position " << pos << " out of bound, score " << score << " ignored\n";
         }
     }
 
@@ -55,7 +54,7 @@ public:
 
 Player::Player(const Player &other) : id_{other.id_}, scores_{new double[other.size_]}, size_{other.size_}
 {
-    cout << "Copy ctor " << id_ << '\n';
+    std::cout << "Copy ctor " << id_ << '\n';
     for (int i = 0; i != size_; ++i)
     {
         scores_[i] = other.scores_[i];
@@ -64,7 +63,7 @@ Player::Player(const Player &other) : id_{other.id_}, scores_{new double[other.s
 
 Player &Player::operator=(const Player &other)
 {
-    cout << "Copy assigment " << other.id_ << '\n';
+    std::cout << "Copy assigment " << other.id_ << '\n';
 
     id_ = other.id_;
 
@@ -82,7 +81,7 @@ Player &Player::operator=(const Player &other)
 
 Player::Player(Player &&other) : id_{other.id_}, scores_{other.scores_}, size_{other.size_}
 {
-    cout << "Move ctor " << id_ << '\n';
+    std::cout << "Move ctor " << id_ << '\n';
 
     other.id_ = 0;
     other.scores_ = nullptr;
@@ -91,7 +90,7 @@ Player::Player(Player &&other) : id_{other.id_}, scores_{other.scores_}, size_{o
 
 Player &Player::operator=(Player &&other)
 {
-    cout << "Move assigment " << other.id_ << '\n';
+    std::cout << "Move assigment " << other.id_ << '\n';
 
     id_ = other.id_;
     scores_ = other.scores_;
@@ -117,24 +116,24 @@ int main()
 {
     Player tom{12};
     tom.addToScore(43.12);
-    cout << "tom: " << tom.id() << ", " << tom.score(0) << '\n';
+    std::cout << "tom: " << tom.id() << ", " << tom.score(0) << '\n';
 
     // copy ctor
     // the data is copied from tom to bob
-    Player bob = tom;
-    cout << "bob (deep copy): " << bob.id() << ", " << bob.score(0) << '\n';
+    Player bob{tom};
+    std::cout << "bob (deep copy): " << bob.id() << ", " << bob.score(0) << '\n';
 
     // bob has his own data
     bob.addToScore(12.33);
-    cout << "bob (changed): " << bob.id() << ", " << bob.score(0) << '\n';
-    cout << "tom (unchanged): " << tom.id() << ", " << tom.score(0) << '\n';
+    std::cout << "bob (changed): " << bob.id() << ", " << bob.score(0) << '\n';
+    std::cout << "tom (unchanged): " << tom.id() << ", " << tom.score(0) << '\n';
 
     // tom is moved in al
-    Player al = move(tom);
-    cout << "al (moved from tom): " << al.id() << ", " << al.score(0) << '\n';
-    cout << "bob (unchanged): " << bob.id() << ", " << bob.score(0) << '\n';
-    cout << "tom (moved to tom): " << tom.id() << ", " << tom.score(0) << '\n';
+    Player al = std::move(tom);
+    std::cout << "al (moved from tom): " << al.id() << ", " << al.score(0) << '\n';
+    std::cout << "bob (unchanged): " << bob.id() << ", " << bob.score(0) << '\n';
+    std::cout << "tom (moved to tom): " << tom.id() << ", " << tom.score(0) << '\n';
 
     Player zoe = createPlayer(12);
-    cout << "zoe (moved from called): " << zoe.id() << ", " << zoe.score(0) << '\n';
+    std::cout << "zoe (moved from called): " << zoe.id() << ", " << zoe.score(0) << '\n';
 }

@@ -4,7 +4,6 @@
  * class
  */
 #include <iostream>
-using namespace std;
 
 /**
  * @brief A more structured class
@@ -26,12 +25,12 @@ public:
 int main()
 {
     Point a{34, 3};
-    cout << a.x() << ' ' << a.y() << '\n';
+    std::cout << a.x() << ' ' << a.y() << '\n';
 
-    Point *p = &a;
-    cout << p->x() << ' ' << p->y() << '\n';
+    Point *p{&a};
+    std::cout << p->x() << ' ' << p->y() << '\n';
 
-    Point &r = a;
+    Point &r{a};
     r.increaseX(5);
-    cout << a.x() << ' ' << a.y() << '\n';
+    std::cout << a.x() << ' ' << a.y() << '\n';
 }

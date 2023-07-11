@@ -4,7 +4,6 @@
  * ctor / dtor on class
  */
 #include <iostream>
-using namespace std;
 
 class Point
 {
@@ -21,7 +20,7 @@ public:
     Point(int x, int y) : x_{x}, y_{y} {}
 
     // the dtor
-    ~Point() { cout << "dtor " << x_ << ' ' << y_ << '\n'; }
+    ~Point() { std::cout << "dtor " << x_ << ' ' << y_ << '\n'; }
 
     int x() { return x_; }
     int y() { return y_; }
@@ -33,27 +32,27 @@ int main()
 {
     // default ctor
     Point a;
-    cout << "a is " << a.x() << ' ' << a.y() << '\n';
+    std::cout << "a is " << a.x() << ' ' << a.y() << '\n';
 
     Point b{};
-    cout << "b is " << b.x() << ' ' << b.y() << '\n';
+    std::cout << "b is " << b.x() << ' ' << b.y() << '\n';
 
     // plain ctors
-    Point c(3, 4);
-    cout << "c is " << c.x() << ' ' << c.y() << '\n';
+    Point c{3, 4};
+    std::cout << "c is " << c.x() << ' ' << c.y() << '\n';
 
     Point d{5, 6};
     d.increaseX(3);
-    cout << "d is " << d.x() << ' ' << d.y() << '\n';
+    std::cout << "d is " << d.x() << ' ' << d.y() << '\n';
 
-    // can't see the explicit constructor
+    // Point(int x) is explicit! Here can't be seen
     // Point e = 42;
 
     // explicit conversion from int to Point by ctor
     Point e{42};
-    cout << "e is " << e.x() << ' ' << e.y() << '\n';
+    std::cout << "e is " << e.x() << ' ' << e.y() << '\n';
 
     // explicit conversion from int to Point by static cast
     Point f = static_cast<Point>(7);
-    cout << "f is " << f.x() << ' ' << f.y() << '\n';
+    std::cout << "f is " << f.x() << ' ' << f.y() << '\n';
 }

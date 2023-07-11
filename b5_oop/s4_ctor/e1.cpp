@@ -4,7 +4,6 @@
  * ctor / dtor on struct
  */
 #include <iostream>
-using namespace std;
 
 struct Point
 {
@@ -31,7 +30,7 @@ struct Point
 
     ~Point()
     {
-        cout << "Point (" << x << ", " << y << ") removed\n";
+        std::cout << "Point (" << x << ", " << y << ") removed\n";
     }
 };
 
@@ -39,5 +38,5 @@ int main()
 {
     // point is created on stack, implicit call to default ctor
     Point a;
-    cout << "Risky, uninitialized point: " << a.x << ' ' << a.y << '\n';
+    std::cout << "See default ctor to see if the point is correctly initialized: " << a.x << ' ' << a.y << '\n';
 }

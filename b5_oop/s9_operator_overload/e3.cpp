@@ -4,7 +4,6 @@
  * operator overloading
  */
 #include <iostream>
-using namespace std;
 
 // A function object
 class Adder
@@ -21,5 +20,5 @@ public:
 int main()
 {
     Adder add42{42};
-    cout << add42(18) << '\n';
+    std::cout << add42(18) << '\n';
 }

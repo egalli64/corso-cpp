@@ -4,7 +4,6 @@
  * shallow vs deep copy w/ resources
  */
 #include <iostream>
-using namespace std;
 
 struct Node
 {
@@ -12,7 +11,7 @@ struct Node
     Node *next;
     ~Node()
     {
-        cout << "Node " << value << " deleted\n";
+        std::cout << "Node " << value << " deleted\n";
     }
 };
 
@@ -24,12 +23,12 @@ private:
 public:
     SinglyLinkedList() : head(nullptr)
     {
-        cout << "Default ctor\n";
+        std::cout << "Default ctor\n";
     }
 
     SinglyLinkedList(const SinglyLinkedList &other) : head(nullptr)
     {
-        cout << "Copy ctor\n";
+        std::cout << "Copy ctor\n";
 
         for (Node *cur = other.head; cur != nullptr; cur = cur->next)
         {
@@ -39,7 +38,7 @@ public:
 
     SinglyLinkedList &operator=(const SinglyLinkedList &other)
     {
-        cout << "Assignment operator\n";
+        std::cout << "Assignment operator\n";
 
         clear();
 
@@ -53,9 +52,9 @@ public:
 
     void pushFront(int value)
     {
-        Node *node = new Node{value, head};
+        Node *node{new Node{value, head}};
         head = node;
-        cout << "New head is " << value << '\n';
+        std::cout << "New head is " << value << '\n';
     }
 
     void pushBack(int value)
@@ -66,7 +65,7 @@ public:
         }
         else
         {
-            Node *node = new Node{value, nullptr};
+            Node *node{new Node{value, nullptr}};
 
             Node *tail = head;
             while (tail->next != nullptr)
@@ -74,23 +73,23 @@ public:
                 tail = tail->next;
             }
             tail->next = node;
-            cout << "New tail is " << value << '\n';
+            std::cout << "New tail is " << value << '\n';
         }
     }
 
     void print()
     {
-        cout << "[ ";
+        std::cout << "[ ";
         for (Node *cur = head; cur != nullptr; cur = cur->next)
         {
-            cout << cur->value << ' ';
+            std::cout << cur->value << ' ';
         }
-        cout << "]\n";
+        std::cout << "]\n";
     }
 
     void clear()
     {
-        int count = 0;
+        int count{0};
         while (head != nullptr)
         {
             Node *next = head->next;
@@ -100,12 +99,12 @@ public:
             count += 1;
         }
 
-        cout << count << " item(s) deleted\n";
+        std::cout << count << " item(s) deleted\n";
     }
 
     ~SinglyLinkedList()
     {
-        cout << "Dtor\n";
+        std::cout << "Dtor\n";
         clear();
     }
 };
@@ -118,27 +117,27 @@ int main()
     original.pushBack(4);
     original.pushFront(14);
 
-    cout << "The original list is ";
+    std::cout << "The original list is ";
     original.print();
 
     SinglyLinkedList copied{original};
-    cout << "The copied list is ";
+    std::cout << "The copied list is ";
     copied.print();
     copied.clear();
 
-    cout << "After clearing, the copied list is ";
+    std::cout << "After clearing, the copied list is ";
     copied.print();
-    cout << "The original list is still ";
+    std::cout << "The original list is still ";
     original.print();
 
     copied = original;
-    cout << "After assignment, the copied list is ";
+    std::cout << "After assignment, the copied list is ";
     copied.print();
     copied.clear();
     copied.pushFront(42);
 
-    cout << "The copied list now is ";
+    std::cout << "The copied list now is ";
     copied.print();
-    cout << "The original list is still ";
+    std::cout << "The original list is still ";
     original.print();
 }

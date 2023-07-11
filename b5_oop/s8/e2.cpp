@@ -4,7 +4,6 @@
  * const
  */
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -25,11 +24,11 @@ int main()
 {
     Player tom{1, 33.12};
     tom.increaseScore(1.4);
-    cout << tom.id() << ' ' << tom.score() << '\n';
+    std::cout << tom.id() << ' ' << tom.score() << '\n';
 
-    const Player bob(2, 3.7);
+    const Player bob{2, 3.7};
 
     // bob is constant, can't invoke a non-const method on it
     // bob.increase_score(1.4);
-    cout << bob.id() << ' ' << bob.score() << '\n';
+    std::cout << bob.id() << ' ' << bob.score() << '\n';
 }
