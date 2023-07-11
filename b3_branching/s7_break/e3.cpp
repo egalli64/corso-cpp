@@ -6,7 +6,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-using namespace std;
 
 int main()
 {
@@ -15,7 +14,7 @@ int main()
     do
     {
         int aRandomValue = rand() % 100; // [0..99]
-        cout << aRandomValue << ' ';
+        std::cout << aRandomValue << ' ';
 
         if (aRandomValue > 66)
         {
@@ -23,5 +22,5 @@ int main()
         }
     } while (true);
 
-    cout << "Done!\n";
+    std::cout << "Done!\n";
 }
