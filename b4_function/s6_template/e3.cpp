@@ -5,7 +5,6 @@
  */
 #include <iostream>
 #include <string>
-using namespace std;
 
 template <typename T>
 T sum(T *values, int size)
@@ -21,9 +20,9 @@ T sum(T *values, int size)
 }
 
 template <>
-string sum(string *values, int size)
+std::string sum(std::string *values, int size)
 {
-    string result{};
+    std::string result{};
 
     for (int i = 0; i < size - 1; ++i)
     {
@@ -38,11 +37,11 @@ string sum(string *values, int size)
 int main()
 {
     int a[]{42, 12, 27};
-    cout << "Int sum is " << sum(a, 3) << '\n';
+    std::cout << "Int sum is " << sum(a, 3) << '\n';
 
     double d[]{42.23, 12.84, 27.22};
-    cout << "Double sum is " << sum(d, 3) << '\n';
+    std::cout << "Double sum is " << sum(d, 3) << '\n';
 
-    string s[]{"hello", "ciao", "hola"};
-    cout << "String sum is " << sum(s, 3) << '\n';
+    std::string s[]{"hello", "ciao", "hola"};
+    std::cout << "String sum is " << sum(s, 3) << '\n';
 }

@@ -4,16 +4,15 @@
  * default value
  */
 #include <iostream>
-using namespace std;
 
 void sayHello(int count = 1)
 {
-    cout << "...";
+    std::cout << "...";
     for (int i = 0; i < count; ++i)
     {
-        cout << " hello";
+        std::cout << " hello";
     }
-    cout << "!\n";
+    std::cout << "!\n";
 }
 
 int main()

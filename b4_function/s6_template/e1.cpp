@@ -5,12 +5,11 @@
  */
 #include <iostream>
 #include <string>
-using namespace std;
 
 template <typename T>
 void print(const T &x)
 {
-    cout << "The value is " << x << '\n';
+    std::cout << "The value is " << x << '\n';
 }
 
 int main()
@@ -21,6 +20,6 @@ int main()
     double d{42.118};
     print(d);
 
-    string s{"hello"};
+    std::string s{"hello"};
     print(s);
 }
