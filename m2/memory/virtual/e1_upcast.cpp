@@ -1,14 +1,18 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ */
+#include "../ThingExt.h"
 #include <iostream>
 #include <memory>
-#include "../ThingExt.h"
 
-void raw() {
+void raw()
+{
     std::cout << "*** Raw pointer for object in a hierarchy ***\n";
-    ThingExt* pte = new ThingExt{ 42 };
+    ThingExt *pte = new ThingExt{42};
     std::cout << "Says hello: ";
     pte->hello();
 
-    Thing* pt = pte;
+    Thing *pt = pte;
     std::cout << "Upcasting: ";
     pt->hello();
 
@@ -16,23 +20,27 @@ void raw() {
     delete pt;
 }
 
-void smart() {
+void smart()
+{
     std::cout << "*** Smart pointer for object in a hierarchy ***\n";
     std::unique_ptr<ThingExt> upte = std::make_unique<ThingExt>(42);
     std::cout << "Says hello: ";
     upte->hello();
 
     std::unique_ptr<Thing> upt = std::move(upte);
-    if (!upte && upt) {
+    if (!upte && upt)
+    {
         std::cout << "Resource moved and upcasted: ";
         upt->hello();
     }
-    else {
+    else
+    {
         std::cout << "Unexpected\n";
     }
 }
 
-int main() {
+int main()
+{
     raw();
     smart();
 }

@@ -1,35 +1,43 @@
-// c++ -Wall b4_find_or_ct.cpp -lrt -pthread -o b4.exe
-#include <boost/interprocess/managed_shared_memory.hpp>
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b4_find_or_ct.cpp -lrt -pthread -o b4.exe
+ */
 #include <boost/interprocess/allocators/allocator.hpp>
 #include <boost/interprocess/containers/string.hpp>
+#include <boost/interprocess/managed_shared_memory.hpp>
 #include <iostream>
 
 namespace bi = boost::interprocess;
 
-namespace {
-    const char* SHMEM_NAME = "MySharedMemory";
-    const char* COUNTER_NAME = "MyCounter";
-    const char* C2_NAME = "AnotherCounter";
-}
+namespace
+{
+const char *SHMEM_NAME = "MySharedMemory";
+const char *COUNTER_NAME = "MyCounter";
+const char *C2_NAME = "AnotherCounter";
+} // namespace
 
 typedef bi::allocator<char, bi::managed_shared_memory::segment_manager> CharAllocator;
 typedef bi::basic_string<char, std::char_traits<char>, CharAllocator> MyString;
 
-int main() {
-    bi::managed_shared_memory msm{ bi::open_only, SHMEM_NAME };
+int main()
+{
+    bi::managed_shared_memory msm{bi::open_only, SHMEM_NAME};
 
-    try {
+    try
+    {
         msm.construct<int>(COUNTER_NAME)(-1);
     }
-    catch (bi::interprocess_exception& ex) {
+    catch (bi::interprocess_exception &ex)
+    {
         std::cout << COUNTER_NAME << " is already in shared memory -> " << ex.what() << '\n';
     }
 
-    int* pCounter = msm.find_or_construct<int>(COUNTER_NAME)(21);
+    int *pCounter = msm.find_or_construct<int>(COUNTER_NAME)(21);
     std::cout << COUNTER_NAME << " is already in shared memory: " << *pCounter << '\n';
     *pCounter *= 2;
     std::cout << "Now " << COUNTER_NAME << " is " << *pCounter << '\n';
 
-    int* pC2 = msm.find_or_construct<int>(C2_NAME)(99);
+    int *pC2 = msm.find_or_construct<int>(C2_NAME)(99);
     std::cout << C2_NAME << " placed in shared memory: " << *pC2 << '\n';
 }

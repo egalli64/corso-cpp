@@ -1,18 +1,27 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * weak_ptr
+ */
+#include "Programmer.h"
+#include "Project.h"
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "Programmer.h"
-#include "Project.h"
 
-std::ostream& operator<<(std::ostream& os, const Project& project) {
+std::ostream &operator<<(std::ostream &os, const Project &project)
+{
     os << '{' << project.name_;
     os << " [ ";
-    for (auto p : project.programmers_) {
+    for (auto p : project.programmers_)
+    {
         std::shared_ptr<Programmer> sp = p.lock();
-        if (sp) {
+        if (sp)
+        {
             os << sp->name() << ' ';
         }
-        else {
+        else
+        {
             os << "Expired programmer ";
         }
     }
@@ -20,15 +29,19 @@ std::ostream& operator<<(std::ostream& os, const Project& project) {
     return os << "]}";
 }
 
-std::ostream& operator<<(std::ostream& os, const Programmer& programmer) {
+std::ostream &operator<<(std::ostream &os, const Programmer &programmer)
+{
     os << '{' << programmer.name_;
     os << " [ ";
-    for (auto p : programmer.projects_) {
+    for (auto p : programmer.projects_)
+    {
         std::shared_ptr<Project> sp = p.lock();
-        if (sp) {
+        if (sp)
+        {
             os << sp->name() << ' ';
         }
-        else {
+        else
+        {
             os << "Expired project ";
         }
     }
@@ -36,29 +49,36 @@ std::ostream& operator<<(std::ostream& os, const Programmer& programmer) {
     return os << "]}";
 }
 
-namespace {
-    void link(std::shared_ptr<Programmer> programmer, std::shared_ptr<Project> project) {
-        std::cout << programmer->name() << " -> " << project->name() << '\n';
-        programmer->attachTo(project);
-        project->add(programmer);
-    }
-
-    void dump(const std::vector<std::shared_ptr<Programmer>>& programmers) {
-        for (const auto programmer : programmers) {
-            std::cout << *programmer << ' ';
-        }
-        std::cout << '\n';
-    }
-
-    void dump(const std::vector<std::shared_ptr<Project>>& projects) {
-        for (const auto project : projects) {
-            std::cout << *project << ' ';
-        }
-        std::cout << '\n';
-    }
+namespace
+{
+void link(std::shared_ptr<Programmer> programmer, std::shared_ptr<Project> project)
+{
+    std::cout << programmer->name() << " -> " << project->name() << '\n';
+    programmer->attachTo(project);
+    project->add(programmer);
 }
 
-int main() {
+void dump(const std::vector<std::shared_ptr<Programmer>> &programmers)
+{
+    for (const auto programmer : programmers)
+    {
+        std::cout << *programmer << ' ';
+    }
+    std::cout << '\n';
+}
+
+void dump(const std::vector<std::shared_ptr<Project>> &projects)
+{
+    for (const auto project : projects)
+    {
+        std::cout << *project << ' ';
+    }
+    std::cout << '\n';
+}
+} // namespace
+
+int main()
+{
     std::vector<std::shared_ptr<Programmer>> programmers;
     programmers.push_back(std::make_shared<Programmer>("Bob"));
     programmers.push_back(std::make_shared<Programmer>("Tom"));

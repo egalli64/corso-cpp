@@ -1,4 +1,8 @@
-// c++ -Wall b5_named_remove.cpp -lrt -pthread -o b5.exe
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b5_named_remove.cpp -lrt -pthread -o b5.exe
+ */
 #include <boost/interprocess/managed_shared_memory.hpp>
 #include <boost/interprocess/sync/named_condition.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
@@ -6,13 +10,15 @@
 
 namespace bi = boost::interprocess;
 
-namespace {
-    const char* SHMEM_NAME = "MySharedMemory";
-    const char* MUTEX_NAME = "MyMutex";
-    const char* CONDITION_NAME = "MyCondition";
-}
+namespace
+{
+const char *SHMEM_NAME = "MySharedMemory";
+const char *MUTEX_NAME = "MyMutex";
+const char *CONDITION_NAME = "MyCondition";
+} // namespace
 
-int main() {
+int main()
+{
     bool result = bi::shared_memory_object::remove(SHMEM_NAME);
     std::cout << SHMEM_NAME << (result ? "" : " not") << " removed\n";
 

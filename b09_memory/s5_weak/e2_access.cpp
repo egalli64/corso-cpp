@@ -1,17 +1,26 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * weak_ptr
+ */
+#include "../Thing.h"
 #include <iostream>
 #include <memory>
-#include "../Thing.h"
 
-int main() {
+int main()
+{
     std::shared_ptr<Thing> sp = std::make_shared<Thing>(42);
 
-    std::weak_ptr<Thing> wp{ sp };
-    if (wp.expired()) {
+    std::weak_ptr<Thing> wp{sp};
+    if (wp.expired())
+    {
         std::cout << "Unexpected!\n";
     }
-    else {
+    else
+    {
         std::shared_ptr<Thing> spw = wp.lock();
-        if (spw) {
+        if (spw)
+        {
             std::cout << "Shared ptr locked: ";
             spw->hello();
         }
@@ -23,15 +32,19 @@ int main() {
     sp.reset();
     std::cout << "After resetting the referred shared ptr, the weak ptr is expired!\n";
 
-    if (!wp.expired()) {
+    if (!wp.expired())
+    {
         std::cout << "Unexpected!\n";
     }
-    else {
+    else
+    {
         std::shared_ptr<Thing> spw = wp.lock();
-        if (spw) {
+        if (spw)
+        {
             std::cout << "Unexpected!\n";
         }
-        else {
+        else
+        {
             std::cout << "Expired weak ptr\n";
         }
     }

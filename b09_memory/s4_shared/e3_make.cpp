@@ -1,13 +1,21 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * shared_ptr
+ */
 #include <iostream>
 #include <memory>
 
-int main() {
+int main()
+{
     std::cout << "Prefer creating shared ptr by make_shared\n";
     std::shared_ptr<int> sp = std::make_shared<int>(42);
-    if (sp) {
+    if (sp)
+    {
         std::cout << "Value is " << *sp << '\n';
     }
-    else {
+    else
+    {
         std::cout << "Unexpected!\n";
     }
 }

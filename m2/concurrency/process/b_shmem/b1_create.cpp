@@ -1,4 +1,8 @@
-// c++ -Wall b1_create.cpp -lrt -o b1.exe
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b1_create.cpp -lrt -o b1.exe
+ */
 #include <boost/interprocess/shared_memory_object.hpp>
 #include <iostream>
 

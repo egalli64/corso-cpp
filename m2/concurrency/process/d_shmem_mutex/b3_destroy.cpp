@@ -1,22 +1,30 @@
-// c++ -Wall b3_destroy.cpp -lrt -pthread -o b3.exe
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * c++ -Wall b3_destroy.cpp -lrt -pthread -o b3.exe
+ */
 #include <boost/interprocess/managed_shared_memory.hpp>
 #include <boost/interprocess/sync/interprocess_mutex.hpp>
 #include <iostream>
 
 namespace bi = boost::interprocess;
 
-namespace {
-    const char* SHMEM_NAME = "MySharedMemory";
-    const char* MUTEX_NAME = "MyMutex";
-}
+namespace
+{
+const char *SHMEM_NAME = "MySharedMemory";
+const char *MUTEX_NAME = "MyMutex";
+} // namespace
 
-int main() {
-    bi::managed_shared_memory msm{ bi::open_only, SHMEM_NAME };
+int main()
+{
+    bi::managed_shared_memory msm{bi::open_only, SHMEM_NAME};
 
-    if (msm.destroy<bi::interprocess_mutex>(MUTEX_NAME)) {
+    if (msm.destroy<bi::interprocess_mutex>(MUTEX_NAME))
+    {
         std::cout << MUTEX_NAME << " destroyed\n";
     }
-    else {
+    else
+    {
         std::cout << MUTEX_NAME << " not destroyed\n";
     }
 }
