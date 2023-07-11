@@ -4,18 +4,17 @@
  * final class
  */
 #include <iostream>
-using namespace std;
 
 // A final class
 class Animal final
 {
 private:
-    string name_;
+    std::string name_;
 
 public:
-    Animal(const string &name) : name_(name) {}
+    Animal(const std::string &name) : name_(name) {}
 
-    const string &name() const { return name_; }
+    const std::string &name() const { return name_; }
 };
 
 // can't extend a final class
@@ -24,5 +23,5 @@ public:
 int main()
 {
     Animal tom{"Tom"};
-    cout << tom.name() << '\n';
+    std::cout << tom.name() << '\n';
 }
