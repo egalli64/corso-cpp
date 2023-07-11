@@ -3,8 +3,8 @@
  *
  * SL Array
  */
-#include <iostream>
 #include <array>
+#include <iostream>
 
 void print(const std::array<int, 3> &data)
 {

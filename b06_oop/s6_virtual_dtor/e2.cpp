@@ -7,26 +7,39 @@
 
 class Animal
 {
-private:
+  private:
     std::string name_;
 
-public:
-    Animal(const std::string &name) : name_(name) {}
+  public:
+    Animal(const std::string &name) : name_(name)
+    {
+    }
     // virtual, as it should be
-    virtual ~Animal() { std::cout << "Animal dtor for " << name_ << '\n'; }
+    virtual ~Animal()
+    {
+        std::cout << "Animal dtor for " << name_ << '\n';
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
     virtual std::string fullName() const = 0;
 };
 
 class Dog : public Animal
 {
-private:
+  private:
     std::string owner_;
 
-public:
-    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
-    ~Dog() { std::cout << "Dog dtor, owner " << owner_ << '\n'; }
+  public:
+    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    {
+    }
+    ~Dog()
+    {
+        std::cout << "Dog dtor, owner " << owner_ << '\n';
+    }
 
     std::string fullName() const override
     {

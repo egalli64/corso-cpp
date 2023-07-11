@@ -7,25 +7,43 @@
 
 class Point
 {
-private:
+  private:
     int x_;
     const int y_;
 
-public:
+  public:
     // the default ctor
-    Point() : x_{0}, y_{0} {}
+    Point() : x_{0}, y_{0}
+    {
+    }
     // a plain explicit ctor
-    explicit Point(int x) : x_{x}, y_{0} {}
+    explicit Point(int x) : x_{x}, y_{0}
+    {
+    }
     // another plain ctor
-    Point(int x, int y) : x_{x}, y_{y} {}
+    Point(int x, int y) : x_{x}, y_{y}
+    {
+    }
 
     // the dtor
-    ~Point() { std::cout << "dtor " << x_ << ' ' << y_ << '\n'; }
+    ~Point()
+    {
+        std::cout << "dtor " << x_ << ' ' << y_ << '\n';
+    }
 
-    int x() { return x_; }
-    int y() { return y_; }
+    int x()
+    {
+        return x_;
+    }
+    int y()
+    {
+        return y_;
+    }
 
-    void increaseX(int delta) { x_ += delta; }
+    void increaseX(int delta)
+    {
+        x_ += delta;
+    }
 };
 
 int main()

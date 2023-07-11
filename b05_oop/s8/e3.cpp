@@ -7,12 +7,12 @@
 
 class Player
 {
-private:
+  private:
     static int count_;
     int id_;
     double score_;
 
-public:
+  public:
     Player(int id, double score) : id_(id), score_(score)
     {
         count_ += 1;
@@ -25,9 +25,18 @@ public:
         std::cout << "Dtor, count is " << count_ << '\n';
     }
 
-    int id() const { return id_; }
-    double score() const { return score_; }
-    void increaseScore(double delta) { score_ += delta; }
+    int id() const
+    {
+        return id_;
+    }
+    double score() const
+    {
+        return score_;
+    }
+    void increaseScore(double delta)
+    {
+        score_ += delta;
+    }
 
     static void printCount();
 };

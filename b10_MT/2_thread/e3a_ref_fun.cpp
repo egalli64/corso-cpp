@@ -13,11 +13,11 @@
 
 namespace
 {
-    void adder_function(const std::vector<int> &values, int &result)
-    {
-        result = std::accumulate(values.begin(), values.end(), 0);
-    }
+void adder_function(const std::vector<int> &values, int &result)
+{
+    result = std::accumulate(values.begin(), values.end(), 0);
 }
+} // namespace
 
 int main()
 {

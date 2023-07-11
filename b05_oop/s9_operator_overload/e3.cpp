@@ -8,13 +8,18 @@
 // A function object
 class Adder
 {
-private:
+  private:
     const int addendum_;
 
-public:
-    Adder(int addendum) : addendum_(addendum) {}
+  public:
+    Adder(int addendum) : addendum_(addendum)
+    {
+    }
 
-    int operator()(int value) const { return value + addendum_; }
+    int operator()(int value) const
+    {
+        return value + addendum_;
+    }
 };
 
 int main()

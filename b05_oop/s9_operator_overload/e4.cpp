@@ -10,19 +10,33 @@ class Point
 {
     friend std::ostream &operator<<(std::ostream &os, const Point &point);
 
-private:
+  private:
     int x_;
     int y_;
     const std::string label_;
 
-public:
-    Point(int x, int y, const std::string &label) : x_(x), y_(y), label_(label) {}
+  public:
+    Point(int x, int y, const std::string &label) : x_(x), y_(y), label_(label)
+    {
+    }
 
-    int x() const { return x_; }
-    int y() const { return y_; }
+    int x() const
+    {
+        return x_;
+    }
+    int y() const
+    {
+        return y_;
+    }
 
-    void horMove(int delta) { x_ += delta; }
-    void vertMove(int delta) { y_ += delta; }
+    void horMove(int delta)
+    {
+        x_ += delta;
+    }
+    void vertMove(int delta)
+    {
+        y_ += delta;
+    }
 
     std::ostream &write(std::ostream &os) const
     {

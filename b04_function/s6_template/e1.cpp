@@ -6,8 +6,7 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-void print(const T &x)
+template <typename T> void print(const T &x)
 {
     std::cout << "The value is " << x << '\n';
 }

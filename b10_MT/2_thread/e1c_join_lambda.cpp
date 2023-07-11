@@ -13,21 +13,20 @@
 
 namespace
 {
-    void loop1KOn(char c)
+void loop1KOn(char c)
+{
+    for (int i = 0; i < 1'000; i++)
     {
-        for (int i = 0; i < 1'000; i++)
-        {
-            std::cout << c;
-        }
+        std::cout << c;
     }
 }
+} // namespace
 
 int main()
 {
     std::cout << "Warning! This code is not thread safe!\n";
 
-    auto greeter = [](const std::string &s)
-    {
+    auto greeter = [](const std::string &s) {
         loop1KOn(s[0]);
 
         std::cout << s;

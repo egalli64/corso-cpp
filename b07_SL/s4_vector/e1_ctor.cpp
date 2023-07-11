@@ -7,8 +7,7 @@
 #include <string>
 #include <vector>
 
-template <typename T>
-void print(const std::vector<T> &values, const std::string &label)
+template <typename T> void print(const std::vector<T> &values, const std::string &label)
 {
     std::cout << label << ": ";
     for (const T &value : values)

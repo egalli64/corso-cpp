@@ -3,8 +3,8 @@
  *
  * A class meant to be derived
  */
-#ifndef PAO_CPP_M1_P7_S4_ENTRY_H
-#define PAO_CPP_M1_P7_S4_ENTRY_H
+#ifndef CORSO_CPP_B7_S4_ENTRY_H
+#define CORSO_CPP_B7_S4_ENTRY_H
 
 #include <iostream>
 #include <string>
@@ -12,11 +12,11 @@
 
 class Entry
 {
-private:
+  private:
     int key_;
     std::string value_;
 
-public:
+  public:
     Entry(int key, const std::string &value) : key_(key), value_(value)
     {
         std::cout << "Plain ctor for " << value_ << '\n';
@@ -53,11 +53,23 @@ public:
         return *this;
     }
 
-    int key() const { return key_; }
-    const std::string &value() const { return value_; }
+    int key() const
+    {
+        return key_;
+    }
+    const std::string &value() const
+    {
+        return value_;
+    }
 
-    void setKey(int key) { key_ = key; };
-    void setValue(const std::string &value) { value_ = value; }
+    void setKey(int key)
+    {
+        key_ = key;
+    };
+    void setValue(const std::string &value)
+    {
+        value_ = value;
+    }
 
     virtual void sayHello() const
     {
@@ -75,4 +87,4 @@ inline std::ostream &operator<<(std::ostream &os, const Entry &entry)
     return os << '{' << entry.key() << ", " << entry.value() << '}';
 }
 
-#endif // PAO_CPP_M1_P7_S4_ENTRY_H
+#endif // CORSO_CPP_B7_S4_ENTRY_H

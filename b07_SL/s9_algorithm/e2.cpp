@@ -10,11 +10,13 @@
 
 class HasSizeEqualTo
 {
-private:
+  private:
     const size_t size_;
 
-public:
-    HasSizeEqualTo(const int size) : size_(size) {}
+  public:
+    HasSizeEqualTo(const int size) : size_(size)
+    {
+    }
 
     bool operator()(const std::string &other) const
     {
@@ -24,11 +26,13 @@ public:
 
 class Concatenate
 {
-private:
+  private:
     const std::string tag_;
 
-public:
-    Concatenate(const std::string &tag) : tag_(tag) {}
+  public:
+    Concatenate(const std::string &tag) : tag_(tag)
+    {
+    }
 
     std::string operator()(const std::string &other) const
     {
@@ -38,12 +42,14 @@ public:
 
 class PrintToStreamSized
 {
-private:
+  private:
     std::ostream &os_;
     const size_t size_;
 
-public:
-    PrintToStreamSized(std::ostream &os, size_t size) : os_(os), size_(size) {}
+  public:
+    PrintToStreamSized(std::ostream &os, size_t size) : os_(os), size_(size)
+    {
+    }
 
     void operator()(const std::string &s) const
     {

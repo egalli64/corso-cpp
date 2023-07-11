@@ -10,13 +10,13 @@
 
 namespace
 {
-    void print(const std::vector<int> &data, const std::string &message = "")
-    {
-        std::cout << message << ": ";
-        copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
-        std::cout << '\n';
-    }
+void print(const std::vector<int> &data, const std::string &message = "")
+{
+    std::cout << message << ": ";
+    copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 }
+} // namespace
 
 int main()
 {
@@ -25,10 +25,7 @@ int main()
 
     std::cout << "Capturing by reference (be careful with this one!)\n";
     int i = 0;
-    auto risky = [&i](int &cur)
-    {
-        cur += i;
-    };
+    auto risky = [&i](int &cur) { cur += i; };
 
     while (i < 3)
     {

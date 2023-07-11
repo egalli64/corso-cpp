@@ -3,8 +3,8 @@
  *
  * Operators: bitwise
  */
-#include <iostream>
 #include <bitset>
+#include <iostream>
 
 int main()
 {

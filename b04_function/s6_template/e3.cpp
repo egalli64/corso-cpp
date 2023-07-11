@@ -6,8 +6,7 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-T sum(T *values, int size)
+template <typename T> T sum(T *values, int size)
 {
     T result{};
 
@@ -19,8 +18,7 @@ T sum(T *values, int size)
     return result;
 }
 
-template <>
-std::string sum(std::string *values, int size)
+template <> std::string sum(std::string *values, int size)
 {
     std::string result{};
 

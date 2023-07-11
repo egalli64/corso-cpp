@@ -8,13 +8,18 @@
 // An abstract class
 class Animal
 {
-private:
+  private:
     std::string name_;
 
-public:
-    Animal(const std::string &name) : name_(name) {}
+  public:
+    Animal(const std::string &name) : name_(name)
+    {
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
     // pure virtual method
     virtual std::string fullName() const = 0;
 };
@@ -22,11 +27,13 @@ public:
 // derives from an abstract class, to be concrete must override the inherited abstract methods
 class Dog : public Animal
 {
-private:
+  private:
     std::string owner_;
 
-public:
-    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
+  public:
+    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    {
+    }
 
     std::string fullName() const override
     {

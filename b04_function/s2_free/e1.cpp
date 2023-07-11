@@ -13,7 +13,9 @@ void printHello();
 /**
  * @brief Defining a minimal free function
  */
-void empty() {}
+void empty()
+{
+}
 
 /**
  * @brief Defining the main function

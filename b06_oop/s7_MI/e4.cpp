@@ -8,10 +8,10 @@
 // virtual base class
 class Actor
 {
-private:
+  private:
     std::string name_;
 
-public:
+  public:
     Actor()
     {
         std::cout << "Actor default ctor" << '\n';
@@ -22,16 +22,22 @@ public:
         std::cout << "Actor ctor for " << name << '\n';
     }
 
-    virtual ~Actor() { std::cout << "Actor dtor for " << name_ << '\n'; }
+    virtual ~Actor()
+    {
+        std::cout << "Actor dtor for " << name_ << '\n';
+    }
 
-    const std::string &name() const { return name_; }
+    const std::string &name() const
+    {
+        return name_;
+    }
 };
 
 class Animal : virtual public Actor
 {
     int age_;
 
-public:
+  public:
     Animal()
     {
         std::cout << "Animal default ctor" << '\n';
@@ -41,15 +47,18 @@ public:
     {
         std::cout << "Animal ctor for " << name << '\n';
     }
-    ~Animal() { std::cout << "Animal dtor" << '\n'; }
+    ~Animal()
+    {
+        std::cout << "Animal dtor" << '\n';
+    }
 };
 
 class Player : virtual public Actor
 {
-private:
+  private:
     std::string game_;
 
-public:
+  public:
     Player(const std::string &game) : game_(game)
     {
         std::cout << "Player ctor for " << game << '\n';
@@ -60,14 +69,20 @@ public:
         std::cout << "Player ctor for " << name << ", " << game << '\n';
     }
 
-    ~Player() { std::cout << "Player dtor for " << game_ << '\n'; }
+    ~Player()
+    {
+        std::cout << "Player dtor for " << game_ << '\n';
+    }
 
-    const std::string &game() const { return game_; }
+    const std::string &game() const
+    {
+        return game_;
+    }
 };
 
 class Dog : public Animal, Player
 {
-public:
+  public:
     // The diamond problem is solved from below
     Dog(const std::string &name, const std::string &game) : Animal(), Player(game), Actor(name)
     {

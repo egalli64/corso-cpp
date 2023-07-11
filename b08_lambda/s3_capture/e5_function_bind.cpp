@@ -11,23 +11,23 @@
 
 namespace
 {
-    void print(const std::vector<int> &data, const std::string &message = "")
-    {
-        std::cout << message << ": ";
-        copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
-        std::cout << '\n';
-    }
-
-    void increaseValueBy(int &value, int delta)
-    {
-        value += delta;
-    }
-
-    void increaseByValue(int delta, int &value)
-    {
-        value += delta;
-    }
+void print(const std::vector<int> &data, const std::string &message = "")
+{
+    std::cout << message << ": ";
+    copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 }
+
+void increaseValueBy(int &value, int delta)
+{
+    value += delta;
+}
+
+void increaseByValue(int delta, int &value)
+{
+    value += delta;
+}
+} // namespace
 
 int main()
 {
