@@ -7,21 +7,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
-void print(const vector<string> &items, const string &label)
+void print(const std::vector<std::string> &items, const std::string &label)
 {
-    cout << label << " [ ";
+    std::cout << label << " [ ";
     for (const auto &item : items)
     {
-        cout << item << ' ';
+        std::cout << item << ' ';
     }
-    cout << "]\n";
+    std::cout << "]\n";
 }
 
 int main()
 {
-    vector<string> data{"tom", "bob", "kim"};
+    std::vector<std::string> data{"tom", "bob", "kim"};
     print(data, "A string vector");
     sort(data.begin(), data.end());
     stable_sort(data.begin(), data.end());

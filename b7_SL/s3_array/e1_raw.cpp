@@ -4,16 +4,15 @@
  * No SL Array: the raw array
  */
 #include <iostream>
-using namespace std;
 
 void print(int *data, size_t size)
 {
-    cout << "Printing the content of an int array sized " << size << ": ";
+    std::cout << "Printing the content of an int array sized " << size << ": ";
     for (size_t i = 0; i < size; ++i)
     {
-        cout << data[i] << ' ';
+        std::cout << data[i] << ' ';
     }
-    cout << '\n';
+    std::cout << '\n';
 }
 
 int main()

@@ -7,16 +7,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
-void print(const vector<int> &items, const string &label)
+void print(const std::vector<int> &items, const std::string &label)
 {
-    cout << label << " [ ";
+    std::cout << label << " [ ";
     for (const auto &item : items)
     {
-        cout << item << ' ';
+        std::cout << item << ' ';
     }
-    cout << "]\n";
+    std::cout << "]\n";
 }
 
 // it is not difficult to create own "algorithm" similar to the standard ones
@@ -33,10 +32,10 @@ void square(IT first, IT last)
 
 int main()
 {
-    vector<int> values{7, 3, 11};
+    std::vector<int> values{7, 3, 11};
     print(values, "A vector");
 
-    replace(values.begin(), values.end(), 3, 5);
+    std::replace(values.begin(), values.end(), 3, 5);
     print(values, "Replaced");
 
     square(values.begin(), values.end());
