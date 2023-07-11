@@ -1,8 +1,15 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * lambda: return type deduction
+ */
 #include <iostream>
 
-int main() {
+int main()
+{
     // return type is deduced as double
-    auto square = [] (double value) {
+    auto square = [](double value)
+    {
         return value * value;
     };
 
