@@ -12,7 +12,7 @@ int main()
 {
     // a is declared as int, but not initialized
     int a;
-    // when compiled with -Wall flag -> warning: access to uninitialized variable
+    // when compiled with -Wall flag -> warning: uninitialized
     std::cout << "!!! BAD IDEA !!! " << a << '\n';
 
     a = 5; // a is initialized to 5
