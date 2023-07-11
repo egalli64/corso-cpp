@@ -1,10 +1,9 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * function
+ * function with doxygen style document comment
  */
 #include <iostream>
-using namespace std;
 
 /**
  * @brief Declaring a free function
@@ -33,5 +32,5 @@ int main()
  */
 void printHello()
 {
-    cout << "Hello\n";
+    std::cout << "Hello\n";
 }
