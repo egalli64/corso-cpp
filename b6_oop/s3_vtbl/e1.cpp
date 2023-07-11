@@ -5,7 +5,6 @@
  */
 #include <cmath>
 #include <iostream>
-using namespace std;
 
 class Point
 {
@@ -42,8 +41,8 @@ public:
 int main()
 {
     Point a{8, 1};
-    cout << "Distance from origin is " << a.distanceFromOrigin() << '\n';
+    std::cout << "Distance from origin is " << a.distanceFromOrigin() << '\n';
 
     Point3D b{8, 1, 5};
-    cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
+    std::cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
 }

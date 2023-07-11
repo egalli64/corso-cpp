@@ -5,7 +5,6 @@
  */
 #include <cmath>
 #include <iostream>
-using namespace std;
 
 class Couple
 {
@@ -22,7 +21,7 @@ public:
     void second(const int second) { second_ = second; }
 };
 
-ostream &operator<<(ostream &os, const Couple &couple)
+std::ostream &operator<<(std::ostream &os, const Couple &couple)
 {
     return os << '(' << couple.first() << ", " << couple.second() << ')';
 }
@@ -40,9 +39,9 @@ public:
 
 int main()
 {
-    Couple couple(4, 3);
-    cout << "Couple: " << couple << '\n';
+    Couple couple{4, 3};
+    std::cout << "Couple: " << couple << '\n';
 
-    Point point(8, 1);
-    cout << "Point: " << point << " distance from origin is " << point.distanceFromOrigin() << '\n';
+    Point point{8, 1};
+    std::cout << "Point: " << point << " distance from origin is " << point.distanceFromOrigin() << '\n';
 }

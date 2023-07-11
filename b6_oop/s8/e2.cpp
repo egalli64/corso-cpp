@@ -4,7 +4,6 @@
  * Protected inheritance
  */
 #include <iostream>
-using namespace std;
 
 class Tail
 {
@@ -14,14 +13,14 @@ private:
 public:
     Tail(int count) : count_(count) {}
 
-    void wag(const string &name) const
+    void wag(const std::string &name) const
     {
-        cout << name << ": ";
+        std::cout << name << ": ";
         for (int i = 0; i < count_; ++i)
         {
-            cout << "wag";
+            std::cout << "wag";
         }
-        cout << '\n';
+        std::cout << '\n';
     }
 };
 
@@ -29,31 +28,31 @@ public:
 class Dog : protected Tail
 {
 protected:
-    string name_;
+    std::string name_;
 
 public:
-    Dog(const string &name, int count) : Tail(count), name_(name) {}
+    Dog(const std::string &name, int count) : Tail(count), name_(name) {}
 
     void bark()
     {
-        cout << name_ << ": bark!\n";
+        std::cout << name_ << ": bark!\n";
         wag(name_);
     }
 
     virtual void eat()
     {
-        cout << name_ << ": eat\n";
+        std::cout << name_ << ": eat\n";
     }
 };
 
 class Poodle : public Dog
 {
 public:
-    Poodle(const string &name) : Dog(name, 2) {}
+    Poodle(const std::string &name) : Dog(name, 2) {}
 
     void eat() override
     {
-        cout << name_ << ": eat\n";
+        std::cout << name_ << ": eat\n";
         wag(name_);
     }
 };

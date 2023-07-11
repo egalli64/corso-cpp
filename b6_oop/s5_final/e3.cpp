@@ -4,31 +4,30 @@
  * pure virtual / final method
  */
 #include <iostream>
-using namespace std;
 
 // An abstract class
 class Animal
 {
 private:
-    string name_;
+    std::string name_;
 
 public:
-    Animal(const string &name) : name_(name) {}
+    Animal(const std::string &name) : name_(name) {}
 
-    const string &name() const { return name_; }
+    const std::string &name() const { return name_; }
     // pure virtual method
-    virtual string fullName() = 0;
+    virtual std::string fullName() = 0;
 };
 
 class Dog : public Animal
 {
 private:
-    string owner_;
+    std::string owner_;
 
 public:
-    Dog(const string &name, const string &owner) : Animal(name), owner_(owner) {}
+    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner) {}
 
-    string fullName() override final
+    std::string fullName() override final
     {
         return Animal::name() + " owned by " + owner_;
     }
@@ -37,7 +36,7 @@ public:
 class Poodle : public Dog
 {
 public:
-    Poodle(const string &name, const string &owner) : Dog(name, owner) {}
+    Poodle(const std::string &name, const std::string &owner) : Dog(name, owner) {}
 
     // can't override a final method
     // string fullName() override { return "Poodle " + Dog::fullName(); }
@@ -46,8 +45,8 @@ public:
 int main()
 {
     Dog bob{"Bob", "Robert Smith"};
-    cout << bob.fullName() << '\n';
+    std::cout << bob.fullName() << '\n';
 
     Poodle tom{"Tom", "Thomas Benson"};
-    cout << tom.fullName() << '\n';
+    std::cout << tom.fullName() << '\n';
 }
