@@ -4,23 +4,25 @@
  * Variable declaration, initialization, definition, assignment
  */
 #include <iostream>
-using namespace std;
+
+// if the context is limited, to avoid repeating "std::" is possible to use that namespace
+// using namespace std;
 
 int main()
 {
     // a is declared as int, but not initialized
     int a;
     // when compiled with -Wall flag -> warning: access to uninitialized variable
-    cout << "!!! BAD IDEA !!! " << a << '\n';
+    std::cout << "!!! BAD IDEA !!! " << a << '\n';
 
     a = 5; // a is initialized to 5
-    cout << a << '\n';
+    std::cout << a << '\n';
 
     // variable definition preferred to split declaration and initialization
     int b = 7;
-    cout << b << '\n';
+    std::cout << b << '\n';
 
     // assignment, changing value in a variable
     b = 42;
-    cout << b << '\n';
+    std::cout << b << '\n';
 }
