@@ -1,18 +1,24 @@
 /*
- * c++ -pthread -o a.out e1_on_cout.cpp
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Mutex to synchronize cout access
+ *
+ * g++ -pthread -o a.out e1_on_cout.cpp
  */
 #include <iostream>
-#include <string>
 #include <mutex>
+#include <string>
 #include <thread>
 
-int main() {
+int main()
+{
     std::cout << "Cout access protected by mutex\n";
     std::mutex mtx;
 
-    auto greeter = [&mtx] (const std::string& s) {
+    auto greeter = [&mtx](const std::string &s) {
         mtx.lock();
-        for (int i = 0; i < 1'000; i++) {
+        for (int i = 0; i < 1'000; i++)
+        {
             std::cout << s[0];
         }
 
@@ -23,8 +29,8 @@ int main() {
         mtx.unlock();
     };
 
-    std::thread t1{ greeter, "Hello" };
-    std::thread t2{ greeter, "Goodbye" };
+    std::thread t1{greeter, "Hello"};
+    std::thread t2{greeter, "Goodbye"};
 
     mtx.lock();
     std::cout << "The main thread is ";
