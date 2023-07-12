@@ -1,22 +1,27 @@
 /*
- * c++ -pthread -o a.out e3_start.cpp
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * Mutex to start a thread on request
+ *
+ * g++ -pthread -o a.out e3_start.cpp
  */
 #include <iostream>
 #include <mutex>
 #include <thread>
 
-int main() {
+int main()
+{
     std::mutex mutex;
 
     mutex.lock();
     std::cout << "Main thread locks the mutex\n";
 
-    std::thread t{ [&mutex] {
+    std::thread t{[&mutex] {
         mutex.lock();
         std::cout << "Child thread locks the mutex then unlocks it\n";
         mutex.unlock();
         std::cout << "Child thread does its job\n";
-    } };
+    }};
 
     std::cout << "When ready, the main thread unlocks the mutex\n";
     mutex.unlock();
