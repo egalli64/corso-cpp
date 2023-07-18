@@ -4,7 +4,7 @@
 
 - Test su pre-condition
 - Codice da certificare
-- Test su post-condition
+- Test su pre/post-condition
 
 Es: y = sqrt(x)
     (pre) x >= 0
@@ -27,8 +27,6 @@ Correttezza dell'accesso alle risorse
 Correttezza dell'esecuzione
 - In base ai dati passati o in caso di errori inattesi
 - Aiuta a gestire approcci alternativi (soluzioni fallback)
-
-Può portare a codice eccessivamente complesso
 
 Per segnalare che il codice non un ha modo atteso di proseguire
     "throw" di una variabile di qualunque tipo
