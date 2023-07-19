@@ -102,6 +102,7 @@ Player &Player::operator=(Player &&other)
     std::cout << "Move assigment " << other.id_ << '\n';
 
     id_ = other.id_;
+    delete[] scores_;
     scores_ = other.scores_;
     size_ = other.size_;
 
