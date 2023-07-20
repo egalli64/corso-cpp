@@ -4,7 +4,7 @@
  * assert c-style
  */
 // comment next line to enable assert
-// #define NDEBUG
+#define NDEBUG
 
 #include <cassert>
 #include <iostream>
