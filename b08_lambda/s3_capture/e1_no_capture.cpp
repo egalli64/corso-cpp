@@ -13,7 +13,7 @@ namespace
 void print(const std::vector<int> &data, const std::string &message = "")
 {
     std::cout << message << ": ";
-    copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
     std::cout << '\n';
 }
 
