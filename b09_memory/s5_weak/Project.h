@@ -5,7 +5,9 @@
  */
 #ifndef CORSO_CPP_B9_S5_WEAK_PROJECT
 #define CORSO_CPP_B9_S5_WEAK_PROJECT
+
 #include <iostream>
+#include <memory>
 #include <utility>
 #include <vector>
 
