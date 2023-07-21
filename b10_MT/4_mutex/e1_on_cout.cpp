@@ -13,10 +13,10 @@
 int main()
 {
     std::cout << "Cout access protected by mutex\n";
-    std::mutex mtx;
+    std::mutex mtx_cout;
 
-    auto greeter = [&mtx](const std::string &s) {
-        mtx.lock();
+    auto greeter = [&mtx_cout](const std::string &s) {
+        mtx_cout.lock();
         for (int i = 0; i < 1'000; i++)
         {
             std::cout << s[0];
@@ -26,17 +26,17 @@ int main()
         std::cout << " from ";
         std::cout << std::this_thread::get_id();
         std::cout << '\n';
-        mtx.unlock();
+        mtx_cout.unlock();
     };
 
     std::thread t1{greeter, "Hello"};
     std::thread t2{greeter, "Goodbye"};
 
-    mtx.lock();
+    mtx_cout.lock();
     std::cout << "The main thread is ";
     std::cout << std::this_thread::get_id();
     std::cout << '\n';
-    mtx.unlock();
+    mtx_cout.unlock();
 
     t1.join();
     t2.join();
