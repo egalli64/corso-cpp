@@ -61,27 +61,6 @@ class Employee final
     {
         return subordinates_;
     }
-
-    void printSubordinates() const
-    {
-        std::cout << name();
-        if (!subordinates_.empty())
-        {
-            std::cout << " has as direct subordinates: ";
-            for (const auto &we : subordinates_)
-            {
-                if (auto cur = we.lock(); cur)
-                {
-                    std::cout << cur->name() << " ";
-                }
-            }
-            std::cout << '\n';
-        }
-        else
-        {
-            std::cout << " has no subordinates\n";
-        }
-    }
 };
 
 std::ostream &operator<<(std::ostream &os, const Employee &e)
@@ -89,14 +68,29 @@ std::ostream &operator<<(std::ostream &os, const Employee &e)
     os << e.name() << " (" << e.title() << ") ";
     if (auto m = e.manager().lock(); m)
     {
-        os << "refers to " << m->name();
+        os << "refers to " << m->name() << ". ";
     }
     else
     {
-        os << "has no manager";
+        os << "has no manager. ";
     }
 
-    return os << " and has " << e.subordinates().size() << " direct subordinates";
+    std::cout << "Subordinates: ";
+    bool empty = false;
+    for (const auto &we : e.subordinates())
+    {
+        if (auto cur = we.lock(); cur)
+        {
+            empty = true;
+            std::cout << cur->name() << " ";
+        }
+    }
+    if (!empty)
+    {
+        std::cout << "(none)";
+    }
+
+    return os;
 }
 
 int main()
@@ -127,13 +121,9 @@ int main()
     std::for_each(employees.begin(), employees.end(), [](auto e) { std::cout << *e << '\n'; });
     std::cout << '\n';
 
-    std::for_each(employees.begin(), employees.end(), [](auto e) { e->printSubordinates(); });
-    std::cout << '\n';
-
     employees.erase(employees.begin());
-    std::cout << "After erasing the CEO:\n";
+    employees.erase(employees.end());
+    std::cout << "After erasing Alice and Frank:\n";
     std::for_each(employees.begin(), employees.end(), [](auto e) { std::cout << *e << '\n'; });
     std::cout << '\n';
-
-    std::for_each(employees.begin(), employees.end(), [](auto e) { e->printSubordinates(); });
 }
