@@ -11,24 +11,24 @@
 
 int main()
 {
-    std::mutex mtx;
-    int result{0};
     constexpr int count{50'000};
+    std::mutex mtx_result;
+    int result{0};
 
-    std::thread t{[&] {
+    std::thread t{[&mtx_result, &result] {
         for (int i = 0; i < count; ++i)
         {
-            mtx.lock();
+            mtx_result.lock();
             result++;
-            mtx.unlock();
+            mtx_result.unlock();
         }
     }};
 
     for (int i = 0; i < count; ++i)
     {
-        mtx.lock();
+        mtx_result.lock();
         result++;
-        mtx.unlock();
+        mtx_result.unlock();
     }
 
     t.join();
