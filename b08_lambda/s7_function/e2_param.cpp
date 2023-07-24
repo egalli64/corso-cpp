@@ -3,13 +3,15 @@
  *
  * A HOF with a std::function param
  */
+#include <algorithm>
 #include <functional>
 #include <iostream>
 #include <vector>
 
 namespace my
 {
-void for_each_vi(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end, std::function<void(int)> f)
+void for_each_vi(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end,
+                 std::function<void(int)> f)
 {
     for (auto it = begin; it != end; ++it)
     {
