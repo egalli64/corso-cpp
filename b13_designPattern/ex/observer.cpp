@@ -78,6 +78,7 @@ class Publisher : public Observee
             observer->update(info);
         }
         // std::for_each(observers_.begin(), observers_.end(), [this](auto obs) { obs->update(latest_); });
+        // std::for_each(observers_.begin(), observers_.end(), std::bind(&Observer::update, std::placeholders::_1, latest_));
     }
 
     void set_notify(const std::string &latest)
