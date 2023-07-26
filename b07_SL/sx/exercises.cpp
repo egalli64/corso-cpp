@@ -1,3 +1,8 @@
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * SL algorithm exercises (w/ solution)
+ */
 #include <algorithm>
 #include <iostream>
 #include <numeric>
