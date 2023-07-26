@@ -68,4 +68,37 @@ int main()
     bool hasG = std::any_of(strings.begin(), strings.end(),
                             [](const std::string &s) { return s.find('g') != std::string::npos; });
     std::cout << "Is there a 'g' in at least a string? " << (hasG ? "Yes" : "No") << '\n';
+
+    // 7. replace the odd values in data with 0
+    std::replace_if(
+        data.begin(), data.end(), [](int x) { return x % 2 == 1; }, 0);
+    print(data, "No odd");
+
+    // 8. check if all the values in data are non negative
+    bool allEven = std::all_of(data.begin(), data.end(), [](int x) { return x % 2 == 0; });
+    std::cout << "All data even? " << (allEven ? "Yes" : "No") << '\n';
+
+    // 9. add the element in the same position in data and squared and put that values in a new vector
+    std::vector<int> merged;
+    std::transform(data.begin(), data.end(), squared.begin(), std::back_inserter(merged),
+                   [](int lhs, int rhs) { return lhs + rhs; });
+    print(merged, "Merged");
+
+    // 10. copy the even values in vector (9) in a new vector
+    std::vector<int> evens;
+    std::copy_if(merged.begin(), merged.end(), std::back_inserter(evens), [](int x) { return x % 2 == 0; });
+    print(evens, "Even numbers");
+
+    // 11. print the vector (10) in reversed order
+    std::cout << "Reversed order: ";
+    for (auto it = evens.rbegin(); it != evens.rend(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << '\n';
+
+    // 12. calculate and put in a new vector the partial sum of the elements in (9)
+    std::vector<int> ps;
+    std::partial_sum(merged.begin(), merged.end(), std::back_inserter(ps));
+    print(ps, "Partial sum");
 }
