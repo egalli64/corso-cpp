@@ -1,0 +1,45 @@
+Programmazione avanzata in C++
+
+
+Giorno 1
+ Stima del tempo di esecuzione di un algoritmo - O grande
+ Algoritmi e implementazione di:
+  Bubble sort
+  Selection sort
+  Merge sort
+  Ricerca binaria
+
+Giorno 2
+ Introduzione ai puntatori in C++
+ Accesso ad elementi di array con puntatori
+ Gestione dinamica della memoria con puntatori
+ Gestione input/output
+ Operazioni di lettura/scrittura su file in linguaggio C
+ 
+Giorno 3
+ Introduzione alle liste concatenate in C++
+  Inserimento e scorrimento
+  Eliminazione e ricerca in liste concatenate in C++
+ Implementazione di code come liste concatenate in C++
+ Implementazione di pile come liste concatenate in C++
+
+Giorno 4
+ Introduzione alla struttura dati albero binario in C++
+ Codice esempio di gestione albero binario in C++
+ Introduzione alla struttura dati albero binario di ricerca in C++
+
+Giorno 5
+ Introduzione all'uso dei file di testo
+ Gestione di file di testo con C++
+ Gestione avanzata di stringhe in C++
+
+Giorno 6
+ Gestione di vettori dinamici
+ Iteratori e principali algoritmi su vettori
+ Codice di esempio sulla gestione di vettori di struct dinamici
+
+Giorno 7
+ Relazione d'ordine tramite funzioni lambda
+ Codice di esempio sul passaggio di vector a funzioni
+ Codice di esempio sulla gestione di code tramite vector
+
