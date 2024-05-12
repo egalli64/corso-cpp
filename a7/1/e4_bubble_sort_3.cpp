@@ -18,10 +18,10 @@ void print(int *data, size_t size)
 int main()
 {
     // a random example
-    // int values[]{6, 1, 3, 4, 5, 2};
+    // int values[]{6, 1, 3, 7, 4, 5, 2, 8};
 
     // check it on an almost-sorted array
-    int values[]{6, 1, 2, 3, 4, 5};
+    int values[]{6, 1, 2, 3, 4, 5, 7, 8};
     constexpr size_t sz = sizeof(values) / sizeof(int);
 
     std::cout << "Working on: ";
