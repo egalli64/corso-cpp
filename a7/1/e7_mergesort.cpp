@@ -62,7 +62,7 @@ void merge(int values[], int left, int center, int right)
     }
 }
 
-void sort(int *values, int left, int right)
+void sort(int values[], int left, int right)
 {
     if (left >= right)
     {
