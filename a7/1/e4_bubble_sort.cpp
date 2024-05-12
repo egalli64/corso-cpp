@@ -17,7 +17,7 @@ void print(int *data, size_t size)
 
 int main()
 {
-    int values[]{6, 1, 3, 4};
+    int values[]{6, 1, 3, 4, 5, 2};
     constexpr size_t sz = sizeof(values) / sizeof(int);
 
     std::cout << "Working on: ";
@@ -25,10 +25,12 @@ int main()
 
     for (int i = 0; i < sz - 1; i++)
     {
+        std::cout << "Iteration " << i << '\n';
         for (int j = 0; j < sz - 1; j++)
         {
             if (values[j] > values[j + 1])
             {
+                std::cout << "Swapping on " << j << '\n';
                 int temp = values[j];
                 values[j] = values[j + 1];
                 values[j + 1] = temp;
