@@ -37,11 +37,6 @@ int recursive(int values[], int target, int first, int last)
     }
 }
 
-int recursive(int values[], int target, size_t sz)
-{
-    return recursive(values, target, 0, sz - 1);
-}
-
 int main()
 {
     int values[]{3, 6, 10, 15, 19, 22, 27, 34, 36, 42, 45};
@@ -51,7 +46,7 @@ int main()
     print(values, sz);
 
     int target = 35;
-    int pos = recursive(values, target, sz);
+    int pos = recursive(values, target, 0, sz - 1);
 
     std::cout << "Target " << target;
     if (pos == -1)
