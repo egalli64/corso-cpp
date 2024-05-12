@@ -25,12 +25,13 @@ int main()
 
     for (int i = 0; i < sz - 1; i++)
     {
-        std::cout << "Iteration " << i << '\n';
+        std::cout << "External loop " << i << '\n';
         for (int j = 0; j < sz - 1; j++)
         {
+            std::cout << "Internal loop " << j << '\n';
             if (values[j] > values[j + 1])
             {
-                std::cout << "Swapping on " << j << '\n';
+                std::cout << "Swap!\n";
                 int temp = values[j];
                 values[j] = values[j + 1];
                 values[j + 1] = temp;
