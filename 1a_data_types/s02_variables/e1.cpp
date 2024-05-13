@@ -5,7 +5,7 @@
  */
 #include <iostream>
 
-// if the context is limited, to avoid repeating "std::" is possible to use that namespace
+// if the context is limited, using namespace simplify the code
 // using namespace std;
 
 int main()
