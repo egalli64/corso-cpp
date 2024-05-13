@@ -1,5 +1,5 @@
 /*
- * Corso C++ - https://github.com/egalli64/corso-cpp/a7
+ * Corso C++ - https://github.com/egalli64/corso-cpp
  *
  * Bubble sort (4) - aggressive cut off
  */
