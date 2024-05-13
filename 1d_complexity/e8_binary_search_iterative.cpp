@@ -1,5 +1,5 @@
 /*
- * Corso C++ a7 - https://github.com/egalli64/corso-cpp/a7
+ * Corso C++ - https://github.com/egalli64/corso-cpp/a7
  *
  * Binary search - iterative
  */
