@@ -1,0 +1,4 @@
+1 - Gestione della memoria
+
+1) Process memory
+2) IPC: Inter-Process Communication

@@ -1,0 +1,7 @@
+4 - Funzioni
+
+1) Funzioni libere, dichiarazione / definizione
+2) Inline
+3) Parametri
+4) Overloading
+5) Template

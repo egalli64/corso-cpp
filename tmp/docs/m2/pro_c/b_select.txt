@@ -1,0 +1,68 @@
+Pro*C SELECT INTO
+
+Nella DECLARE SECTION può essere usato lo "pseudotipo" varchar, convertito da pro*c in una struct di len e arr
+es: varchar street_address[41]; --> struct { unsigned short len; unsigned char arr[41]; } street_address;
+
+Le variabili definite nella DECLARE SECTION possono essere usate nelle SELECT INTO
+--> EXEC SQL SELECT street_address INTO :street_address FROM location WHERE location_id = :location_id;
+
+Se l'esecuzione della query ha successo, sqlca.sqlcode è zero
+
+Nel caso di char array / varchar, occorre settare esplicitamente il terminatore per poterli usare come stringhe, es:
+--> street_address.arr[street_address.len] = '\0';
+
+---
+SELECT INTO object
+
+Nella DECLARE SECTION
+
+Si può indicare che array di caratteri e varchar siano trattati come stringhe
+- delegando a pro*c la responsabilità di aggiungere in terminatore
+- es: EXEC SQL TYPE StreetAddress IS STRING(CITY_LEN + 1) REFERENCE;
+
+Si può definire un tipo via struct, con campi corrispondenti a quelli indicati in una SELECT INTO
+* Occorre anche definire un oggetto di quel tipo
+* Può essere utilizzato nella clausola INTO
+* es: static struct Location { ... } location;
+* EXEC SQL SELECT ... INTO :location
+
+* Per interrompere un loop nel caso una SELECT non trovi nessuna riga
+--> EXEC SQL WHENEVER NOT FOUND DO break;
+
+Gestione dei NULL
+- Il tipo STRING di Pro*C gestisce correttamente i NULL nei campi selezionati
+- Nel caso di array di caratteri e VARCHAR il supporto è limitato
+-- Per i VARCHAR viene indicata a zero la lunghezza, sta a noi usare correttamente l'informazione
+
+- SELECT INTO - INDICATOR
+Permette un maggior controllo dei NULL
+Una struct "indicator" corrispondente alla struct usata nell'INTO permette di identificare il caso
+- lo short corrispondente è settato a -1 per indicare un NULL
+
+---
+CURSOR
+
+Pro*C supporta i cursori Oracle DB e permette di effettuarne il fetch in strutture C
+
+Nella DECLARE SECTION
+- Definizione di una struttura per le colonne che si vogliono selezionare
+- Dichiarazione di un puntatore alla struttura e sua inizializzazione
+
+EXEC SQL DECLARE <cursore> CURSOR FOR SELECT ...
+- Dichiara un cursore per la query specificata
+- Il nome del cursore può essere usato solo in statement EXEC SQL
+
+EXEC SQL OPEN <cursore>;
+- Esegue la query, popolando il cursore
+
+EXEC SQL WHENEVER NOT FOUND DO break;
+- Interrompe il loop per l'accesso al cursore al suo termine
+
+EXEC SQL FETCH <cursore> INTO :<puntatore a struttura>;
+- Legge il cursore nella posizione corrente
+- Copia i dati nell'area di memoria associata al puntatore
+
+EXEC SQL CLOSE <cursore>;
+- Chiude il cursore
+
+ 

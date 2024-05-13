@@ -1,0 +1,64 @@
+7.5 Iteratori e algoritmi
+
+Gli iteratori sono categorizzati in cinque gruppi, dal più debole al più forte
+
+I due più deboli, a singola passata e monodirezionali, sono
+- input: sola lettura
+ - richiede gli operatori
+    ++ (passaggio all'elemento successivo)
+    * e -> (dereferenziamento dell'iteratore per accesso al valore)
+    == e != (ad es., poter determinare se si è raggiunta la fine del container)
+- output: sola scrittura
+
+- forward: lettura e scrittura, anche lui monodirezionale
+    ma la sequenza su cui opera deve essere accedibile anche dopo il suo uso
+- bidirectional
+    simile al forward, ma può moversi in due direzioni
+    richiede anche l'operatore --
+- random
+    può accedere a ogni elementi del container in tempo O(1)
+
+Un algoritmo dovrebbe cercare di usare l'iteratore più debole possibile
+- in modo da porter essere usato su più container
+
+Il range-for, (parte del linguaggio e non della libreria standard) può operare anche su array raw
+- Sostanzialmente richiede un input iterator
+
+Agli algoritmi di accesso sequenziale e di ricerca basta un input iterator
+- iterator find(iterator, iterator, const T&) // include algorithm
+    richiede due iteratori che delimitano la ricerca (aperto a destra) e il valore cercato
+    ritorna l'iteratore all'elemento trovato, o end()
+- int accumulate(iterator, iterator, T) // include numeric
+    richiede due iteratori che delimitano l'intervallo d'azione (aperto a destra) e il valore di partenza
+    ritorna l'accumulo (in questa forma base, la somma), dei valori trovati
+
+Un algoritmo che richiede lettura e scrittura richiede almeno un forward iterator
+- void replace(iterator, iterator, const T&, const T&) // include algorithm
+    richiede due iteratori che delimitano l'intervallo d'azione (aperto a destra),
+        il valore corrente e il valore che lo sostituisce
+    ritorna void, la modifica è fatta nel container corrente
+
+Un algoritmo che richiede un bidirectional iterator
+- void reverse(iterator, iterator) // include algorithm
+    richiede due iteratori che delimitano l'intervallo d'azione (aperto a destra)
+    modifica in place il container, ribaltandolo
+
+Gli algoritmi di sorting nella Standard Library richiedono accesso casuale agli elementi
+    Obbligatorio l'uso di un iteratore random, con limitazione del campo d'uso
+    Richiedono due iteratori che delimitano l'intervallo d'azione (aperto a destra)
+    Ritornano void, per efficienza l'ordinamento è fatto "in place"
+- void sort(iterator, iterator) // include algorithm
+    Di solito una versione di Quick Sort
+- void stable_sort(iterator, iterator Last) // include algorithm
+    Di solito basato su Merge Sort
+    Se ci sono più elementi considerati uguali dall'algoritmo, mantengono l'ordine relativo
+
+Programmazione funzionale negli algoritmi
+- iterator find_if(iterator, iterator, Predicate)
+    Richiede due iteratori che delimitano l'intervallo d'azione (aperto a destra)
+        E un predicato: funzione (passata per indirizzo), functor o lambda che ritorna un booleano
+    Ritorna l'iteratore al primo elemento che soddifa il predicato, o end()
+- Function for_each(iterator, iterator, Function)
+    Richiede due iteratori che delimitano l'intervallo d'azione (aperto a destra)
+        E una funzione (passata per indirizzo), functor o lambda, eseguita per ogni elemento
+    Ritorna la funzione passata come parametro

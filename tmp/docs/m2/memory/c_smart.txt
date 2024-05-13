@@ -1,0 +1,39 @@
+## Smart pointers
+	
+Gli smart pointer, per default, operano su puntatori a oggetti nella memoria heap
+- Normalmente gli oggetti sono allocati via new e deallocati via delete
+- Ma possono anche essere utilizzati per puntatori ad altre risorse
+	Specificando via "Deleter", passato al costruttore, come effettuare il cleanup 
+
+Definiti nell'header memory
+
+Uso di smart pointer (per memoria)
+- Si alloca un oggetto nello heap via new e lo si assegna a uno smart pointer
+- Se "shared", gli altri smart pointer sono generati a partire dal primo
+- L'uso combinato di puntatori smart e raw è possibile ma sconsigliato
+	il metodo get(), che permette di accedere il puntatore gestito, va usato con cautela
+
+### unique_ptr
+
+La proprietà dell'oggetto (o array di oggetti) è assegnata a un unico gestore
+- può essere passata a un altro smart pointer via move
+- copy ctor e assegnamento di questo smart pointer sono disabilitati
+
+L'eliminazione dell'oggetto viene effettuata
+- quando lo smart pointer esce dal suo scope
+- o quando il puntatore a un altro oggetto è assegnato allo smart pointer via reset()
+
+### shared_ptr
+
+Tiene conto del numero di riferimenti all'oggetto gestito
+Più shared_ptr possono gestire un unico oggetto
+ La proprietà dell'oggetto è condivisa
+Un contatore, accedibile via use_count(), tiene traccia del loro numero
+Quando use_count va a zero, ovvero l'ultimo shared_ptr sull'oggetto esce di scope, l'oggetto è eliminato
+
+### weak_ptr
+
+Smart pointer "debole", non implica il possesso dell'oggetto
+ Ne mantiene un riferimento che permette di osservare il suo stato
+ Il possesso è detenuto da uno (o più) shared_ptr 
+Semplifica la gestione della memoria nel caso di dipendenze cicliche

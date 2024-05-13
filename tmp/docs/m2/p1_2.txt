@@ -1,0 +1,65 @@
+1.2 Inter-Process Communication (IPC)
+
+Permette a processi distinti di operare su memoria condivisa e comunicare tra loro
+
+Non c'è un supporto standard in C++ in quest'area, ogni sistema operativo offre il suo.
+Qui vedremo l'impostazione seguita da Linux
+
+# Process ID
+
+Ogni processo ha un ID univoco
+
+- getpid() - ID del processo corrente
+
+Per mezzo che comando di sistema fork() un processo può fare lo spawn di un nuovo processo
+
+- fork() ritorna un intero
+    minore di zero in caso di errore
+    zero se il processo in esecuzione è il child risultante dalla fork
+    maggiore di zero, pid del child creato se è il padre in esecuzione
+
+- getppid() - ID del processo padre
+
+# Pipe
+
+per compatibilità, conviene assumere siano monodirezionali (half duplex)
+funzionano solo tra processi con un parente in comune
+    normalmente usati tra padre e figlio dopo un fork
+
+// pipe descriptor read / write
+int pipe(int pipedes[2]);
+
+# Shared Memory	
+
+Due o più processi condividono un blocco di memoria
+    veloce, ma richiede sincronizzazione sull'accesso
+
+- int shmget(key_t key, size_t size, int flag)
+    ritorna l'id di un blocco di memoria condivisa, inizializzata con zero in ogni cella
+
+- int shmctl(int shmid, int cmd, struct shmid_ds* buf)
+    cmd è il comando che vogliamo eseguire
+        IPC_RMID
+
+- void* shmat(int shmid, const void* addr, int flag)
+    attach a un blocco precedentemente creato
+
+- int shmdt(const void* addr)
+    detach
+
+# Signal
+
+Un signal è un interrupt sofware
+Il comando UNIX kill, e la funzione di sistema omonima, permettono di mandare un segnale a un processo 
+Ogni signal è identificato da una costante simbolica SIGxxx definita in signal.h 
+Il processo può determinare cosa fare se riceve un dato signal
+    - esegui il default, che, semplificando, può essere ignora, blocca o termina (con core)
+    - ignora, non applicabile per SIGKILL e SIGSTOP
+    - esegui codice definito dal processo
+
+La funzione signal() dichiarata in signal.h - void (*signal(int signo, void (*func)(int)))(int);
+    richiede come parametri
+        l'id del segnale che vogliamo gestire
+        il puntatore alla funzione che vogliamo assegnare al segnale
+            funzione void che accetta un intero (l'id del segnale)
+    ritorna SIG_ERR in caso di errore, o il puntatore al precedente gestore

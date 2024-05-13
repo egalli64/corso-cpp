@@ -1,0 +1,29 @@
+7 - C++ Standard Library
+
+Basata sulla Standard Template Library (STL) di Alexander Stepanov
+
+Tre concetti chiave
+ Container (collezione, aggregato, sequenza)
+ Iteratore (astrazione del concettto di puntatore)
+ Algoritmo
+Sviluppati in modo
+    efficiente (seguendo l'impostazione che viene dal C)
+    parametrico - via template, programmazione generica
+    ortogonale - semplice associazione tra i costrutti di base
+
+Nell'interfaccia di un container ci aspettiamo
+- Costruttori: default, copy, move, ...
+- Distruttore
+- Metodi per operare sugli elementi
+    accesso
+    inserimento
+    emplacement
+    eliminazione
+- Iteratori
+
+1) Array
+2) Vettore
+3) Liste
+4) Mappe
+5) Iteratori e algoritmi
+6) Analisi costo computazionale
