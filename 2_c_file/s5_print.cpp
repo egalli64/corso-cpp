@@ -3,15 +3,14 @@
  *
  * stdio - fprintf / printf
  */
-#include <cstdio>
-#include <iostream>
 #include <cmath>
+#include <cstdio>
 
 int main()
 {
     const char *filename = "s5.txt";
 
-    // notice that "w" would overwrite an existing file!
+    // notice that "w" mode would overwrite an existing file!
     FILE *fw = fopen(filename, "w");
 
     int x = 42;
