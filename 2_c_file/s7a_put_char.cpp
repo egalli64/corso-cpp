@@ -1,13 +1,13 @@
 /*
  * Corso C++ - https://github.com/egalli64/corso-cpp
  *
- * stdio - put / get character
+ * stdio - put character
  */
 #include <cstdio>
 
 int main()
 {
-    // putc
+    // 1. fputc
     const char *filename = "s7.txt";
     FILE *fd = fopen(filename, "w+");
 
@@ -19,7 +19,7 @@ int main()
     fclose(fd);
     printf("See the result in the %s file\n", filename);
 
-    // putchar
+    // 2. putchar
     for (int c = 'a'; c <= 'z'; ++c)
     {
         putchar(c);
