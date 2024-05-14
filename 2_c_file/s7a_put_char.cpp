@@ -9,14 +9,14 @@ int main()
 {
     // 1. fputc
     const char *filename = "s7.txt";
-    FILE *fd = fopen(filename, "w+");
+    FILE *fw = fopen(filename, "w");
 
     for (int c = 'a'; c <= 'z'; ++c)
     {
-        fputc(c, fd);
+        fputc(c, fw);
     }
 
-    fclose(fd);
+    fclose(fw);
     printf("See the result in the %s file\n", filename);
 
     // 2. putchar
