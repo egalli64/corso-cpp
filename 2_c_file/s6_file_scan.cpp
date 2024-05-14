@@ -3,8 +3,8 @@
  *
  * stdio - fscanf
  */
-#include <cmath>
 #include <cstdio>
+#include <cstdlib>
 
 int main()
 {
