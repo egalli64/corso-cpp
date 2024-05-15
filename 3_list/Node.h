@@ -8,6 +8,9 @@
 
 struct Node
 {
+    int data;
+    Node *next;
+
     Node(int d) : data(d), next(nullptr)
     {
     }
@@ -15,9 +18,6 @@ struct Node
     Node(int d, Node *n) : data(d), next(n)
     {
     }
-
-    int data;
-    Node *next;
 };
 
 #endif // CORSO_CPP_3_LIST_NODE
