@@ -15,7 +15,7 @@ int main()
     // x += 1;
 
     // won't change
-    const auto y{42};
+    const auto y = 42;
     //	y += 1; // error!
 
     std::cout << "x is " << x << '\n';

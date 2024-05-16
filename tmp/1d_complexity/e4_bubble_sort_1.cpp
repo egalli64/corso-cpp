@@ -18,7 +18,7 @@ void print(int data[], size_t size)
 int main()
 {
     int values[]{6, 1, 3, 7, 4, 5, 2, 8};
-    constexpr size_t sz = sizeof(values) / sizeof(int);
+    const size_t sz = sizeof(values) / sizeof(int);
 
     std::cout << "Working on: ";
     print(values, sz);

@@ -11,8 +11,8 @@
 
 int main()
 {
-    std::atomic<int> result{0};
-    constexpr int count{50'000};
+    std::atomic<int> result = 0;
+    const int count = 50'000;
 
     std::thread t{[&result] {
         for (int i = 0; i < count; ++i)
