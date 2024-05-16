@@ -18,10 +18,10 @@ void print(int *data, size_t size)
 int main()
 {
     int values[]{6, 4, 3, 6};
-    constexpr size_t sz = sizeof(values) / sizeof(int);
+    const size_t sz = sizeof(values) / sizeof(int);
     print(values, sz);
 
-    constexpr size_t szh = 3;
+    const size_t szh = 3;
     int *hValues = new int[szh]{32, 12, 38};
     print(hValues, szh);
     delete[] hValues;
