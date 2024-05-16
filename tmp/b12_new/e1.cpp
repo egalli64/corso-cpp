@@ -30,7 +30,7 @@ class Simple
 
 int main()
 {
-    constexpr size_t sz = sizeof(Simple);
+    const size_t sz = sizeof(Simple);
     char buffer[sz];
 
     Simple *simple = new (buffer) Simple(42);

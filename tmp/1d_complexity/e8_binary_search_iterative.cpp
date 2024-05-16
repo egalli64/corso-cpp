@@ -43,7 +43,7 @@ int iterative(int values[], int sz, int target)
 int main()
 {
     int values[]{3, 6, 10, 15, 19, 22, 27, 34, 36, 42, 45};
-    constexpr size_t sz = sizeof(values) / sizeof(int);
+    const size_t sz = sizeof(values) / sizeof(int);
 
     std::cout << "Working on: ";
     print(values, sz);

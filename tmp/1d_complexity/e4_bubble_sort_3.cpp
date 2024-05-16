@@ -22,7 +22,7 @@ int main()
 
     // check it on an almost-sorted array
     int values[]{6, 1, 2, 3, 4, 5, 7, 8};
-    constexpr size_t sz = sizeof(values) / sizeof(int);
+    const size_t sz = sizeof(values) / sizeof(int);
 
     std::cout << "Working on: ";
     print(values, sz);

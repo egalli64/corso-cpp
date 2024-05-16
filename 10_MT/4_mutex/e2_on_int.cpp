@@ -11,9 +11,9 @@
 
 int main()
 {
-    constexpr int count{50'000};
+    const int count = 50'000;
     std::mutex mtx_result;
-    int result{0};
+    int result = 0;
 
     std::thread t{[&mtx_result, &result] {
         for (int i = 0; i < count; ++i)
