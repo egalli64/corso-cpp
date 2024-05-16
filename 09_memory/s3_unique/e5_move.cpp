@@ -13,7 +13,7 @@ std::unique_ptr<Thing> getUnique()
     std::cout << "Returning a unique_ptr: ";
     up->hello();
 
-    // moving a local object in a return statement prevents copy elision!
+    // In modern C++ move and copy elision are automatically done by the compiler
     // return std::move(up);
 
     return up;

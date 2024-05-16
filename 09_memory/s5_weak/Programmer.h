@@ -3,8 +3,9 @@
  *
  * weak_ptr
  */
-#ifndef CORSO_CPP_B9_S5_WEAK_PROGRAMMER
-#define CORSO_CPP_B9_S5_WEAK_PROGRAMMER
+#ifndef CORSO_CPP_9_S5_WEAK_PROGRAMMER
+#define CORSO_CPP_9_S5_WEAK_PROGRAMMER
+
 #include "Project.h"
 #include <iostream>
 #include <memory>
@@ -75,4 +76,4 @@ class Programmer final
 
 std::ostream &operator<<(std::ostream &os, const Programmer &programmer);
 
-#endif // CORSO_CPP_B9_S5_WEAK_PROGRAMMER
+#endif // CORSO_CPP_9_S5_WEAK_PROGRAMMER

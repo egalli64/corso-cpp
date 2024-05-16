@@ -1,8 +1,14 @@
-#ifndef CORSO_CPP_B9_MEMORY_THING_EXT
-#define CORSO_CPP_B9_MEMORY_THING_EXT
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * A simple derived class
+ */
+#ifndef CORSO_CPP_9_MEMORY_THING_EXT
+#define CORSO_CPP_9_MEMORY_THING_EXT
+
 #include "Thing.h"
 
-class ThingExt : public Thing
+class ThingExt final : public Thing
 {
   public:
     ThingExt(int x) : Thing(x)
@@ -22,4 +28,4 @@ class ThingExt : public Thing
     }
 };
 
-#endif // CORSO_CPP_B9_MEMORY_THING_EXT
+#endif // CORSO_CPP_9_MEMORY_THING_EXT
