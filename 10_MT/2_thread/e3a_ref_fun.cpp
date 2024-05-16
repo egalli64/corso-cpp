@@ -25,6 +25,8 @@ int main()
     int result;
 
     std::thread t{adder_function, std::cref(values), std::ref(result)};
+    // forgetting to explicitly remark the references leads to compilation errors 
+    // std::thread t{adder_function, values, result}; // won't compile
     t.join();
 
     std::cout << "Sum is " << result << '\n';
