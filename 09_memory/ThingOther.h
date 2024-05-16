@@ -1,11 +1,19 @@
-#ifndef CORSO_CPP_B9_MEMORY_THING_OTHER
-#define CORSO_CPP_B9_MEMORY_THING_OTHER
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * A simple derived class
+ */
+#ifndef CORSO_CPP_9_MEMORY_THING_OTHER
+#define CORSO_CPP_9_MEMORY_THING_OTHER
+
 #include "Thing.h"
 
-class ThingOther : public Thing
+class ThingOther final : public Thing
 {
-  public:
+  private:
     int z_;
+
+  public:
     ThingOther(int x) : Thing(x), z_(x * 2)
     {
         std::cout << "ThingOther ctor\n";
@@ -28,4 +36,4 @@ class ThingOther : public Thing
     }
 };
 
-#endif // CORSO_CPP_B9_MEMORY_THING_OTHER
+#endif // CORSO_CPP_9_MEMORY_THING_OTHER

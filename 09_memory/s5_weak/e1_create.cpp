@@ -16,10 +16,11 @@ int main()
 
     // won't compile
     // wp2 = nullptr;
+    wp2.reset();
 
-    if (wpEmpty.expired() && !wp.expired() && !wp2.expired())
+    if (wpEmpty.expired() && !wp.expired() && wp2.expired())
     {
-        std::cout << "Only the first weak ptr is expired\n";
+        std::cout << "Only the weak pointer wp is not expired\n";
     }
     else
     {

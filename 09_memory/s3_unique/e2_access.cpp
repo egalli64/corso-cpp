@@ -2,6 +2,8 @@
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
  * unique_ptr
+ *
+ * In g++ compile with -std=c++20 for modern features
  */
 #include "../Thing.h"
 #include <iostream>
@@ -33,6 +35,9 @@ int main()
     std::cout << "!!! DO NOT DELETE the raw pointer !!!\n";
 
     Thing *ptr = upt.release();
+    // Uncomment next line to crash!
+    // upt->hello();
+
     std::cout << "Access by raw pointer _released_ from smart pointer: ";
     ptr->hello();
 

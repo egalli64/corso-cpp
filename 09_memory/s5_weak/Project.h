@@ -3,8 +3,8 @@
  *
  * weak_ptr
  */
-#ifndef CORSO_CPP_B9_S5_WEAK_PROJECT
-#define CORSO_CPP_B9_S5_WEAK_PROJECT
+#ifndef CORSO_CPP_9_S5_WEAK_PROJECT
+#define CORSO_CPP_9_S5_WEAK_PROJECT
 
 #include <iostream>
 #include <memory>

@@ -1,5 +1,11 @@
-#ifndef CORSO_CPP_B9_MEMORY_THING
-#define CORSO_CPP_B9_MEMORY_THING
+/*
+ * Corso C++ https://github.com/egalli64/corso-cpp
+ *
+ * A simple base class
+ */
+#ifndef CORSO_CPP_9_MEMORY_THING
+#define CORSO_CPP_9_MEMORY_THING
+
 #include <iostream>
 #include <utility>
 
@@ -58,4 +64,4 @@ class Thing
     }
 };
 
-#endif // CORSO_CPP_B9_MEMORY_THING
+#endif // CORSO_CPP_9_MEMORY_THING
