@@ -12,8 +12,9 @@ int main()
 {
     // a is declared as int, but not initialized
     int a;
-    // when compiled with -Wall flag -> warning: uninitialized
-    std::cout << "!!! BAD IDEA !!! " << a << '\n';
+    // GCC: when compiled with -Wall flag -> warning: uninitialized
+    // MSVC: warnings C6001 and C4700 (/sdl for error)
+    // std::cout << "!!! BAD IDEA !!! " << a << '\n';
 
     a = 5; // a is initialized to 5
     std::cout << a << '\n';
