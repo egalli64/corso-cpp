@@ -3,6 +3,9 @@
  *
  * pointer
  */
+
+// MSVC define required for non-standard math constants as PI and E
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
 
