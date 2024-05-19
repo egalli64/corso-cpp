@@ -27,7 +27,7 @@ int main()
     std::cout << "The last value in data: " << data[data_len - 1] << '\n';
     std::cout << "This is a dangerous mistake: " << data[data_len] << '\n';
 
-    int *ptr{&data[0]};
+    int *ptr = &data[0];
     std::cout << "First cell in data, address and value: " << ptr << " -> " << *ptr << '\n';
 
     ptr = data;
@@ -36,7 +36,7 @@ int main()
     ptr = &data[5];
     std::cout << "Last cell: " << ptr << " -> " << *ptr << '\n';
 
-    int &ref{data[5]};
+    int &ref = data[5];
     std::cout << "ref and data[5] " << ref << ' ' << data[5] << '\n';
 
     ref += 1;

@@ -10,7 +10,7 @@ namespace my
 {
 template <typename T> void swap(T &left, T &right)
 {
-    T temp{left};
+    T temp = left;
     left = right;
     right = temp;
 }
@@ -18,8 +18,8 @@ template <typename T> void swap(T &left, T &right)
 
 int main()
 {
-    int a{42};
-    int b{18};
+    int a = 42;
+    int b = 18;
 
     std::cout << "a is " << a << " b is " << b << '\n';
     my::swap(a, b);

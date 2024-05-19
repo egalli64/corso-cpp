@@ -19,10 +19,10 @@ int main()
     Point a{5, 7};
     std::cout << a.x << ' ' << a.y << '\n';
 
-    Point *p{&a};
+    Point *p = &a;
     std::cout << p->x << ' ' << p->y << '\n';
 
-    Point &r{a};
+    Point &r = a;
     r.x += 5;
     std::cout << r.x << ' ' << r.y << '\n';
 

@@ -9,7 +9,7 @@ int main()
 {
     std::cout << "Null pointer\n\n";
 
-    int *ptr{nullptr};
+    int *ptr = nullptr;
     std::cout << "An unused pointer: " << ptr << '\n';
     std::cout << "A null pointer can't be dereferenced ... " << '\n';
     // Segmentation fault
