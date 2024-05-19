@@ -11,6 +11,7 @@
 int main()
 {
     int result = 0;
+    // increasing/decreasing the count value could introduce/fix the problem!
     const int count = 50'000;
 
     std::thread t{[&result] {
