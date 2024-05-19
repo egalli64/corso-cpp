@@ -9,12 +9,14 @@
 
 const int MAX_VALUE = 6;
 
+namespace
+{
 int dieCast()
 {
     return rand() % MAX_VALUE + 1;
 }
 
-double avg(int *values, int size)
+double avg(int* values, int size)
 {
     double result = 0;
     for (int i = 0; i < size; ++i)
@@ -23,6 +25,7 @@ double avg(int *values, int size)
     }
     return result / size;
 }
+} // namespace
 
 int main()
 {
