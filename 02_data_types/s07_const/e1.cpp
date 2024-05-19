@@ -9,13 +9,13 @@ int main()
 {
     std::cout << "\nConstants\n\n";
     // evaluated at compile time
-    constexpr auto x = 18;
+    constexpr auto x{18};
 
     // error!
     // x += 1;
 
     // won't change
-    const auto y = 42;
+    const auto y{42};
     //	y += 1; // error!
 
     std::cout << "x is " << x << '\n';
