@@ -13,12 +13,12 @@ template <typename T> void print(const T &x)
 
 int main()
 {
-    int a{42};
+    int a = 42;
     print(a);
 
-    double d{42.118};
+    double d = 42.118;
     print(d);
 
-    std::string s{"hello"};
+    std::string s = "hello";
     print(s);
 }

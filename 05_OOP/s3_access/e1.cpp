@@ -38,10 +38,10 @@ int main()
     Point a{34, 3};
     std::cout << a.x() << ' ' << a.y() << '\n';
 
-    Point *p{&a};
+    Point *p = &a;
     std::cout << p->x() << ' ' << p->y() << '\n';
 
-    Point &r{a};
+    Point &r = a;
     r.increaseX(5);
     std::cout << a.x() << ' ' << a.y() << '\n';
 }

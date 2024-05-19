@@ -9,7 +9,7 @@ void swap(int &left, int &right)
 {
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
 
-    int temp{left};
+    int temp = left;
     left = right;
     right = temp;
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
@@ -17,8 +17,8 @@ void swap(int &left, int &right)
 
 int main()
 {
-    int a{42};
-    int b{18};
+    int a = 42;
+    int b = 18;
 
     std::cout << "Caller by reference: a is " << a << " and b is " << b << '\n';
 

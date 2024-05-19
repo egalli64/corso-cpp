@@ -18,8 +18,8 @@ void wontSwap(int left, int right)
 
 int main()
 {
-    int a{42};
-    int b{18};
+    int a = 42;
+    int b = 18;
 
     std::cout << "Caller by value: a is " << a << " and b is " << b << '\n';
 

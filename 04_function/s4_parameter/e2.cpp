@@ -9,7 +9,7 @@ void swap(int *pLeft, int *pRight)
 {
     std::cout << "Called by pointer: left is " << *pLeft << " and right is " << *pRight << '\n';
 
-    int temp{*pLeft};
+    int temp = *pLeft;
     *pLeft = *pRight;
     *pRight = temp;
 
@@ -18,8 +18,8 @@ void swap(int *pLeft, int *pRight)
 
 int main()
 {
-    int a{42};
-    int b{18};
+    int a = 42;
+    int b = 18;
 
     std::cout << "Caller by pointer: a is " << a << " and b is " << b << '\n';
 

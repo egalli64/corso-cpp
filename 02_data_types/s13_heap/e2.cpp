@@ -42,7 +42,7 @@ int main()
     }
 
     int scores[MAX_VALUE * 2 + 1]{};
-    int *casts{new int[size]};
+    int *casts = new int[size];
     for (int i = 0; i < size; ++i)
     {
         casts[i] = dieCast() + dieCast();
@@ -55,7 +55,7 @@ int main()
     delete[] casts;
 
     std::cout << "Distribution" << '\n';
-    for (int i{2}; i < MAX_VALUE * 2 + 1; ++i)
+    for (int i = 2; i < MAX_VALUE * 2 + 1; ++i)
     {
         std::cout << '[' << i << ": " << static_cast<double>(scores[i]) / size << ']';
     }

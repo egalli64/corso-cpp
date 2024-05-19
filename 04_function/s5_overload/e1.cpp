@@ -8,7 +8,7 @@
 void swap(int &left, int &right)
 {
     std::cout << "swapping integers\n";
-    int temp{left};
+    int temp = left;
     left = right;
     right = temp;
 }
@@ -16,7 +16,7 @@ void swap(int &left, int &right)
 void swap(double &left, double &right)
 {
     std::cout << "swapping doubles\n";
-    double temp{left};
+    double temp = left;
     left = right;
     right = temp;
 }

@@ -7,17 +7,17 @@
 
 int main()
 {
-    int value{84};
-    int *ptr{&value};
+    int value = 84;
+    int *ptr = &value;
     std::cout << "A single int variable, address and value: " << ptr << " -> " << *ptr << '\n';
 
     // a pointer could change its referred memory location
-    int other{27};
+    int other = 27;
     ptr = &other;
     std::cout << "The int 'other', address and value: " << ptr << " -> " << *ptr << '\n';
 
     // a reference won't change its referred memory location
-    int &ref{value};
+    int &ref = value;
     std::cout << "ref and value " << ref << ' ' << value << '\n';
 
     ref += 1;
