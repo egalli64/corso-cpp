@@ -8,8 +8,8 @@
 
 int main()
 {
-    unsigned int x{42};
-    unsigned int y{18};
+    unsigned int x = 42;
+    unsigned int y = 18;
 
     std::cout << "\nBitwise operators\n\n";
     std::cout << "x is " << x << " (" << std::bitset<8>(x) << ')' << '\n';

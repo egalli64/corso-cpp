@@ -8,7 +8,7 @@
 int main()
 {
     int x = 42;
-    int y{18};
+    int y = 18;
 
     std::cout << "x is " << x << '\n';
     std::cout << "y is " << y << '\n';
@@ -24,7 +24,7 @@ int main()
     std::cout << "x % y is " << x % y << '\n';
 
     std::cout << "\nString concatenation\n\n";
-    std::string s{"Hello"};
-    std::string t{"World!"};
+    std::string s = "Hello";
+    std::string t = "World!";
     std::cout << s + ", " + t << '\n';
 }
