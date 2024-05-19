@@ -14,8 +14,8 @@ int main()
     std::cout << "y is " << y << '\n';
 
     std::cout << "\nAssignment operators\n\n";
-    std::cout << "x += y -> x is " << (x += y) << '\n';
-    std::cout << "x -= y -> x is " << (x -= y) << '\n';
-    std::cout << "++x -> x is " << ++x << '\n';
-    std::cout << "--x -> x is " << --x << '\n';
+    std::cout << "after x += y the value in x is " << (x += y) << '\n';
+    std::cout << "after x -= y the value in x is " << (x -= y) << '\n';
+    std::cout << "after ++x the value in x is " << ++x << '\n';
+    std::cout << "after --x the value in x is " << --x << '\n';
 }
