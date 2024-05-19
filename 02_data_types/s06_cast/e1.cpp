@@ -10,7 +10,7 @@ int main()
 {
     // implicit narrowing (could be a mistake!)
     int x = 42.7;
-    // error: explicit narrowing required (safer)
+    // uniform initialization here leads to error: explicit narrowing required (safer)
     // int y {42.7};
 
     int y{static_cast<int>(42.7)};
