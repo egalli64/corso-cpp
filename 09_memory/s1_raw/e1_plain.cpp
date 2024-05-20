@@ -37,9 +37,13 @@ int main()
     std::cout << '\n';
     delete[] hData;
 
-    // this works in GCC, but it is not standard C++!
+#ifdef __GNUC__
+    // this works for GCC, but it is not standard C++!
     srand(time(nullptr));
-    int size{rand() % 10};
+    int size = rand() % 10;
+#else
+    const int size = 5;
+#endif
     std::cout << "An array on the stack sized " << size << ": ";
 
     // all implicitly initialized to 0
