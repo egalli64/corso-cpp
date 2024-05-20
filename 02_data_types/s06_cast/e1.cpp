@@ -8,20 +8,14 @@
 
 int main()
 {
-    // implicit narrowing (could be a mistake!)
-    int x = 42.7;
-    // uniform initialization here leads to error: explicit narrowing required (safer)
-    // int y {42.7};
-
-    int y{static_cast<int>(42.7)};
+    int x{static_cast<int>(42.7)};
     // automatic type deduction (here: double)
-    auto z = 42.7;
+    auto y = 42.7;
 
     std::cout << "x is " << x << '\n';
-    std::cout << "y is " << y << '\n';
-    std::cout << "z is " << z << " is sized " << sizeof(z) << '\n';
+    std::cout << "y is " << y << " is sized " << sizeof(y) << '\n';
 
-    std::string s{"42"};
+    std::string s = "42";
     int i = std::stoi(s);
     std::cout << "From string to int (pre-incremented): " << ++i << '\n';
 

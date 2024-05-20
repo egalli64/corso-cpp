@@ -8,10 +8,11 @@
 
 int main()
 {
+    std::cout << "Bitwise operators\n\n";
+
     unsigned int x = 42;
     unsigned int y = 18;
 
-    std::cout << "\nBitwise operators\n\n";
     std::cout << "x is " << x << " (" << std::bitset<8>(x) << ')' << '\n';
     std::cout << "y is " << y << " (" << std::bitset<8>(y) << ')' << '\n';
     std::cout << '\n';
