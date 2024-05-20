@@ -7,13 +7,10 @@
 
 int main()
 {
+    std::cout << "Arithmetic operators\n\n";
+
     int x = 42;
     int y = 18;
-
-    std::cout << "x is " << x << '\n';
-    std::cout << "y is " << y << '\n';
-
-    std::cout << "\nArithmetic operators\n\n";
 
     std::cout << "x + y is " << x + y << '\n';
     std::cout << "+x is " << +x << '\n';
