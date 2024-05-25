@@ -48,7 +48,7 @@ class Poodle : public Dog
     }
 
     // can't override a final method
-    // string fullName() override { return "Poodle " + Dog::fullName(); }
+    // std::string fullName() override { return "Poodle " + Dog::fullName(); }
 };
 
 int main()
