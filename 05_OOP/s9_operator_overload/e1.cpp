@@ -7,7 +7,7 @@
 
 enum class Day
 {
-    MON,
+    MON = 0,
     TUE,
     WED,
     THU,
