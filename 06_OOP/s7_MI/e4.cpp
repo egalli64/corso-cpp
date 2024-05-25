@@ -84,7 +84,7 @@ class Dog : public Animal, Player
 {
   public:
     // The diamond problem is solved from below
-    Dog(const std::string &name, const std::string &game) : Animal(), Player(game), Actor(name)
+    Dog(const std::string &name, const std::string &game) : Actor(name), Animal(), Player(game)
     {
         std::cout << "Dog ctor" << '\n';
     }
