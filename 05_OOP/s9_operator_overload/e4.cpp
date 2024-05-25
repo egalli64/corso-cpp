@@ -55,7 +55,7 @@ std::ostream &operator<<(std::ostream &os, const Point &point)
 
     // alternative approaches, no friendship required
     // return point.write(os);
-    // return os << static_cast<string>(point);
+    // return os << static_cast<std::string>(point);
 }
 
 int main()
