@@ -1,16 +1,24 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Operators: assignment, arithmetic, string concatenation
+ * Operators: assignment
  */
 #include <iostream>
+
+namespace
+{
+double value()
+{
+    return 42.7;
+}
+} // namespace
 
 int main()
 {
     // implicit narrowing (could be a mistake!)
-    int x = 42.7;
+    int x = value();
     // uniform initialization here leads to error: explicit narrowing required (safer)
-    // int a {42.7};
+    // int a {value()};
 
     int y = 18;
 
