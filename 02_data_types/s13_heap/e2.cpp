@@ -7,7 +7,7 @@
 #include <ctime>
 #include <iostream>
 
-const int MAX_VALUE{6};
+const int MAX_VALUE = 6;
 
 namespace
 {
@@ -16,7 +16,7 @@ int dieCast()
     return rand() % MAX_VALUE + 1;
 }
 
-double avg(int *values, int size)
+double avg(int values[], int size)
 {
     double result = 0;
     for (int i{0}; i < size; ++i)
@@ -41,7 +41,9 @@ int main()
         return 0;
     }
 
+    // this array has a statically determined size, so it can be allocated on the stack
     int scores[MAX_VALUE * 2 + 1]{};
+    // by the standard, an array of non-const size can't be stored in the stack
     int *casts = new int[size];
     for (int i = 0; i < size; ++i)
     {
