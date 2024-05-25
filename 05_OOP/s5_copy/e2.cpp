@@ -52,7 +52,7 @@ class SinglyLinkedList
 
     void pushFront(int value)
     {
-        Node *node{new Node{value, head}};
+        Node *node = new Node{value, head};
         head = node;
         std::cout << "New head is " << value << '\n';
     }
@@ -65,7 +65,7 @@ class SinglyLinkedList
         }
         else
         {
-            Node *node{new Node{value, nullptr}};
+            Node *node = new Node{value, nullptr};
 
             Node *tail = head;
             while (tail->next != nullptr)
@@ -89,7 +89,7 @@ class SinglyLinkedList
 
     void clear()
     {
-        int count{0};
+        int count = 0;
         while (head != nullptr)
         {
             Node *next = head->next;
