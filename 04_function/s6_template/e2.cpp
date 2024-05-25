@@ -25,8 +25,8 @@ int main()
     my::swap(a, b);
     std::cout << "a is " << a << " b is " << b << '\n';
 
-    std::string s{"hello"};
-    std::string t{"ciao"};
+    std::string s = "hello";
+    std::string t = "ciao";
 
     std::cout << "s is " << s << " t is " << t << '\n';
     my::swap(s, t);
