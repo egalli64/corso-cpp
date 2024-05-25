@@ -10,13 +10,16 @@ int main()
     bool b_false = false;
     bool b_true = true;
 
-    // implicit cast to boolean
-    bool b_narrowed = 42;
-    std::cout << "Boolean in C++ is actually a very small integer: " << b_false << ", ";
-    std::cout << b_true << ", " << b_narrowed << '\n';
+    // implicit cast between integer and boolean
+    std::cout << "Booleans in C++ are actually very small integers: ";
+    std::cout << b_false << ", " << b_true << '\n';
 
-    char c = 'x';
-    std::cout << "A character: " << c << '\n';
+    bool b_narrowed = 42;
+    std::cout << "Implicit cast of an int to bool: " << b_narrowed << '\n';
+
+    b_narrowed = true + true;
+    std::cout << "Implicit cast of booleans to int (and back to bool): ";
+    std::cout << (true + true) << ", " << b_narrowed << '\n';
 
     // optional digit separator C++14
     int i = 49'385;
@@ -32,6 +35,10 @@ int main()
 
     std::string s = "Hello";
     std::cout << "A string: " << s << '\n';
+
+    // characters are actually integers, too
+    char c = 'x';
+    std::cout << "A character: " << c << '\n';
 
     int i_widened = c;
     std::cout << "A char implicitly converted to int: " << i_widened << '\n';
