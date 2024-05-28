@@ -10,7 +10,7 @@
 
 int main()
 {
-    auto print = [](const std::string &message) { std::cout << message << '\n'; };
+    auto print = [](const std::string &s) { std::cout << "-> " << s << '\n'; };
 
     print("A lambda is a callable");
 
