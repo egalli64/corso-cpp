@@ -18,7 +18,8 @@ int main()
         std::cout << "Unexpected!\n";
     }
 
-    std::unique_ptr<int> up{new int{42}};
+    // The factory function make_unique is preferred!
+    std::unique_ptr<int> up(new int{42});
     if (up)
     {
         std::cout << "The current unique ptr is _not_ empty\n";
