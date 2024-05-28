@@ -13,7 +13,7 @@ std::ostream &operator<<(std::ostream &os, const Project &project)
 {
     os << '{' << project.name_;
     os << " [ ";
-    for (auto p : project.programmers_)
+    for (const auto& p : project.programmers_)
     {
         std::shared_ptr<Programmer> sp = p.lock();
         if (sp)
@@ -33,7 +33,7 @@ std::ostream &operator<<(std::ostream &os, const Programmer &programmer)
 {
     os << '{' << programmer.name_;
     os << " [ ";
-    for (auto p : programmer.projects_)
+    for (const auto& p : programmer.projects_)
     {
         std::shared_ptr<Project> sp = p.lock();
         if (sp)
@@ -60,7 +60,7 @@ void link(std::shared_ptr<Programmer> programmer, std::shared_ptr<Project> proje
 
 void dump(const std::vector<std::shared_ptr<Programmer>> &programmers)
 {
-    for (const auto programmer : programmers)
+    for (const auto& programmer : programmers)
     {
         std::cout << *programmer << ' ';
     }
@@ -69,7 +69,7 @@ void dump(const std::vector<std::shared_ptr<Programmer>> &programmers)
 
 void dump(const std::vector<std::shared_ptr<Project>> &projects)
 {
-    for (const auto project : projects)
+    for (const auto& project : projects)
     {
         std::cout << *project << ' ';
     }
