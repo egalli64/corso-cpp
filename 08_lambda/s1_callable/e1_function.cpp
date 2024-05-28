@@ -25,5 +25,5 @@ int main()
 
     std::vector<std::string> names{"Tom", "Bob", "Kim"};
     std::cout << "Passing a function to another function:\n";
-    std::for_each(names.begin(), names.end(), print);
+    std::for_each(names.begin(), names.end(), pf);
 }
