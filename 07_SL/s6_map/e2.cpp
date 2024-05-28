@@ -20,6 +20,10 @@ int main()
 {
     std::unordered_map<std::string, double> data{{"tom", 32.18}, {"bob", 44.11}, {"kim", 98.03}};
     data.insert({"mia", 91.12});
+
+//    data.insert_or_assign("mia", 12.12);
+    data["mia"] = 12.12;
+
     data.emplace("jim", 12.23);
     print(data);
 
@@ -39,4 +43,9 @@ int main()
     {
         std::cout << "Out of range calling " << ex.what() << " on joe\n";
     }
+
+    // danger!
+    std::cout << data["joe"] << '\n';
+
+
 }
