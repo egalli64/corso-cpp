@@ -22,6 +22,7 @@ int main()
     }
     std::cout << '\n';
 
+    // the vector should grow, elements are moved to the new array
     std::cout << "*** Kim is pushed back into the vector\n";
     values.push_back({3, "Kim"});
     std::cout << "*** Obi is emplaced into the vector\n";
