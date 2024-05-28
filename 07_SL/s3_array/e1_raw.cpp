@@ -5,7 +5,7 @@
  */
 #include <iostream>
 
-void print(int *data, size_t size)
+void print(int data[], size_t size)
 {
     std::cout << "Printing the content of an int array sized " << size << ": ";
     for (size_t i = 0; i < size; ++i)
