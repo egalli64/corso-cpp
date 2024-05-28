@@ -9,7 +9,7 @@
 
 int main()
 {
-    char c{'X'};
+    char c = 'X';
     std::cout << "A char on the stack: " << c << '\n';
 
     char *pc = new char{'Y'};
