@@ -13,7 +13,7 @@ int main()
         // violating the noexcept contract!
         []() noexcept { throw std::runtime_error("Teminate!"); }();
     }
-    catch (std::runtime_error &ex)
+    catch (...)
     {
         std::cout << "You won't see this!\n";
     }
