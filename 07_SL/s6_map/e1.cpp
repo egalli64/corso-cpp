@@ -24,16 +24,26 @@ int main()
     print(data);
 
     // C++17
-    if (auto it{data.find("bob")}; it != data.end())
+    if (auto it = data.find("bob"); it != data.end())
     {
         std::cout << "find bob: " << it->second << '\n';
     }
+    else
+    {
+        std::cout << "bob not found\n";
+    }
 
     // pre-C++ 17
-    auto it{data.find("bob")};
-    if (it != data.end())
     {
-        std::cout << "find bob: " << it->second << '\n';
+        auto it = data.find("bob");
+        if (it != data.end())
+        {
+            std::cout << "find bob: " << it->second << '\n';
+        }
+        else
+        {
+            std::cout << "bob not found\n";
+        }
     }
 
     std::cout << "at tom: " << data.at("tom") << '\n';
