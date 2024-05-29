@@ -15,17 +15,17 @@
 
 namespace
 {
-std::mutex mtx;
+std::mutex mtx_cout;
 
 void print(const char *message)
 {
-    std::lock_guard<std::mutex> lock{mtx};
+    std::lock_guard<std::mutex> lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << '\n';
 }
 
 void print(const char *message, double a, double b)
 {
-    std::lock_guard<std::mutex> lock{mtx};
+    std::lock_guard<std::mutex> lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << ' ' << a << ", " << b << '\n';
 }
 } // namespace
@@ -34,8 +34,8 @@ int main()
 {
     double v1{12.23};
     double v2{32.21};
-    std::mutex mtx_1;
-    std::mutex mtx_2;
+    std::mutex mtx_v1;
+    std::mutex mtx_v2;
 
     std::thread t1{[&] {
         print("thread 1");
@@ -44,9 +44,9 @@ int main()
         v1 = cbrt(log(rand() % 100 + 1));
         print("set v1", v1, v2);
 
-        std::lock(mtx_1, mtx_2);
-        std::lock_guard<std::mutex> lock1{mtx_1, std::adopt_lock};
-        std::lock_guard<std::mutex> lock2{mtx_2, std::adopt_lock};
+        std::lock(mtx_v1, mtx_v2);
+        std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
+        std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
         print("thread 1 locked");
 
         std::swap(v1, v2);
@@ -59,9 +59,9 @@ int main()
         v2 = cbrt(42);
         print("set v2", v1, v2);
 
-        std::lock(mtx_1, mtx_2);
-        std::lock_guard<std::mutex> lock2{mtx_2, std::adopt_lock};
-        std::lock_guard<std::mutex> lock1{mtx_1, std::adopt_lock};
+        std::lock(mtx_v1, mtx_v2);
+        std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
+        std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
         print("thread 2 locked");
 
         std::swap(v1, v2);
