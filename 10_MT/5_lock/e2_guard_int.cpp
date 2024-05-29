@@ -12,20 +12,20 @@
 int main()
 {
     int result = 0;
-    std::mutex mtx;
+    std::mutex mtx_result;
     const int count = 50'000;
 
-    std::thread t{[&result, &mtx] {
+    std::thread t{[&result, &mtx_result] {
         for (int i = 0; i < count; ++i)
         {
-            std::lock_guard<std::mutex> lock{mtx};
+            std::lock_guard<std::mutex> lock{mtx_result};
             result++;
         }
     }};
 
     for (int i = 0; i < count; ++i)
     {
-        std::lock_guard<std::mutex> lock{mtx};
+        std::lock_guard<std::mutex> lock{mtx_result};
         result++;
     }
 
