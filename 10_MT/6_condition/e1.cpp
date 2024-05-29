@@ -15,8 +15,8 @@ namespace
 std::mutex mtx;
 std::condition_variable cnd;
 
-bool ready{false};
-int stock{10};
+bool ready = false;
+int stock = 10;
 
 void consumer()
 {
