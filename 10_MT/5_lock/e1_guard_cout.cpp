@@ -13,10 +13,10 @@
 int main()
 {
     std::cout << "Cout access protected by mutex\n";
-    std::mutex mtx;
+    std::mutex mtx_cout;
 
-    auto greeter = [&mtx](const std::string &s) {
-        std::lock_guard<std::mutex> lock{mtx};
+    auto greeter = [&mtx_cout](const std::string &s) {
+        std::lock_guard<std::mutex> lock{mtx_cout};
         for (int i = 0; i < 1'000; i++)
         {
             std::cout << s[0];
@@ -32,7 +32,7 @@ int main()
     std::thread t2{greeter, "Goodbye"};
 
     { // ensure the lock is freed as soon as possible - beware of deadlock!
-        std::lock_guard<std::mutex> lock{mtx};
+        std::lock_guard<std::mutex> lock{mtx_cout};
         std::cout << "The main thread is ";
         std::cout << std::this_thread::get_id();
         std::cout << '\n';
