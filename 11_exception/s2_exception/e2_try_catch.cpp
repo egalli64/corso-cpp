@@ -5,6 +5,8 @@
  */
 #include <iostream>
 
+namespace
+{
 void risky(int value)
 {
     if (value == 1)
@@ -13,6 +15,7 @@ void risky(int value)
     }
     std::cout << "Hello\n";
 }
+} // namespace
 
 int main(int argc, char **argv)
 {
