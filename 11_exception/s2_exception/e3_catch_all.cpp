@@ -6,16 +6,39 @@
 #include <iostream>
 using namespace std;
 
-void risky()
+namespace
+{
+void risky_1()
 {
     throw "Not yet implemented";
 }
+
+void risky_2()
+{
+    throw 1;
+}
+
+void risky_3()
+{
+    throw 42.24;
+}
+} // namespace
 
 int main()
 {
     try
     {
-        risky();
+        risky_1();
+        risky_2();
+        risky_3();
+    }
+    catch (int ex)
+    {
+        cout << "An int exception: " << ex << "\n";
+    }
+    catch (double ex)
+    {
+        cout << "A double exceptiion: " << ex << "\n";
     }
     catch (...)
     {
