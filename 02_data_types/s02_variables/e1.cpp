@@ -26,4 +26,8 @@ int main()
     // assignment, changing value in a variable
     b = 42;
     std::cout << b << '\n';
+
+    // the compiler deduces the variable type using the value on the right side
+    auto c = 21;
+    std::cout << c << '\n';
 }
