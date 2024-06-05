@@ -5,6 +5,8 @@
  */
 #include <iostream>
 
+namespace
+{
 void unsafeHello(char *name)
 {
     std::cout << "Hello " << name << "!\n";
@@ -14,15 +16,17 @@ void unsafeHello(char *name)
 void saferHello(const char *name)
 {
     std::cout << "Hello " << name << "!\n";
-    //    name[0] += 1; // can't change!
+    // being const, can't change!
+    // name[0] += 1;
 }
+} // namespace
 
 int main()
 {
-    char bob[]{"Bob"};
+    char *bob = "Bob";
     unsafeHello(bob);
     std::cout << "Bob now is " << bob << '\n';
 
-    char tom[]{"Tom"};
+    char *tom = "Tom";
     saferHello(tom);
 }
