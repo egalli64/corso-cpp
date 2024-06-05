@@ -17,15 +17,16 @@ int main()
     bool b_narrowed = 42;
     std::cout << "Implicit cast of an int to bool: " << b_narrowed << '\n';
 
+    // the operator + cause widening to int, the operator = cause narrowing to bool
     b_narrowed = true + true;
     std::cout << "Implicit cast of booleans to int (and back to bool): ";
-    std::cout << (true + true) << ", " << b_narrowed << '\n';
+    std::cout << true + true << ", " << b_narrowed << '\n';
 
     // optional digit separator C++14
     int i = 49'385;
     std::cout << "An int: " << i << '\n';
 
-    double d = 3.14159'26535;
+    double d = 3.141'592'653'500;
     std::cout << "A double: " << d << '\n';
 
     //  Hexadecimal notation
