@@ -6,6 +6,10 @@
 #include <iostream>
 #include <string>
 
+class Dog
+{
+};
+
 class Point
 {
     friend std::ostream &operator<<(std::ostream &os, const Point &point);
@@ -18,6 +22,11 @@ class Point
   public:
     Point(int x, int y, const std::string &label) : x_(x), y_(y), label_(label)
     {
+    }
+
+    Point(const Dog &dog)
+    {
+        // ...
     }
 
     int x() const
@@ -47,10 +56,19 @@ class Point
     {
         return label_ + ": " + std::to_string(x_) + ", " + std::to_string(y_);
     }
+
+    operator int()
+    {
+        return x_ * y_;
+    }
 };
 
 std::ostream &operator<<(std::ostream &os, const Point &point)
 {
+    // if << is not a friend, only public members are accessible
+    // return os << point.x() << ", " << point.y();
+
+    // when friend, it could access any member
     return os << point.label_ << ": " << point.x_ << ", " << point.y_;
 
     // alternative approaches, no friendship required
