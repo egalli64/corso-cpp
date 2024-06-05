@@ -15,13 +15,15 @@ double value()
 
 int main()
 {
-    // implicit narrowing (could be a mistake!)
-    int x = value();
-    // uniform initialization here leads to error: explicit narrowing required (safer)
-    // int a {value()};
+    // implicit narrowing, compiles fine
+    int a = value();
 
-    int y = 18;
+    // uniform initialization leads to warning/error
+    // g++ 12 gives an error only when compiling with with -pedantic-errors
+    // int b{value()};
+    // int c{42.7};
 
-    std::cout << "x is " << x << '\n';
-    std::cout << "y is " << y << '\n';
+    std::cout << "a is " << a << '\n';
+    // std::cout << "b is " << b << '\n';
+    // std::cout << "c is " << c << '\n';
 }
