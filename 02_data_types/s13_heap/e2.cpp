@@ -7,19 +7,19 @@
 #include <ctime>
 #include <iostream>
 
-const int MAX_VALUE = 6;
-
 namespace
 {
+constexpr int max_value = 6;
+
 int dieCast()
 {
-    return rand() % MAX_VALUE + 1;
+    return rand() % max_value + 1;
 }
 
 double avg(int values[], int size)
 {
     double result = 0;
-    for (int i{0}; i < size; ++i)
+    for (int i = 0; i < size; ++i)
     {
         result += values[i];
     }
@@ -42,7 +42,7 @@ int main()
     }
 
     // this array has a statically determined size, so it can be allocated on the stack
-    int scores[MAX_VALUE * 2 + 1]{};
+    int scores[max_value * 2 + 1]{};
     // by the standard, an array of non-const size can't be stored in the stack
     int *casts = new int[size];
     for (int i = 0; i < size; ++i)
@@ -57,7 +57,7 @@ int main()
     delete[] casts;
 
     std::cout << "Distribution" << '\n';
-    for (int i = 2; i < MAX_VALUE * 2 + 1; ++i)
+    for (int i = 2; i < max_value * 2 + 1; ++i)
     {
         std::cout << '[' << i << ": " << static_cast<double>(scores[i]) / size << ']';
     }
