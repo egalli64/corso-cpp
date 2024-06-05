@@ -5,7 +5,10 @@
  */
 #include <iostream>
 
+namespace
+{
 int values[10];
+} // namespace
 
 int main()
 {
@@ -22,7 +25,7 @@ int main()
     int data[6]{42, 12, 18, 21, 5, 33};
     std::cout << "The last value in data: " << data[5] << '\n';
 
-    int data_len = sizeof(data) / sizeof(int);
+    const int data_len = sizeof(data) / sizeof(int);
     std::cout << "Length of data: " << data_len << '\n';
     std::cout << "The last value in data: " << data[data_len - 1] << '\n';
     std::cout << "This is a dangerous mistake: " << data[data_len] << '\n';
@@ -41,4 +44,17 @@ int main()
 
     ref += 1;
     std::cout << "ref and data[5] after increasing ref " << ref << ' ' << data[5] << '\n';
+
+    for (int i = 0; i < data_len; ++i)
+    {
+        std::cout << data[i] << ' ';
+    }
+    std::cout << '\n';
+
+    ptr = data;
+    for (int i = 0; i < data_len; ++i)
+    {
+        std::cout << *(ptr + i) << ' ';
+    }
+    std::cout << '\n';
 }
