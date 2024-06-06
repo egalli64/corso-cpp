@@ -40,6 +40,6 @@ int main()
     const Player bob{2, 3.7};
 
     // bob is constant, can't invoke a non-const method on it
-    // bob.increase_score(1.4);
+    // bob.increaseScore(1.4);
     std::cout << bob.id() << ' ' << bob.score() << '\n';
 }
