@@ -81,7 +81,7 @@ Day operator--(Day &day, int)
 
 int main()
 {
-    Day cur{Day::MON};
+    Day cur = Day::MON;
 
     std::cout << "Current day is " << cur << '\n';
     std::cout << "Pre-decrement of current day: " << --cur << '\n';
