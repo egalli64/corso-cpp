@@ -40,7 +40,7 @@ class Dog : public Animal
     }
 };
 
-class Poodle : public Dog
+class Poodle final : public Dog
 {
   public:
     Poodle(const std::string &name, const std::string &owner) : Dog(name, owner)
