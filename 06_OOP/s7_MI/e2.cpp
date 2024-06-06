@@ -15,7 +15,7 @@ class Actor
     {
         std::cout << "Actor ctor for " << name << '\n';
     }
-    ~Actor()
+    virtual ~Actor()
     {
         std::cout << "Actor dtor for " << name_ << '\n';
     }
@@ -33,7 +33,7 @@ class Animal : public Actor
     {
         std::cout << "Animal ctor for " << name << '\n';
     }
-    ~Animal()
+    ~Animal() override
     {
         std::cout << "Animal dtor" << '\n';
     }
@@ -49,7 +49,7 @@ class Player : public Actor
     {
         std::cout << "Player ctor for " << game << '\n';
     }
-    ~Player()
+    ~Player() override
     {
         std::cout << "Player dtor for " << game_ << '\n';
     }
