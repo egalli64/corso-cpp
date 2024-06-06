@@ -50,9 +50,13 @@ class Point3D : public Point
 
 int main()
 {
-    Point a{8, 1};
+    const Point a{8, 1};
     std::cout << "Distance from origin is " << a.distanceFromOrigin() << '\n';
 
-    Point3D b{8, 1, 5};
+    const Point3D b{8, 1, 5};
     std::cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
+
+    Point *pp = new Point3D{8, 1, 5};
+    std::cout << "Distance from origin is " << pp->distanceFromOrigin() << '\n';
+    delete pp;
 }
