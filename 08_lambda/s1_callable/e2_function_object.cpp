@@ -31,5 +31,11 @@ int main()
 
     std::vector<std::string> names{"Tom", "Bob", "Kim"};
     std::cout << "Passing a function object to a function:\n";
-    std::for_each(names.begin(), names.end(), Printer("-> "));
+
+    // given a prefix provided elsewhere
+    std::string prefix{"-> "};
+    // create a function object that uses the prefix
+    Printer p{prefix};
+    // pass the function object to a HOF that uses it
+    std::for_each(names.begin(), names.end(), p);
 }
