@@ -8,6 +8,11 @@
 #include <string>
 #include <vector>
 
+bool hasSizeEqualToFour(const std::string &s)
+{
+    return s.size() == 4;
+}
+
 class HasSizeEqualTo
 {
   private:
@@ -18,9 +23,9 @@ class HasSizeEqualTo
     {
     }
 
-    bool operator()(const std::string &other) const
+    bool operator()(const std::string &s) const
     {
-        return other.size() == size_;
+        return s.size() == size_;
     }
 };
 
@@ -60,11 +65,6 @@ class PrintToStreamSized
     }
 };
 
-bool hasSizeEqualToFour(const std::string &s)
-{
-    return s.size() == 4;
-}
-
 void printToCoutSizedThree(const std::string &s)
 {
     if (s.size() == 3)
@@ -83,20 +83,22 @@ int main()
     // function object version
     // auto it = find_if(values.begin(), values.end(), HasSizeEqualTo(4));
     // lambda version
-    // auto it = find_if(values.begin(), values.end(), [](const string& x) { return x.size() == 4; });
+    // auto it = find_if(values.begin(), values.end(), [](const std::string &x) { return x.size() == 4; });
     std::cout << (it != values.end() ? *it : "Not found!") << '\n';
 
     std::cout << "Print all string sized 3: ";
     // function version
-    // for_each(values.begin(), values.end(), printToCoutSizedThree);
+    for_each(values.begin(), values.end(), printToCoutSizedThree);
     // function object version
     // for_each(values.begin(), values.end(), PrintToStreamSized(std::cout, 3));
     // lambda version
-    for_each(values.begin(), values.end(), [](const std::string &s) { //
-        if (s.size() == 3)
-        {
-            std::cout << s << ' ';
-        }
-    });
-    std::cout << '\n';
+    // auto lambda = [](const std::string &s) {
+    //     if (s.size() == 3)
+    //     {
+    //         std::cout << s << ' ';
+    //     }
+    // };
+
+    // for_each(values.begin(), values.end(), lambda);
+    // std::cout << '\n';
 }
