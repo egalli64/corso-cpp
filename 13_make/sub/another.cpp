@@ -7,9 +7,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-void another_hello(const string &s)
+void another_hello(const std::string &s)
 {
-    cout << s << '\n';
+    std::cout << s << '\n';
 }

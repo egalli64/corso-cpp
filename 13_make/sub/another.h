@@ -3,11 +3,10 @@
  *
  * make
  */
-#ifndef CORSO_CPP_MAKE_1_ANOTHER
-#define CORSO_CPP_MAKE_1_ANOTHER
+#ifndef CORSO_CPP_MAKE_ANOTHER
+#define CORSO_CPP_MAKE_ANOTHER
 #include <string>
 
-// xxx
 extern void another_hello(const std::string &);
 
-#endif // CORSO_CPP_MAKE_1_ANOTHER
+#endif // CORSO_CPP_MAKE_ANOTHER

@@ -3,10 +3,10 @@
  *
  * make: see make_simple and makefile
  */
-#ifndef CORSO_CPP_MAKE_1_OTHER
-#define CORSO_CPP_MAKE_1_OTHER
+#ifndef CORSO_CPP_MAKE_OTHER
+#define CORSO_CPP_MAKE_OTHER
 #include <string>
 
 extern void other_hello(const std::string &);
 
-#endif // CORSO_CPP_MAKE_1_OTHER
+#endif // CORSO_CPP_MAKE_OTHER

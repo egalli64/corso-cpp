@@ -8,11 +8,9 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main()
 {
-    cout << "Hello from main\n";
+    std::cout << "Hello from main\n";
     other_hello("Other hello");
     another_hello("Another hello");
 }
