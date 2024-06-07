@@ -31,7 +31,7 @@ template <typename IT> void square(IT first, IT last)
 
 int main()
 {
-    std::vector<int> values{7, 3, 11};
+    std::vector<int> values{7, 3, 11, 3};
     print(values, "A vector");
 
     std::replace(values.begin(), values.end(), 3, 5);
