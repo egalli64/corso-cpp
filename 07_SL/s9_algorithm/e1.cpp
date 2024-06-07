@@ -22,7 +22,7 @@ int main()
 {
     std::vector<std::string> data{"tom", "bob", "kim"};
     print(data, "A string vector");
-    sort(data.begin(), data.end());
-    // stable_sort(data.begin(), data.end());
+    std::sort(data.begin(), data.end());
+    // std::stable_sort(data.begin(), data.end());
     print(data, "Sorted");
 }
