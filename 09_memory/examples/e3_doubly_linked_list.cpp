@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * shared_ptr - doubly linked list
+ * shared_ptr - doubly linked list BUGGY!
  */
 #include <iostream>
 #include <limits>
@@ -12,6 +12,7 @@ namespace
 struct Node final
 {
     int value;
+    // BUG: having both smart pointer shared is wrong!
     std::shared_ptr<Node> prev;
     std::shared_ptr<Node> next;
 
@@ -49,18 +50,19 @@ class DoublyLinkedList final
 
     void push_front(int value)
     {
-        // TODO
-        // SmartNode cur = std::make_shared<Node>(value, nullptr, nullptr);
-        // if (head)
-        // {
-        //     cur->next = head;
-        // }
-        // head = std::make_shared<Node>(value, nullptr, nullptr);
-        // if (!tail)
-        // {
-        //     tail = head;
-        // }
-        // std::cout << "New list head is " << value << '\n';
+        SmartNode cur = std::make_shared<Node>(value, nullptr, head);
+
+        if (!tail)
+        {
+            tail = cur;
+        }
+        else
+        {
+            head->prev = cur;
+        }
+        head = cur;
+
+        std::cout << "New list head is " << value << '\n';
     }
 
     int peek_front()
@@ -139,24 +141,36 @@ int main()
     DoublyLinkedList list;
     std::cout << list << '\n';
 
+    // accessing an empty list should work fine
     list.pop_front();
     list.peek_front();
     list.peek_back();
+    std::cout << "---\n";
 
-    // for (int i = 0; i < 3; ++i)
-    // {
-    //     list.push_front(i);
-    //     std::cout << list << '\n';
-    // }
-
-    // for (int i = 0; i < 3; ++i)
-    // {
-    //     list.pop_front();
-    //     std::cout << list << '\n';
-    // }
-
+    // pushing and popping a single node should work fine
     list.push_front(42);
-    // list.push_front(24);
+    std::cout << list << '\n';
+
+    std::cout << "first is " << list.peek_front() << " last is " << list.peek_back() << '\n';
+    list.pop_front();
+    std::cout << list << "\n---\n";
+
+    // pushing and popping more nodes shouldn't work fine ._.
+    for (int i = 0; i < 2; ++i)
+    {
+        list.push_front(i);
+        std::cout << list << '\n';
+    }
+
+    for (int i = 0; i < 2; ++i)
+    {
+        list.pop_front();
+        std::cout << list << '\n';
+    }
+
+    // leaving one node in the list should work fine, but more nodes would lead to memory leaks!
+    list.push_front(42);
+    list.push_front(24);
     std::cout << list << '\n';
     list.reversed_print();
     std::cout << "first is " << list.peek_front() << " last is " << list.peek_back() << '\n';
