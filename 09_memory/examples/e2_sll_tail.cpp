@@ -29,9 +29,11 @@ typedef std::shared_ptr<Node> SmartNode;
 
 class SinglyLinkedList final
 {
+    friend std::ostream &operator<<(std::ostream &, const SinglyLinkedList &);
+
   private:
-    SmartNode head;
-    SmartNode tail;
+    SmartNode head_;
+    SmartNode tail_;
 
   public:
     SinglyLinkedList()
@@ -46,68 +48,66 @@ class SinglyLinkedList final
 
     void push_front(int value)
     {
-        head = std::make_shared<Node>(value, head);
-        if (!tail)
+        head_ = std::make_shared<Node>(value, head_);
+        if (!tail_)
         {
-            tail = head;
+            tail_ = head_;
         }
         std::cout << "New list head is " << value << '\n';
     }
 
     int peek_front()
     {
-        if (!head)
+        if (!head_)
         {
             std::cout << "I should probably throw an exception, can't peek (front) on an empty list!\n";
             return std::numeric_limits<int>::min();
         }
         else
         {
-            return head->value;
+            return head_->value;
         }
     }
 
     int peek_back()
     {
-        if (!tail)
+        if (!tail_)
         {
             std::cout << "I should probably throw an exception, can't peek (back) on an empty list!\n";
             return std::numeric_limits<int>::min();
         }
         else
         {
-            return tail->value;
+            return tail_->value;
         }
     }
 
     void pop_front()
     {
-        if (!head)
+        if (!head_)
         {
             std::cout << "I should probably throw an exception, can't pop an empty list!\n";
         }
         else
         {
-            head = head->next;
-            if (head)
+            head_ = head_->next;
+            if (head_)
             {
-                std::cout << "New list head is " << head->value << '\n';
+                std::cout << "New list head is " << head_->value << '\n';
             }
             else
             {
-                tail = nullptr;
+                tail_ = nullptr;
                 std::cout << "Now the list is empty\n";
             }
         }
     }
-
-    friend std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list);
 };
 
 std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list)
 {
     std::cout << "[ ";
-    for (SmartNode cur = list.head; cur != nullptr; cur = cur->next)
+    for (SmartNode cur = list.head_; cur != nullptr; cur = cur->next)
     {
         std::cout << cur->value << ' ';
     }
