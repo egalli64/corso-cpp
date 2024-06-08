@@ -28,8 +28,10 @@ typedef std::shared_ptr<Node> SmartNode;
 
 class SinglyLinkedList final
 {
+    friend std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list);
+
   private:
-    SmartNode head;
+    SmartNode head_;
 
   public:
     SinglyLinkedList()
@@ -44,22 +46,22 @@ class SinglyLinkedList final
 
     void push_front(int value)
     {
-        head = std::make_shared<Node>(value, head);
+        head_ = std::make_shared<Node>(value, head_);
         std::cout << "New list head is " << value << '\n';
     }
 
     void pop_front()
     {
-        if (!head)
+        if (!head_)
         {
             std::cout << "I should probably throw an exception, can't pop an empty list!\n";
         }
         else
         {
-            head = head->next;
-            if (head)
+            head_ = head_->next;
+            if (head_)
             {
-                std::cout << "New list head is " << head->value << '\n';
+                std::cout << "New list head is " << head_->value << '\n';
             }
             else
             {
@@ -67,14 +69,12 @@ class SinglyLinkedList final
             }
         }
     }
-
-    friend std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list);
 };
 
 std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list)
 {
     std::cout << "[ ";
-    for (SmartNode cur = list.head; cur != nullptr; cur = cur->next)
+    for (SmartNode cur = list.head_; cur != nullptr; cur = cur->next)
     {
         std::cout << cur->value << ' ';
     }
@@ -91,13 +91,13 @@ int main()
 
     list.pop_front();
 
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 2; ++i)
     {
         list.push_front(i);
         std::cout << list << '\n';
     }
 
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 2; ++i)
     {
         list.pop_front();
         std::cout << list << '\n';
