@@ -10,10 +10,10 @@
 
 namespace
 {
-void print(const std::vector<int> &data, const std::string &message = "")
+template <typename IT> void print(IT first, IT last, const std::string &message = "")
 {
     std::cout << message << ": ";
-    std::copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::copy(first, last, std::ostream_iterator<int>(std::cout, " "));
     std::cout << '\n';
 }
 
@@ -25,20 +25,20 @@ void increase(int &value)
 
 int main()
 {
-    std::vector<int> values{1, 2, 3};
-    print(values, "A few values");
+    std::vector<int> values{1, 2, 3, 4, 5};
+    print(values.cbegin(), values.cend(), "A few values");
 
-    std::cout << "Increase by function\n";
+    std::cout << "Increase three times by function\n";
     for (int i = 0; i < 3; ++i)
     {
         for_each(values.begin(), values.end(), increase);
-        print(values);
+        print(values.cbegin(), values.cend());
     }
 
     std::cout << "Increase by lambda\n";
     for (int i = 0; i < 3; ++i)
     {
         for_each(values.begin(), values.end(), [](int &cur) { cur += 1; });
-        print(values);
+        print(values.cbegin(), values.cend());
     }
 }
