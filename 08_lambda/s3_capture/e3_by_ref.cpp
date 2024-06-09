@@ -10,18 +10,18 @@
 
 namespace
 {
-void print(const std::vector<int> &data, const std::string &message = "")
+template <typename IT> void print(IT first, IT last, const std::string &message = "")
 {
     std::cout << message << ": ";
-    std::copy(data.cbegin(), data.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::copy(first, last, std::ostream_iterator<int>(std::cout, " "));
     std::cout << '\n';
 }
 } // namespace
 
 int main()
 {
-    std::vector<int> values{1, 2, 3};
-    print(values, "A few values");
+    std::vector<int> values{1, 2, 3, 4, 5, 6};
+    print(values.cbegin(), values.cend(), "A few values");
 
     std::cout << "Capturing by reference (be careful with this one!)\n";
     int i = 0;
@@ -30,7 +30,7 @@ int main()
     while (i < 3)
     {
         for_each(values.begin(), values.end(), risky);
-        print(values);
+        print(values.cbegin(), values.cend());
         i += 1;
     }
 }
