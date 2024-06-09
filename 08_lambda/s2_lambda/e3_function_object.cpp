@@ -30,15 +30,24 @@ class OddFirst
         std::cout << "Odd first " << (natural_ ? "natural" : "inverse");
     }
 
+    /**
+     * Check left against right
+     *
+     * Return true:
+     *  If both are even/odd, if left is less than right (and natural_ is true)
+     *  Otherwise if left is odd
+     */
     bool operator()(int left, int right)
     {
-        // if both even or odd
-        if (!(left % 2 ^ right % 2))
+        if (left % 2 == right % 2)
         {
             bool result = left < right;
             return natural_ ? result : !result;
         }
-        return left % 2;
+        else
+        {
+            return left % 2;
+        }
     }
 };
 
