@@ -8,6 +8,7 @@
 
 namespace
 {
+// as alternative, "auto" could be used as return type
 std::function<void()> veryBad()
 {
     int x = 42;
