@@ -25,5 +25,5 @@ int main()
     [a, b] { std::cout << "Summing a and b: " << a + b << '\n'; }();
 
     // won't compile: variable captured by value is not modifiable
-    // [a] { a++; }();
+    // [a] { ++a; }();
 }
