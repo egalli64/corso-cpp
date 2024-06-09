@@ -24,8 +24,9 @@ int main()
     std::vector<int> data{34, 12, 3, 8, 5, 43};
     print("original data", data);
 
-    auto order = [](int left, int right) { return left > right; };
+    // auto order = [](int left, int right) { return left > right; };
+    // std::sort(data.begin(), data.end(), order);
 
-    std::sort(data.begin(), data.end(), order);
+    std::sort(data.begin(), data.end(), [](int a, int b) { return a > b; });
     print("reversed sort by lambda", data);
 }
