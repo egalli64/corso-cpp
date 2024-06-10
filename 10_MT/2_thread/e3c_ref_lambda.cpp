@@ -13,10 +13,10 @@
 
 int main()
 {
-    std::vector<int> values{1, 2, 3, 4, 5, 6};
+    const std::vector<int> values{1, 2, 3, 4, 5, 6};
     int result;
 
-    std::thread t{[&values, &result] { result = std::accumulate(values.begin(), values.end(), 0); }};
+    std::thread t{[&values, &result] { result = std::accumulate(values.cbegin(), values.cend(), 0); }};
     t.join();
 
     std::cout << "Sum is " << result << '\n';

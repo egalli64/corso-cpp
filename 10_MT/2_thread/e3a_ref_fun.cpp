@@ -21,7 +21,7 @@ void adder_function(const std::vector<int> &values, int &result)
 
 int main()
 {
-    std::vector<int> values{1, 2, 3, 4, 5, 6};
+    const std::vector<int> values{1, 2, 3, 4, 5, 6};
     int result;
 
     std::thread t{adder_function, std::cref(values), std::ref(result)};

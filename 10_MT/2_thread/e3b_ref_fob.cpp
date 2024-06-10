@@ -32,7 +32,7 @@ class Adder
 
 int main()
 {
-    std::vector<int> values{1, 2, 3, 4, 5, 6};
+    const std::vector<int> values{1, 2, 3, 4, 5, 6};
     int result;
 
     std::thread t{Adder(values, result)};
