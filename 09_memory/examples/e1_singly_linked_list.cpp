@@ -28,7 +28,7 @@ typedef std::shared_ptr<Node> SmartNode;
 
 class SinglyLinkedList final
 {
-    friend std::ostream &operator<<(std::ostream &os, const SinglyLinkedList &list);
+    friend std::ostream &operator<<(std::ostream &, const SinglyLinkedList &);
 
   private:
     SmartNode head_;
