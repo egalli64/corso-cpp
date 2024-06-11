@@ -11,7 +11,7 @@
 
 int main()
 {
-    const int count = 50'000;
+    constexpr int count = 50'000;
     std::mutex mtx_result;
     int result = 0;
 
@@ -19,7 +19,7 @@ int main()
         for (int i = 0; i < count; ++i)
         {
             mtx_result.lock();
-            result++;
+            ++result;
             mtx_result.unlock();
         }
     }};
@@ -27,7 +27,7 @@ int main()
     for (int i = 0; i < count; ++i)
     {
         mtx_result.lock();
-        result++;
+        ++result;
         mtx_result.unlock();
     }
 
