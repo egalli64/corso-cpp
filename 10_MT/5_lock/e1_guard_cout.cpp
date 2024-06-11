@@ -31,7 +31,8 @@ int main()
     std::thread t1{greeter, "Hello"};
     std::thread t2{greeter, "Goodbye"};
 
-    { // ensure the lock is freed as soon as possible - beware of deadlock!
+    {
+        // ensure the lock is freed as soon as possible - beware of deadlock!
         std::lock_guard<std::mutex> lock{mtx_cout};
         std::cout << "The main thread is ";
         std::cout << std::this_thread::get_id();
@@ -40,4 +41,7 @@ int main()
 
     t1.join();
     t2.join();
+
+    // no more need to protect cout
+    std::cout << "Done.\n";
 }
