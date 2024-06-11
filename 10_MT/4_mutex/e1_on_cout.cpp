@@ -40,4 +40,7 @@ int main()
 
     t1.join();
     t2.join();
+
+    // after joining, cout is no more a shared resource
+    std::cout << "Done\n";
 }
