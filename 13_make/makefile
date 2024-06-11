@@ -40,12 +40,13 @@ all: $(BUILD_DIR) $(TARGET)
 # Rule to build the target
 #	$@ is the target of the rule
 #	$^ is for the dependencies
+# In GNU terminology $@, ... are called automatic variables
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Rule to build object files
+# Rule to build object files (-c stands for compile only)
 #	each .cpp had the matching .o as target
-#	after "|" are placed the order only prerequisites
+#	after "|" are placed the "order only prerequisites" (changes in BUILD_DIR do not trigger the rule)
 #	$< means the .cpp file
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
