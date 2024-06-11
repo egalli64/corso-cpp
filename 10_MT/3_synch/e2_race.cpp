@@ -10,20 +10,20 @@
 
 int main()
 {
-    int result = 0;
     // increasing/decreasing the count value could introduce/fix the problem!
-    const int count = 50'000;
+    constexpr int count = 50'000;
 
+    int result = 0;
     std::thread t{[&result] {
         for (int i = 0; i < count; ++i)
         {
-            result++;
+            ++result;
         }
     }};
 
     for (int i = 0; i < count; ++i)
     {
-        result++;
+        ++result;
     }
 
     t.join();
