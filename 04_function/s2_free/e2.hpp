@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * A simple base class
+ * Function declaration in a header file
  */
 #ifndef CORSO_CPP_4_FUNCTION_FREE_2
 #define CORSO_CPP_4_FUNCTION_FREE_2
