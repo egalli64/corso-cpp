@@ -32,40 +32,49 @@ void print(const char *message, double a, double b)
 
 int main()
 {
-    double v1{12.23};
-    double v2{32.21};
+    double v1 = 1.1;
     std::mutex mtx_v1;
+    double v2 = 2.2;
     std::mutex mtx_v2;
 
     std::thread t1{[&] {
         print("thread 1");
 
+        print("Spending some time do generate a double value");
         srand(time(nullptr));
-        v1 = cbrt(log(rand() % 100 + 1));
-        print("set v1", v1, v2);
+        {
+            print("thread 1 lock guard on v1");
+            std::lock_guard<std::mutex> lock1{mtx_v1};
+            v1 = cbrt(log(rand() % 100 + 1));
+        }
+        print("thread 1, set v1", v1, v2);
 
         std::lock(mtx_v1, mtx_v2);
         std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
         std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
-        print("thread 1 locked");
+        print("thread 1 lock guard on _both_ v1 and v2");
 
         std::swap(v1, v2);
-        print("swap 1 ->", v1, v2);
+        print("thread 1 swap ->", v1, v2);
     }};
 
     std::thread t2{[&] {
         print("thread 2");
 
-        v2 = cbrt(42);
-        print("set v2", v1, v2);
+        {
+            print("thread 2 lock guard on v1");
+            std::lock_guard<std::mutex> lock1{mtx_v2};
+            v2 = cbrt(42);
+        }
+        print("thread 2, set v2", v1, v2);
 
         std::lock(mtx_v1, mtx_v2);
         std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
         std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
-        print("thread 2 locked");
+        print("thread 2 lock guard on _both_ v1 and v2");
 
         std::swap(v1, v2);
-        print("swap 2 ->", v1, v2);
+        print("thread 2 swap ->", v1, v2);
     }};
 
     t1.join();
