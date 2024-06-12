@@ -18,6 +18,7 @@ class Shape
 {
   public:
     virtual void draw() = 0;
+    virtual ~Shape() = default;
 };
 
 class RectangleAdapter : public Shape, private Rectangle
