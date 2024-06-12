@@ -28,52 +28,58 @@ void print(const char *message, double a, double b)
     std::lock_guard<std::mutex> lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << ' ' << a << ", " << b << '\n';
 }
+
+double time_consuming_calculation()
+{
+    print("Spending some time do generate a double value");
+    srand(time(nullptr));
+    return cbrt(log(rand() % 100 + 1));
+}
 } // namespace
 
 int main()
 {
-    double v1{12.23};
-    double v2{32.21};
+    double v1 = 1.1;
     std::mutex mtx_v1;
+    double v2 = 2.2;
     std::mutex mtx_v2;
 
-    std::cout << "!!! This code could lead to a deadlock !!!\n";
+    print("!!! This code could lead to a deadlock !!!");
 
     std::thread t1{[&] {
         print("thread 1");
 
         std::lock_guard<std::mutex> lock1{mtx_v1};
-        print("lock 1");
+        print("thread 1, lock for v1");
 
-        srand(time(nullptr));
-        v1 = cbrt(log(rand() % 100 + 1));
-        print("set v1", v1, v2);
+        v1 = time_consuming_calculation();
+        print("thread 1, set v1", v1, v2);
 
         std::lock_guard<std::mutex> lock2{mtx_v2};
-        print("lock 2");
+        print("thread 1, lock for v2");
 
         std::swap(v1, v2);
-        print("swap 1 ->", v1, v2);
+        print("thread 1 swap ->", v1, v2);
     }};
 
     std::thread t2{[&] {
         print("thread 2");
 
         std::lock_guard<std::mutex> lock2{mtx_v2};
-        print("lock 2");
+        print("thread 2, lock for v2");
 
         v2 = cbrt(42);
-        print("set v2", v1, v2);
+        print("thread 2, set v2", v1, v2);
 
         std::lock_guard<std::mutex> lock1{mtx_v1};
-        print("lock 1");
+        print("thread 2, lock for v1");
 
         std::swap(v1, v2);
-        print("swap 2 ->", v1, v2);
+        print("thread 2 swap ->", v1, v2);
     }};
 
     t1.join();
     t2.join();
 
-    std::cout << "Done(?)\n";
+    print("Done(?)");
 }
