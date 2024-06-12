@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Lock guard on int
+ * Lock guard on an int
  *
  * g++ -pthread -o a.out e2_guard_int.cpp
  */
@@ -11,24 +11,24 @@
 
 int main()
 {
+    constexpr int count = 50'000;
     int result = 0;
     std::mutex mtx_result;
-    const int count = 50'000;
 
     std::thread t{[&result, &mtx_result] {
         for (int i = 0; i < count; ++i)
         {
             std::lock_guard<std::mutex> lock{mtx_result};
-            result++;
+            ++result;
         }
     }};
 
     for (int i = 0; i < count; ++i)
     {
         std::lock_guard<std::mutex> lock{mtx_result};
-        result++;
+        ++result;
     }
 
     t.join();
-    std::cout << "Guarded behavior: " << result << '\n';
+    std::cout << "Guarded behavior when racing on result: " << result << '\n';
 }
