@@ -1,9 +1,9 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * struct defined in a header file
+ * struct - defined in a header file
  */
-#include "e2.hpp"
+#include "Point.hpp"
 #include <iostream>
 
 int main()

@@ -3,8 +3,8 @@
  *
  * A simple class
  */
-#ifndef CORSO_CPP_5_OOP_CLASS
-#define CORSO_CPP_5_OOP_CLASS
+#ifndef CORSO_CPP_5_OOP_CLASS_POINT
+#define CORSO_CPP_5_OOP_CLASS_POINT
 
 /**
  * @brief Declaring a simple class (no method)
@@ -15,4 +15,4 @@ struct Point
     int y;
 };
 
-#endif // CORSO_CPP_5_OOP_CLASS
+#endif // CORSO_CPP_5_OOP_CLASS_POINT
