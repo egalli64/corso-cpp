@@ -1,10 +1,12 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * default value
+ * default argument
  */
 #include <iostream>
 
+namespace
+{
 void sayHello(int count = 1)
 {
     std::cout << "...";
@@ -14,6 +16,7 @@ void sayHello(int count = 1)
     }
     std::cout << "!\n";
 }
+} // namespace
 
 int main()
 {

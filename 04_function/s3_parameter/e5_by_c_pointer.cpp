@@ -16,17 +16,19 @@ void unsafeHello(char *name)
 void saferHello(const char *name)
 {
     std::cout << "Hello " << name << "!\n";
-    // being const, can't change!
+    // won't compile
     // name[0] += 1;
 }
 } // namespace
 
 int main()
 {
-    char *bob = "Bob";
+    // setting a non-const char array from a const char*
+    char bob[] = "Bob";
     unsafeHello(bob);
     std::cout << "Bob now is " << bob << '\n';
 
-    char *tom = "Tom";
+    // it would be more expressive to define tom as a const char*
+    char tom[] = "Tom";
     saferHello(tom);
 }

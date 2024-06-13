@@ -9,6 +9,7 @@ namespace
 {
 void swap(int *pLeft, int *pRight)
 {
+    // ensure the pointer is dereferencable
     if (pLeft == nullptr || pRight == nullptr)
     {
         std::cout << "Can't swap from " << pLeft << " to " << pRight << '\n';

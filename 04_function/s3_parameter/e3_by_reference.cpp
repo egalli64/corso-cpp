@@ -5,6 +5,8 @@
  */
 #include <iostream>
 
+namespace
+{
 void swap(int &left, int &right)
 {
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
@@ -14,6 +16,7 @@ void swap(int &left, int &right)
     right = temp;
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
 }
+} // namespace
 
 int main()
 {

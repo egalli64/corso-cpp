@@ -5,6 +5,8 @@
  */
 #include <iostream>
 
+namespace
+{
 void wontSwap(int left, int right)
 {
     std::cout << "Called by value: left is " << left << " and right is " << right << '\n';
@@ -15,6 +17,7 @@ void wontSwap(int left, int right)
 
     std::cout << "Called by value: left is " << left << " and right is " << right << '\n';
 }
+} // namespace
 
 int main()
 {
