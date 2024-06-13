@@ -3,7 +3,7 @@
  *
  * my namespace with a function in it
  */
-#include "e1.hpp"
+#include "e1_my.hpp"
 #include <iostream>
 
 namespace my
