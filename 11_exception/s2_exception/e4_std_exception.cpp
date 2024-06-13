@@ -26,7 +26,7 @@ int main()
     {
         risky();
     }
-    catch (std::exception &me)
+    catch (const std::exception &me)
     {
         std::cout << me.what() << '\n';
     }
