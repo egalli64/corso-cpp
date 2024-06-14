@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * std::string
+ * std::string - literals
  */
 #include <iostream>
 #include <string>
