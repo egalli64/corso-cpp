@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - basic methods
+ * SL vector - some constructors
  */
 #include <iostream>
 #include <string>
@@ -51,11 +51,4 @@ int main()
 
     std::vector<std::string> sv{"hello", "goodbye"};
     print(sv, "A string vector");
-
-    // increase all the elements
-    for (int &cur : given)
-    {
-        cur += 1;
-    }
-    print(given, "Increased values");
 }
