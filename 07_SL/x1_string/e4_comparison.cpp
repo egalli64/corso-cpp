@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * std::string - operators
+ * std::string - less / greater comparison operators
  */
 #include <iostream>
 #include <string>
