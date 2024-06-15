@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - size, [], and iterators
+ * SL vector - size, [], front, back, and iterators
  */
 #include <iostream>
 #include <vector>
@@ -16,6 +16,10 @@ int main()
         std::cout << values[i] << ' ';
     }
     std::cout << '\n';
+
+    // expect a segmentation fault if the vector is empty
+    std::cout << "First element is: " << values.front() << '\n';
+    std::cout << "Last element is: " << values.back() << '\n';
 
     std::cout << "loop by const iterator: ";
     for (auto it = values.cbegin(); it != values.cend(); ++it)
