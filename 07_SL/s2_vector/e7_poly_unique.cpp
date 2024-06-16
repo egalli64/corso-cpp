@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - achieving polymorphism by smart pointers (unique)
+ * achieving polymorphism by unique smart pointers
  */
 #include <iostream>
 #include <memory>
@@ -12,10 +12,10 @@
 
 int main()
 {
-    std::cout << "*** Unique Smart Pointer Vector\n";
-    // unique_ptr is not copiable, as required by initializer_list, so, can't be used here
+    // initializer_list requires copy, but unique_ptr is not copiable
     std::vector<std::unique_ptr<Entry>> values;
 
+    std::cout << "*** Pushing unique ptrs on the container\n";
     values.push_back(std::make_unique<Entry>(1, "Tom"));
     values.push_back(std::make_unique<Entry>(2, "Bob"));
     values.push_back(std::make_unique<Entry>(3, "Kim"));
@@ -27,5 +27,5 @@ int main()
         cur->sayHello();
     }
 
-    std::cout << "*** Vector is about to going out of scope\n";
+    std::cout << "*** The container is about to go out of scope\n";
 }
