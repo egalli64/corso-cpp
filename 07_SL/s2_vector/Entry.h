@@ -3,8 +3,8 @@
  *
  * A class meant to be derived
  */
-#ifndef CORSO_CPP_B7_S4_ENTRY_H
-#define CORSO_CPP_B7_S4_ENTRY_H
+#ifndef CORSO_CPP_B7_S2_ENTRY_H
+#define CORSO_CPP_B7_S2_ENTRY_H
 
 #include <iostream>
 #include <string>
@@ -82,9 +82,14 @@ class Entry
     }
 };
 
+/**
+ * @brief put an entry to ostream
+ * 
+ * @warning it should be just declared here and defined in a cpp file
+ */
 inline std::ostream &operator<<(std::ostream &os, const Entry &entry)
 {
     return os << '{' << entry.key() << ", " << entry.value() << '}';
 }
 
-#endif // CORSO_CPP_B7_S4_ENTRY_H
+#endif // CORSO_CPP_B7_S2_ENTRY_H
