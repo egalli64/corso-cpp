@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * no polymorphism on statically typed vector!
+ * Remember: no pointer, no polymorphism
  */
 #include <iostream>
 #include <memory>
@@ -12,7 +12,7 @@
 
 int main()
 {
-    std::cout << "Statically typed vector - no polymorphism!\n";
+    std::cout << "*** Two local object are created, copied in the vector, and then destroyed\n";
     std::vector<Entry> values{{1, "Tom"}, {2, "Bob"}};
 
     std::cout << "*** values: ";
@@ -23,7 +23,7 @@ int main()
     std::cout << '\n';
 
     // the vector should grow, elements are moved to the new array
-    std::cout << "*** Kim is pushed back into the vector\n";
+    std::cout << "*** Kim is pushed back into the vector, capacity should be increased\n";
     values.push_back({3, "Kim"});
     std::cout << "*** Obi is emplaced into the vector\n";
     values.emplace_back(4, "Obi");
@@ -35,7 +35,7 @@ int main()
         wim.sayHello();
 
         // BAD! Wim is sliced off !!!
-        std::cout << "*** Wim is pushed back into the vector\n";
+        std::cout << "*** Wim is sliced (!) and pushed back into the vector (capacity grows)\n";
         values.push_back(wim);
 
         std::cout << "*** The original Wim is about to go out of scope\n";
