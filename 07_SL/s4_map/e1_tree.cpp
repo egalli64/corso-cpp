@@ -10,9 +10,9 @@
 namespace
 {
 /**
- * @brief a simple template function to print all the elements in an iterval
+ * @brief a simple template function to print all the map pairs in an iterval
  *
- * @param it iterator to the first element to be printed
+ * @param it iterator to the first pair to be printed
  * @param end iterator to the end sentinel
  * @param label a heading message to be printed
  */
@@ -21,20 +21,11 @@ template <typename IT> void print(IT it, IT end, const std::string &label)
     std::cout << label << ": ";
     for (; it != end; ++it)
     {
-        std::cout << "{ " << it->first << ' ' << it->second << " } ";
+        std::cout << "{ " << it->first << ", " << it->second << " } ";
     }
     std::cout << '\n';
 }
 } // namespace
-
-void print(const std::map<std::string, double> &items)
-{
-    for (const auto &item : items)
-    {
-        std::cout << item.first << ' ' << item.second << '\n';
-    }
-    std::cout << '\n';
-}
 
 int main()
 {
