@@ -8,20 +8,23 @@
 #include <string>
 #include <vector>
 
-void print(const std::vector<std::string> &items, const std::string &label)
+namespace
 {
-    std::cout << label << " [ ";
-    for (const auto &item : items)
+template <typename IT> void print(IT cur, IT end, const std::string &label)
+{
+    std::cout << label << ": [ ";
+    for (; cur != end; ++cur)
     {
-        std::cout << item << ' ';
+        std::cout << *cur << ' ';
     }
     std::cout << "]\n";
 }
+} // namespace
 
 int main()
 {
     std::vector<std::string> data{"tom", "bob", "kim"};
-    print(data, "A string vector");
+    print(data.cbegin(), data.cend(), "A string container");
     reverse(data.begin(), data.end());
-    print(data, "Reversed");
+    print(data.cbegin(), data.cend(), "Reversed");
 }
