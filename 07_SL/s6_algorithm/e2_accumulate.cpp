@@ -15,7 +15,7 @@ int main()
     int sum = std::accumulate(values.cbegin(), values.cend(), 0);
     std::cout << "Sum of values is " << sum << '\n';
 
-    // the iterator on vector supports +/- as pointer does
+    // we actually get random access iterators from vector
     sum = std::accumulate(values.cbegin() + 1, values.cend() - 1, 0);
     std::cout << "Sum of internal values is " << sum << '\n';
 }
