@@ -1,9 +1,10 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL map
+ * SL map - find
  */
 #include <iostream>
+#include <map>
 #include <string>
 #include <unordered_map>
 
@@ -29,26 +30,9 @@ template <typename IT> void print(IT it, IT end, const std::string &label)
 
 int main()
 {
+    // use std::map (BST) or std::unordered_map (hashtable)
     std::unordered_map<std::string, double> data{{"tom", 32.18}, {"bob", 44.11}};
-    print(data.begin(), data.end(), "A (hash based) map");
-
-    // associative array syntax, last wins
-    data["kim"] = 15.15;
-    data["kim"] = 15.51;
-
-    // classic syntax, first wins
-    data.insert({"mia", 91.12});
-    data.insert({"mia", 91.19});
-
-    // emplacing, first wins
-    data.emplace("jim", 12.23);
-    data.emplace("jim", 21.32);
-
-    // C++17, last wins
-    data.insert_or_assign("syd", 27.27);
-    data.insert_or_assign("syd", 27.72);
-
-    print(data.begin(), data.end(), "More pairs in");
+    print(data.begin(), data.end(), "A map");
 
     // associative array syntax, could be confusing
     std::cout << "bob value is: " << data["bob"] << '\n';
@@ -56,29 +40,30 @@ int main()
     print(data.begin(), data.end(), "Now there are two bobs )");
 
     // classic syntax, more robust
-    if (auto it = data.find("kim"); it != data.end())
+    if (auto it = data.find("tom"); it != data.end())
     {
-        std::cout << "kim value (find) is: " << it->second << '\n';
+        std::cout << "tom value (find) is: " << it->second << '\n';
     }
     else
     {
         std::cout << "unexpected!\n";
     }
 
-    auto it = data.find("Kim");
-    std::cout << (it == data.end() ? "kim not found" : "unexpected!") << '\n';
-    print(data.begin(), data.end(), "No duplicated kim (");
+    auto it = data.find("Tom");
+    std::cout << (it == data.end() ? "Tom not found" : "unexpected!") << '\n';
+    print(data.begin(), data.end(), "No duplicated tom (");
 
     // robustness by exception
-    std::cout << "tom value (at) is: " << data.at("tom") << '\n';
-
     try
     {
-        double joe = data.at("joe");
-        std::cout << joe << '\n';
+        // this one should work
+        std::cout << "tom value (at) is: " << data.at("tom") << '\n';
+        // this one should fail
+        std::cout << "Finding joe (at) ... ";
+        std::cout << data.at("joe") << '\n';
     }
     catch (const std::out_of_range &ex)
     {
-        std::cout << "Out of range calling " << ex.what() << " on joe" << '\n';
+        std::cout << "out of range calling " << ex.what() << '\n';
     }
 }
