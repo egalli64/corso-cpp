@@ -30,7 +30,7 @@ int main()
     std::vector<int> other(5);
     print(other.cbegin(), other.cend(), "Another vector");
 
-    // a "normal" output operator let the algorithm to override values - they should exists!
+    // a "normal" output iterator let the algorithm to override values - they should exists!
     std::copy(values.begin(), values.end(), other.begin());
     print(other.cbegin(), other.cend(), "Other after copy");
 

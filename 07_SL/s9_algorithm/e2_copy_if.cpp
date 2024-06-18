@@ -35,7 +35,7 @@ int main()
     std::vector<int> other(2);
     print(other.cbegin(), other.cend(), "Another vector");
 
-    // a "normal" output operator let the algorithm to override values - they should exists!
+    // a "normal" output iterator let the algorithm to override values - they should exists!
     std::copy_if(values.begin(), values.end(), other.begin(), is_odd);
     print(other.cbegin(), other.cend(), "Other after back insertion of odd values");
 
