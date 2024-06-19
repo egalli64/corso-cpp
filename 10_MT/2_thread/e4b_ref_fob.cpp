@@ -3,7 +3,7 @@
  *
  * No need of std::ref(), std::cref() on function object
  *
- * g++ -pthread -o a.out e3b_ref_fob.cpp
+ * g++ -pthread -Wall -o a.out e4b_ref_fob.cpp
  */
 #include <functional>
 #include <iostream>

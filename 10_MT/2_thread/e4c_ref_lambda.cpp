@@ -3,7 +3,7 @@
  *
  * No need of std::ref(), std::cref() on lambda
  *
- * g++ -pthread -o a.out e3c_ref_lambda.cpp
+ * g++ -pthread -Wall -o a.out e4c_ref_lambda.cpp
  */
 #include <functional>
 #include <iostream>

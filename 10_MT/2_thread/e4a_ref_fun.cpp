@@ -3,7 +3,7 @@
  *
  * std::ref(), std::cref() on function
  *
- * g++ -pthread -o a.out e3a_ref_fun.cpp
+ * g++ -pthread -Wall -o a.out e4a_ref_fun.cpp
  */
 #include <functional>
 #include <iostream>
