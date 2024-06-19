@@ -1,19 +1,19 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Synchronization by atomic variable
+ * Race condition
  *
- * g++ -pthread -o a.out e3_atomic.cpp
+ * g++ -pthread -Wall -o a.out e2_race.cpp
  */
-#include <atomic>
 #include <iostream>
 #include <thread>
 
 int main()
 {
+    // increasing/decreasing the count value could introduce/fix the problem!
     constexpr int count = 50'000;
-    std::atomic<int> result = 0;
 
+    int result = 0;
     std::thread t{[&result] {
         for (int i = 0; i < count; ++i)
         {
@@ -27,5 +27,12 @@ int main()
     }
 
     t.join();
-    std::cout << "No data race: " << result << '\n';
+    if (result != count * 2)
+    {
+        std::cout << "Problematic data race: " << result << "!\n";
+    }
+    else
+    {
+        std::cout << "No problem!\n";
+    }
 }

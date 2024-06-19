@@ -3,7 +3,7 @@
  *
  * Synchronization by join
  *
- * g++ -pthread -o a.out e1_join.cpp
+ * g++ -pthread -Wall -o a.out e1_join.cpp
  */
 #include <iostream>
 #include <thread>
