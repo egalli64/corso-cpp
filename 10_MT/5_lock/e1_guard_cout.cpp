@@ -3,7 +3,7 @@
  *
  * Lock guard on cout
  *
- * g++ -pthread -o a.out e1_guard_cout.cpp
+ * g++ -pthread -Wall -o a.out e1_guard_cout.cpp
  */
 #include <iostream>
 #include <mutex>
@@ -16,7 +16,8 @@ int main()
     std::mutex mtx_cout;
 
     auto greeter = [&mtx_cout](const std::string &s) {
-        std::lock_guard<std::mutex> lock{mtx_cout};
+        // pre C++17 std::lock_guard<std::mutex> lock{mtx_cout};
+        std::lock_guard lock{mtx_cout};
         for (int i = 0; i < 1'000; i++)
         {
             std::cout << s[0];
@@ -33,7 +34,7 @@ int main()
 
     {
         // ensure the lock is freed as soon as possible - beware of deadlock!
-        std::lock_guard<std::mutex> lock{mtx_cout};
+        std::lock_guard lock{mtx_cout};
         std::cout << "The main thread is ";
         std::cout << std::this_thread::get_id();
         std::cout << '\n';
