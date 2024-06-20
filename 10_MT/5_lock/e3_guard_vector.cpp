@@ -3,7 +3,7 @@
  *
  * Lock guard on vector
  *
- * g++ -pthread -o a.out e3_guard_vector.cpp
+ * g++ -pthread -Wall -o a.out e3_guard_vector.cpp
  */
 #include <algorithm>
 #include <iostream>
@@ -18,13 +18,13 @@ std::mutex mtx_data;
 
 void add(int value)
 {
-    std::lock_guard<std::mutex> lock{mtx_data};
+    std::lock_guard lock{mtx_data};
     data.push_back(value);
 }
 
 bool contains(int value)
 {
-    std::lock_guard<std::mutex> lock{mtx_data};
+    std::lock_guard lock{mtx_data};
     return std::find(data.begin(), data.end(), value) != data.end();
 }
 } // namespace
