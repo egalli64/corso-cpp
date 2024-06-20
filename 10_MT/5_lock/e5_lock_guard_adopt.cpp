@@ -1,9 +1,9 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * No deadlock using adopt_lock
+ * No deadlock using lock() plus lock_guard with adopt_lock
  *
- * g++ -pthread -o a.out e4_lock_guard_adopt.cpp
+ * g++ -pthread -Wall -o a.out e5_lock_guard_adopt.cpp
  */
 #include <cmath>
 #include <cstdlib>
@@ -19,13 +19,13 @@ std::mutex mtx_cout;
 
 void print(const char *message)
 {
-    std::lock_guard<std::mutex> lock{mtx_cout};
+    std::lock_guard lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << '\n';
 }
 
 void print(const char *message, double a, double b)
 {
-    std::lock_guard<std::mutex> lock{mtx_cout};
+    std::lock_guard lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << ' ' << a << ", " << b << '\n';
 }
 } // namespace
@@ -43,15 +43,15 @@ int main()
         print("Spending some time do generate a double value");
         srand(time(nullptr));
         {
+            std::lock_guard lock1{mtx_v1};
             print("thread 1 lock guard on v1");
-            std::lock_guard<std::mutex> lock1{mtx_v1};
             v1 = cbrt(log(rand() % 100 + 1));
         }
         print("thread 1, set v1", v1, v2);
 
         std::lock(mtx_v1, mtx_v2);
-        std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
-        std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
+        std::lock_guard lock1{mtx_v1, std::adopt_lock};
+        std::lock_guard lock2{mtx_v2, std::adopt_lock};
         print("thread 1 lock guard on _both_ v1 and v2");
 
         std::swap(v1, v2);
@@ -62,15 +62,15 @@ int main()
         print("thread 2");
 
         {
+            std::lock_guard lock1{mtx_v2};
             print("thread 2 lock guard on v1");
-            std::lock_guard<std::mutex> lock1{mtx_v2};
             v2 = cbrt(42);
         }
         print("thread 2, set v2", v1, v2);
 
         std::lock(mtx_v1, mtx_v2);
-        std::lock_guard<std::mutex> lock2{mtx_v2, std::adopt_lock};
-        std::lock_guard<std::mutex> lock1{mtx_v1, std::adopt_lock};
+        std::lock_guard lock2{mtx_v2, std::adopt_lock};
+        std::lock_guard lock1{mtx_v1, std::adopt_lock};
         print("thread 2 lock guard on _both_ v1 and v2");
 
         std::swap(v1, v2);
