@@ -5,6 +5,9 @@
  */
 #include <iostream>
 
+/**
+ * @brief A very simple class
+ */
 struct Point
 {
     int x;
@@ -30,7 +33,7 @@ struct Point
 
     ~Point()
     {
-        std::cout << "Point (" << x << ", " << y << ") removed\n";
+        std::cout << "Point dtor (" << x << ", " << y << ")\n";
     }
 };
 
@@ -38,5 +41,5 @@ int main()
 {
     // point is created on stack, implicit call to default ctor
     Point a;
-    std::cout << "See default ctor to see if the point is correctly initialized: " << a.x << ' ' << a.y << '\n';
+    std::cout << "The point initialization is on the ctor: " << a.x << ' ' << a.y << '\n';
 }
