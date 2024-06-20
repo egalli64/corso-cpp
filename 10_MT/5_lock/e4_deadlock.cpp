@@ -3,7 +3,7 @@
  *
  * (possible) deadlock when more resources are required
  *
- * g++ -pthread -o a.out e4_deadlock.cpp
+ * g++ -pthread -Wall -o a.out e4_deadlock.cpp
  */
 #include <cmath>
 #include <cstdlib>
@@ -19,13 +19,13 @@ std::mutex mtx_cout;
 
 void print(const char *message)
 {
-    std::lock_guard<std::mutex> lock{mtx_cout};
+    std::lock_guard lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << '\n';
 }
 
 void print(const char *message, double a, double b)
 {
-    std::lock_guard<std::mutex> lock{mtx_cout};
+    std::lock_guard lock{mtx_cout};
     std::cout << std::this_thread::get_id() << ' ' << message << ' ' << a << ", " << b << '\n';
 }
 
@@ -49,13 +49,13 @@ int main()
     std::thread t1{[&] {
         print("thread 1");
 
-        std::lock_guard<std::mutex> lock1{mtx_v1};
+        std::lock_guard lock1{mtx_v1};
         print("thread 1, lock for v1");
 
         v1 = time_consuming_calculation();
         print("thread 1, set v1", v1, v2);
 
-        std::lock_guard<std::mutex> lock2{mtx_v2};
+        std::lock_guard lock2{mtx_v2};
         print("thread 1, lock for v2");
 
         std::swap(v1, v2);
@@ -65,13 +65,13 @@ int main()
     std::thread t2{[&] {
         print("thread 2");
 
-        std::lock_guard<std::mutex> lock2{mtx_v2};
+        std::lock_guard lock2{mtx_v2};
         print("thread 2, lock for v2");
 
         v2 = cbrt(42);
         print("thread 2, set v2", v1, v2);
 
-        std::lock_guard<std::mutex> lock1{mtx_v1};
+        std::lock_guard lock1{mtx_v1};
         print("thread 2, lock for v1");
 
         std::swap(v1, v2);
@@ -81,5 +81,5 @@ int main()
     t1.join();
     t2.join();
 
-    print("Done(?)");
+    print("Done - when lucky");
 }
