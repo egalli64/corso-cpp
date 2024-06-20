@@ -5,6 +5,8 @@
  */
 #include <iostream>
 
+namespace
+{
 /**
  * @brief A more structured class
  */
@@ -27,21 +29,22 @@ class Point
     {
         return y_;
     }
-    void increaseX(int delta)
+    void increase_x(int delta)
     {
         x_ += delta;
     }
 };
+} // namespace
 
 int main()
 {
     Point a{34, 3};
-    std::cout << a.x() << ' ' << a.y() << '\n';
+    std::cout << "A point: " << a.x() << ' ' << a.y() << '\n';
 
     Point *p = &a;
-    std::cout << p->x() << ' ' << p->y() << '\n';
+    std::cout << "Same point, accessed by pointer: " << p->x() << ' ' << p->y() << '\n';
 
     Point &r = a;
-    r.increaseX(5);
-    std::cout << a.x() << ' ' << a.y() << '\n';
+    r.increase_x(5);
+    std::cout << "Same point: accessed by reference: " << a.x() << ' ' << a.y() << '\n';
 }

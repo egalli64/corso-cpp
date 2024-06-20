@@ -20,7 +20,7 @@ int Point::y()
     return y_;
 }
 
-void Point::increaseX(int delta)
+void Point::increase_x(int delta)
 {
     x_ += delta;
 }
@@ -28,12 +28,12 @@ void Point::increaseX(int delta)
 int main()
 {
     Point a{34, 3};
-    std::cout << a.x() << ' ' << a.y() << '\n';
+    std::cout << "A point: " << a.x() << ' ' << a.y() << '\n';
 
     Point *p = &a;
-    std::cout << p->x() << ' ' << p->y() << '\n';
+    std::cout << "Same point, accessed by pointer: " << p->x() << ' ' << p->y() << '\n';
 
     Point &r = a;
-    r.increaseX(5);
-    std::cout << a.x() << ' ' << a.y() << '\n';
+    r.increase_x(5);
+    std::cout << "Same point, modified by reference, accessed by original name: " << a.x() << ' ' << a.y() << '\n';
 }

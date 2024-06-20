@@ -20,7 +20,7 @@ class Point
 
     int x();
     int y();
-    void increaseX(int delta);
+    void increase_x(int delta);
 };
 
 #endif // CORSO_CPP_5_OOP_3_ACCESS_POINT
