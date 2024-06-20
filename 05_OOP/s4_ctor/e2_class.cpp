@@ -5,6 +5,11 @@
  */
 #include <iostream>
 
+namespace
+{
+/**
+ * @brief A simple class
+ */
 class Point
 {
   private:
@@ -16,10 +21,12 @@ class Point
     Point() : x_{0}, y_{0}
     {
     }
+
     // a plain explicit ctor
     explicit Point(int x) : x_{x}, y_{0}
     {
     }
+
     // another plain ctor
     Point(int x, int y) : x_{x}, y_{y}
     {
@@ -40,18 +47,20 @@ class Point
         return y_;
     }
 
-    void increaseX(int delta)
+    void increase_x(int delta)
     {
         x_ += delta;
     }
 };
+} // namespace
 
 int main()
 {
-    // default ctor
+    // implicit call to default ctor
     Point a;
     std::cout << "a is " << a.x() << ' ' << a.y() << '\n';
 
+    // explicit call to default ctor
     Point b{};
     std::cout << "b is " << b.x() << ' ' << b.y() << '\n';
 
@@ -60,7 +69,7 @@ int main()
     std::cout << "c is " << c.x() << ' ' << c.y() << '\n';
 
     Point d{5, 6};
-    d.increaseX(3);
+    d.increase_x(3);
     std::cout << "d is " << d.x() << ' ' << d.y() << '\n';
 
     // Point(int x) is explicit! Here can't be seen
