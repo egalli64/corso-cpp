@@ -4,7 +4,7 @@
  * Print odd/even values from two threads
  * By condition_variable with unique_lock on mutex
  *
- * g++ -pthread -o a.out ex1.cpp
+ * g++ -pthread -Wall -o a.out e2_two_consumers.cpp
  */
 #include <condition_variable>
 #include <iostream>
@@ -22,7 +22,7 @@ void print_odd()
 {
     while (value < max_value)
     {
-        std::unique_lock<std::mutex> lock(mtx_value);
+        std::unique_lock lock{mtx_value};
         cnd.wait(lock, [] { return value % 2; });
 
         std::cout << "Odd: " << value << '\n';
@@ -35,7 +35,7 @@ void print_even()
 {
     while (value < max_value)
     {
-        std::unique_lock<std::mutex> lock(mtx_value);
+        std::unique_lock lock{mtx_value};
         cnd.wait(lock, [] { return value % 2 == 0; });
 
         std::cout << "Even: " << value << '\n';
