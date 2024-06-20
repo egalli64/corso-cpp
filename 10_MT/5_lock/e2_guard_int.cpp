@@ -3,7 +3,7 @@
  *
  * Lock guard on an int
  *
- * g++ -pthread -o a.out e2_guard_int.cpp
+ * g++ -pthread -Wall -o a.out e2_guard_int.cpp
  */
 #include <iostream>
 #include <mutex>
@@ -18,14 +18,14 @@ int main()
     std::thread t{[&result, &mtx_result] {
         for (int i = 0; i < count; ++i)
         {
-            std::lock_guard<std::mutex> lock{mtx_result};
+            std::lock_guard lock{mtx_result};
             ++result;
         }
     }};
 
     for (int i = 0; i < count; ++i)
     {
-        std::lock_guard<std::mutex> lock{mtx_result};
+        std::lock_guard lock{mtx_result};
         ++result;
     }
 
