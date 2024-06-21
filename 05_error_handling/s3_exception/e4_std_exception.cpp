@@ -6,6 +6,8 @@
 #include <exception>
 #include <iostream>
 
+namespace
+{
 class MyException : public std::exception
 {
   public:
@@ -19,6 +21,7 @@ void risky()
 {
     throw MyException();
 }
+} // namespace
 
 int main()
 {
