@@ -34,7 +34,7 @@ int main()
 
     std::cout << "The content of a double var: " << d << '\n';
     std::cout << "The content of a double* var: " << static_cast<void *>(pd) << '\n';
-    std::cout << "The content of a doube* var dereferenced: " << *pd << '\n';
+    std::cout << "The content of a double* var dereferenced: " << *pd << '\n';
     *pd = M_E;
-    std::cout << "Both the doube and doubel* variables refer to the same cell in memory: " << d << ' ' << *pd << '\n';
+    std::cout << "Both the double and double* variables refer to the same cell in memory: " << d << ' ' << *pd << '\n';
 }
