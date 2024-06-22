@@ -11,7 +11,7 @@ namespace
 {
 constexpr int max_value = 6;
 
-int dieCast()
+int die_cast()
 {
     return rand() % max_value + 1;
 }
@@ -32,34 +32,36 @@ int main()
     srand(time(0));
 
     std::cout << "How many times? ";
-    int size;
-    std::cin >> size;
+    size_t c_size;
+    std::cin >> c_size;
 
-    if (size < 1 || size > 100'000'000)
+    if (c_size < 1 || c_size > 100'000'000)
     {
         std::cout << "Please, insert a reasonable value" << '\n';
         return 0;
     }
 
     // this array has a statically determined size, so it can be allocated on the stack
-    int scores[max_value * 2 + 1]{};
+    constexpr size_t s_size = max_value * 2 + 1;
+    int scores[s_size]{};
+
     // by the standard, an array of non-const size can't be stored in the stack
-    int *casts = new int[size];
-    for (int i = 0; i < size; ++i)
+    int *casts = new int[c_size];
+    for (size_t i = 0; i < c_size; ++i)
     {
-        casts[i] = dieCast() + dieCast();
+        casts[i] = die_cast() + die_cast();
         scores[casts[i]] += 1;
         std::cout << casts[i] << ' ';
     }
-    std::cout << "\n\nAverage: " << avg(casts, size) << '\n';
+    std::cout << "\n\nAverage: " << avg(casts, c_size) << '\n';
 
     // not used anymore
     delete[] casts;
 
     std::cout << "Distribution" << '\n';
-    for (int i = 2; i < max_value * 2 + 1; ++i)
+    for (size_t i = 2; i < s_size; ++i)
     {
-        std::cout << '[' << i << ": " << static_cast<double>(scores[i]) / size << ']';
+        std::cout << '[' << i << ": " << static_cast<double>(scores[i]) / c_size << ']';
     }
     std::cout << '\n';
 }
