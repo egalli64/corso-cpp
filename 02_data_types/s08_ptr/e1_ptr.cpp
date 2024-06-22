@@ -11,23 +11,30 @@
 
 int main()
 {
-    std::cout << "char* " << sizeof(char *) << '\n';
-    std::cout << "double* " << sizeof(double *) << '\n';
+    std::cout << "Size of char* is " << sizeof(char *) << '\n';
+    std::cout << "Size of double* is " << sizeof(double *) << " (same)\n";
     std::cout << '\n';
 
     // a char and a pointer to char
     char c = 'x';
     char *pc = &c;
 
-    std::cout << c << ' ' << *pc << ' ' << static_cast<void *>(pc) << '\n';
+    std::cout << "The content of a char var: " << c << '\n';
+    // notice that the char* has to be casted to void*, otherwise is see as c-string!
+    std::cout << "The content of a char* var: " << static_cast<void *>(pc) << '\n';
+    // UNSAFE! write whichever char from the first until a '\0' is found
+    // std::cout << "The content of a char* var: " << pc << '\n';
+    std::cout << "The content of a char* var dereferenced: " << *pc << '\n';
     *pc = 'z';
-    std::cout << c << ' ' << *pc << '\n';
+    std::cout << "Both the char and char* variables refer to the same cell in memory: " << c << ' ' << *pc << "\n\n";
 
     // a double and a pointer to double
     double d = M_PI;
     double *pd = &d;
 
-    std::cout << d << ' ' << *pd << ' ' << pd << '\n';
+    std::cout << "The content of a double var: " << d << '\n';
+    std::cout << "The content of a double* var: " << static_cast<void *>(pd) << '\n';
+    std::cout << "The content of a doube* var dereferenced: " << *pd << '\n';
     *pd = M_E;
-    std::cout << d << ' ' << *pd << '\n';
+    std::cout << "Both the doube and doubel* variables refer to the same cell in memory: " << d << ' ' << *pd << '\n';
 }
