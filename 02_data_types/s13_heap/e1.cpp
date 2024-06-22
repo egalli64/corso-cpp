@@ -18,12 +18,22 @@ int main()
     std::cout << "An initialized char on the heap: " << *pz << '\n';
     delete pz;
 
-    int sData[6]{1, 2, 3};
-    std::cout << "First element in an array on the stack: " << sData[0] << '\n';
-    std::cout << "Last element in an array on the stack: " << sData[5] << '\n';
+    constexpr size_t d_size = 6;
+    int s_data[d_size]{1, 2, 3};
+    std::cout << "An array on the stack: ";
+    for (size_t i = 0; i < d_size; ++i)
+    {
+        std::cout << s_data[i] << ' ';
+    }
+    std::cout << '\n';
 
-    int *hData = new int[6]{1, 2, 3};
-    std::cout << "First element in an array on the stack: " << hData[0] << '\n';
-    std::cout << "Last element in an array on the stack: " << hData[5] << '\n';
-    delete[] hData;
+    int *h_data = new int[d_size]{1, 2, 3};
+    std::cout << "AN array on the heap: ";
+    for (size_t i = 0; i < d_size; ++i)
+    {
+        std::cout << h_data[i] << ' ';
+    }
+    std::cout << '\n';
+
+    delete[] h_data;
 }
