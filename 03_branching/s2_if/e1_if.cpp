@@ -8,9 +8,11 @@
 int main(int argc, char **argv)
 {
     std::cout << "Hello!\n";
+
     if (argc == 1)
     {
         std::cout << "The caller didn't pass any argument\n";
     }
+
     std::cout << "Bye\n";
 }

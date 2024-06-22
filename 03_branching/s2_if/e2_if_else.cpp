@@ -8,6 +8,7 @@
 int main(int argc, char **argv)
 {
     std::cout << "The caller ";
+
     if (argc == 1)
     {
         std::cout << "didn't pass any argument\n";
@@ -16,5 +17,6 @@ int main(int argc, char **argv)
     {
         std::cout << "passed at least a argument\n";
     }
+
     std::cout << "Bye\n";
 }

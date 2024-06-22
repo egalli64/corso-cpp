@@ -9,6 +9,7 @@
 int main(int argc, char **argv)
 {
     std::cout << "The caller ";
+
     if (argc == 1)
     {
         std::cout << "didn't pass any argument\n";
