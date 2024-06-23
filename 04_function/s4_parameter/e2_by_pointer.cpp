@@ -7,22 +7,28 @@
 
 namespace
 {
-void swap(int *pLeft, int *pRight)
+/**
+ * @brief Passing arguments by pointer is inherently dangerous
+ *
+ * @param p_left a parameter
+ * @param p_right another parameter
+ */
+void swap(int *p_left, int *p_right)
 {
     // ensure the pointer is dereferencable
-    if (pLeft == nullptr || pRight == nullptr)
+    if (p_left == nullptr || p_right == nullptr)
     {
-        std::cout << "Can't swap from " << pLeft << " to " << pRight << '\n';
+        std::cout << "Can't swap from " << p_left << " to " << p_right << '\n';
     }
     else
     {
-        std::cout << "Called by pointer: left is " << *pLeft << " and right is " << *pRight << '\n';
+        std::cout << "Called by pointer: left is " << *p_left << " and right is " << *p_right << '\n';
 
-        int temp = *pLeft;
-        *pLeft = *pRight;
-        *pRight = temp;
+        int temp = *p_left;
+        *p_left = *p_right;
+        *p_right = temp;
 
-        std::cout << "Called by pointer: left is " << *pLeft << " and right is " << *pRight << '\n';
+        std::cout << "Called by pointer: left is " << *p_left << " and right is " << *p_right << '\n';
     }
 }
 } // namespace
