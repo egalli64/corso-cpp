@@ -12,6 +12,11 @@ struct LargeClassMock
     int x;
 };
 
+/**
+ * @brief when efficiency is required but not mutability, prefer using const ref
+ *
+ * @param lcm a reference to an object assumed to be costly to be created
+ */
 void hello(const LargeClassMock &lcm)
 {
     std::cout << "Hello " << lcm.x << '\n';
