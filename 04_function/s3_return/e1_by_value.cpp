@@ -7,6 +7,11 @@
 
 namespace
 {
+/**
+ * @brief a simple function
+ *
+ * @return an int by value
+ */
 int answer()
 {
     return 42;
