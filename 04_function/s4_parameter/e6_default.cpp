@@ -7,6 +7,11 @@
 
 namespace
 {
+/**
+ * @brief a simple function with a parameter that could be defaulted
+ *
+ * @param count when an argument is not passed, its value is 1
+ */
 void sayHello(int count = 1)
 {
     std::cout << "...";
