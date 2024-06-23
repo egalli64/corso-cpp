@@ -7,6 +7,12 @@
 
 namespace
 {
+/**
+ * @brief When accessing variables in the caller scope is a necessity, using references is preferred
+ *
+ * @param left a parameter
+ * @param right another parameter
+ */
 void swap(int &left, int &right)
 {
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
