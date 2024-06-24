@@ -6,8 +6,18 @@
 #include <iostream>
 #include <string>
 
+namespace
+{
+/**
+ * @brief a template function to sum up all the elements in the passed array
+ *
+ * @param values an array of T
+ * @param size the array size
+ * @return the sum
+ */
 template <typename T> T sum(T values[], int size)
 {
+    // rely on the T default ctor for initialization
     T result{};
 
     for (int i = 0; i < size; ++i)
@@ -18,6 +28,9 @@ template <typename T> T sum(T values[], int size)
     return result;
 }
 
+/**
+ * @brief template specialization for std::string
+ */
 template <> std::string sum(std::string values[], int size)
 {
     std::string result{};
@@ -31,6 +44,7 @@ template <> std::string sum(std::string values[], int size)
 
     return result;
 }
+} // namespace
 
 int main()
 {
