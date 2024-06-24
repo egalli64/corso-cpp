@@ -17,6 +17,10 @@ class MyException : public std::exception
     }
 };
 
+/**
+ * @brief a function that throws an exception
+ * @throw a MyException
+ */
 void risky()
 {
     throw MyException();
