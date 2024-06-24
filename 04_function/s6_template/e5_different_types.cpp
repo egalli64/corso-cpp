@@ -5,6 +5,14 @@
  */
 #include <iostream>
 
+namespace
+{
+/**
+ * @brief template function to get the max from the passed arguments
+ * @param a the first parameter
+ * @param b the second parameter
+ * @return the larger one
+ */
 template <typename T> T max(const T &a, const T &b)
 {
     return a > b ? a : b;
@@ -15,6 +23,7 @@ template <typename T> T max(const T &a, const T &b)
 // {
 //     return a > b ? a : b;
 // }
+} // namespace
 
 int main()
 {
