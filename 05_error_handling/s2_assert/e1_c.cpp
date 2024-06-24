@@ -9,6 +9,14 @@
 #include <cassert>
 #include <iostream>
 
+namespace
+{
+/**
+ * @brief a function with an assertion on its parameter
+ * @param text a-cstring
+ *
+ * @note prerequisite: text should not be a nullptr
+ */
 void print(const char *text)
 {
     // active only if NDEBUG is not defined
@@ -16,6 +24,7 @@ void print(const char *text)
 
     std::cout << "Text is: " << text << '\n';
 }
+} // namespace
 
 int main()
 {
