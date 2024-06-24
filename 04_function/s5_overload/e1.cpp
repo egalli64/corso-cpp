@@ -1,12 +1,18 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * overload
+ * overload - same algorithm, different functions for different parameter types
  */
 #include <iostream>
 
 namespace
 {
+/**
+ * @brief exchange the values in the parameters
+ *
+ * @param left a parameter
+ * @param right another parameter
+ */
 void swap(int &left, int &right)
 {
     std::cout << "swapping integers\n";
@@ -15,6 +21,12 @@ void swap(int &left, int &right)
     right = temp;
 }
 
+/**
+ * @brief exchange the values in the parameters
+ *
+ * @param left a parameter
+ * @param right another parameter
+ */
 void swap(double &left, double &right)
 {
     std::cout << "swapping doubles\n";
