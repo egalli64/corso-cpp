@@ -4,20 +4,34 @@
  * catch all
  */
 #include <iostream>
-using namespace std;
 
 namespace
 {
+/**
+ * @brief a function that throws an exception
+ * @throw a c-string
+ * @note throwing something that is not a std::exception is not considered a good idea
+ */
 void risky_1()
 {
     throw "Not yet implemented";
 }
 
+/**
+ * @brief a function that throws an exception
+ * @throw an int
+ * @note throwing something that is not a std::exception is not considered a good idea
+ */
 void risky_2()
 {
     throw 1;
 }
 
+/**
+ * @brief a function that throws an exception
+ * @throw a double
+ * @note throwing something that is not a std::exception is not considered a good idea
+ */
 void risky_3()
 {
     throw 42.24;
@@ -34,16 +48,16 @@ int main()
     }
     catch (int ex)
     {
-        cout << "An int exception: " << ex << "\n";
+        std::cout << "An int exception: " << ex << '\n';
     }
     catch (double ex)
     {
-        cout << "A double exceptiion: " << ex << "\n";
+        std::cout << "A double exception: " << ex << '\n';
     }
     catch (...)
     {
-        cout << "Something went wrong\n";
+        std::cout << "Something went wrong\n";
     }
 
-    cout << "Bye\n";
+    std::cout << "Bye\n";
 }
