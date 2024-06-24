@@ -18,7 +18,10 @@ int main()
     r.x += 5;
     std::cout << r.x << ' ' << r.y << '\n';
 
-    // !!! not initialized !!!
+    // !!! being on the stack, it is not initialized !!!
     Point b;
-    std::cout << "What's going on here? " << b.x << ' ' << b.y << '\n';
+    std::cout << "Warning, not initialized: " << b.x << ' ' << b.y << '\n';
+
+    Point *c = new Point;
+    std::cout << c->x << ' ' << c->y << '\n';
 }
