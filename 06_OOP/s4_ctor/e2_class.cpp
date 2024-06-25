@@ -17,36 +17,54 @@ class Point
     const int y_;
 
   public:
-    // the default ctor
+    /**
+     * @brief the default ctor
+     */
     Point() : x_{0}, y_{0}
     {
     }
 
-    // a plain explicit ctor
+    /**
+     * @brief a plain explicit ctor
+     */
     explicit Point(int x) : x_{x}, y_{0}
     {
     }
 
-    // another plain ctor
+    /**
+     * @brief another plain ctor
+     */
     Point(int x, int y) : x_{x}, y_{y}
     {
     }
 
-    // the dtor
+    /**
+     * @brief dtor
+     */
     ~Point()
     {
         std::cout << "dtor " << x_ << ' ' << y_ << '\n';
     }
 
+    /**
+     * @brief x getter
+     */
     int x()
     {
         return x_;
     }
+
+    /**
+     * @brief y getter
+     */
     int y()
     {
         return y_;
     }
 
+    /**
+     * @brief x mutator
+     */
     void increase_x(int delta)
     {
         x_ += delta;
