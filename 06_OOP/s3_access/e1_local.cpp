@@ -17,18 +17,32 @@ class Point
     int y_;
 
   public:
+    /**
+     * @brief initialize all fields
+     */
     Point(int x, int y) : x_(x), y_(y)
     {
     }
 
+    /**
+     * @brief x getter
+     */
     int x()
     {
         return x_;
     }
+
+    /**
+     * @brief y getter
+     */
     int y()
     {
         return y_;
     }
+
+    /**
+     * @brief x mutator
+     */
     void increase_x(int delta)
     {
         x_ += delta;
