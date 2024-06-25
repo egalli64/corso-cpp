@@ -5,6 +5,11 @@
  */
 #include <iostream>
 
+namespace
+{
+/**
+ * @brief A simple class
+ */
 class Point
 {
   private:
@@ -12,9 +17,16 @@ class Point
     int y_;
 
   public:
+    /**
+     * @brief ctor - initialize all data members
+     */
     Point(int x, int y) : x_{x}, y_{y}
     {
     }
+
+    /**
+     * @brief dtor
+     */
     ~Point()
     {
         std::cout << "dtor " << x_ << ", " << y_ << '\n';
@@ -23,19 +35,31 @@ class Point
     // Point(const Point&) = delete; // no copy ctor
     // Point& operator=(const Point&) = delete; // no assigment operator
 
+    /**
+     * @brief x getter
+     */
     int x()
     {
         return x_;
     }
+
+    /**
+     * @brief y getter
+     */
     int y()
     {
         return y_;
     }
-    void horizontalMove(int delta)
+
+    /**
+     * @brief x mutator
+     */
+    void horizontal_move(int delta)
     {
         x_ += delta;
     }
 };
+} // namespace
 
 int main()
 {
@@ -49,21 +73,22 @@ int main()
     Point c = b;
     Point d{b};
 
-    c.horizontalMove(12);
-    d.horizontalMove(-7);
-
+    c.horizontal_move(12);
     std::cout << "c is a deep copy _by copy ctor_ of b (right shifted): " << c.x() << ", " << c.y() << '\n';
+
+    d.horizontal_move(-7);
     std::cout << "d is a deep copy _by copy ctor_ of b (left shifted): " << d.x() << ", " << d.y() << '\n';
+
     std::cout << "b has not changed: " << b.x() << ", " << b.y() << '\n';
 
     // compiler generated assigment operator
     d = c;
-    d.horizontalMove(-4);
+    d.horizontal_move(-4);
     std::cout << "d is a deep copy _by assignment_ of c (left shifted): " << d.x() << ", " << d.y() << '\n';
     std::cout << "c has not changed: " << c.x() << ", " << c.y() << '\n';
 
-    Point &e = b;
-    e.horizontalMove(-2);
+    Point &e{b};
+    e.horizontal_move(-2);
     std::cout << "e is a shallow copy _by reference_ of b (left shifted): " << e.x() << ", " << e.y() << '\n';
     std::cout << "b HAS changed: " << b.x() << ", " << b.y() << '\n';
 }
