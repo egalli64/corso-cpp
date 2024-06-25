@@ -1,10 +1,16 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * shallow vs deep copy w/ resources
+ * shallow vs deep copy w/ resources - see shared ptr to simplify your life
  */
+#include <cassert>
 #include <iostream>
 
+namespace
+{
+/**
+ * @brief simple class - internal detail of list, unknown to user code
+ */
 struct Node
 {
     int value;
@@ -15,68 +21,74 @@ struct Node
     }
 };
 
+/**
+ * A very simple singly linked list
+ */
 class SinglyLinkedList
 {
   private:
     Node *head;
-    // TODO: keep tail as data member, simplify pushBack()
+
+    /**
+     * @brief clone the nodes from the passed list in the current one
+     * @param other the list to be cloned in this
+     * @note prerequisite - head is nullptr
+     */
+    void clone(const SinglyLinkedList &other)
+    {
+        assert(head == nullptr);
+
+        head = new Node{other.head->value};
+        for (Node *src = other.head->next, *dest = head; src != nullptr; src = src->next, dest = dest->next)
+        {
+            dest->next = new Node{src->value};
+        }
+    }
+
   public:
+    /**
+     * @brief default ctor
+     */
     SinglyLinkedList() : head(nullptr)
     {
         std::cout << "Default ctor\n";
     }
 
+    /**
+     * @brief copy ctor
+     */
     SinglyLinkedList(const SinglyLinkedList &other) : head(nullptr)
     {
         std::cout << "Copy ctor\n";
-
-        for (Node *cur = other.head; cur != nullptr; cur = cur->next)
-        {
-            pushBack(cur->value);
-        }
+        clone(other);
     }
 
+    /**
+     * @brief assignment operator
+     */
     SinglyLinkedList &operator=(const SinglyLinkedList &other)
     {
         std::cout << "Assignment operator\n";
 
         clear();
-
-        for (Node *cur = other.head; cur != nullptr; cur = cur->next)
-        {
-            pushBack(cur->value);
-        }
+        clone(other);
 
         return *this;
     }
 
-    void pushFront(int value)
+    /**
+     * @brief push a new node in list as head
+     */
+    void push_front(int value)
     {
         Node *node = new Node{value, head};
         head = node;
         std::cout << "New head is " << value << '\n';
     }
 
-    void pushBack(int value)
-    {
-        if (head == nullptr)
-        {
-            pushFront(value);
-        }
-        else
-        {
-            Node *node = new Node{value, nullptr};
-
-            Node *tail = head;
-            while (tail->next != nullptr)
-            {
-                tail = tail->next;
-            }
-            tail->next = node;
-            std::cout << "New tail is " << value << '\n';
-        }
-    }
-
+    /**
+     * @brief print all nodes
+     */
     void print()
     {
         std::cout << "[ ";
@@ -87,6 +99,9 @@ class SinglyLinkedList
         std::cout << "]\n";
     }
 
+    /**
+     * @brief delete all nodes
+     */
     void clear()
     {
         int count = 0;
@@ -102,20 +117,24 @@ class SinglyLinkedList
         std::cout << count << " item(s) deleted\n";
     }
 
+    /**
+     * @brief dtor
+     */
     ~SinglyLinkedList()
     {
         std::cout << "Dtor\n";
         clear();
     }
 };
+} // namespace
 
 int main()
 {
     SinglyLinkedList original;
 
-    original.pushFront(99);
-    original.pushBack(4);
-    original.pushFront(14);
+    original.push_front(99);
+    original.push_front(4);
+    original.push_front(14);
 
     std::cout << "The original list is ";
     original.print();
@@ -134,7 +153,7 @@ int main()
     std::cout << "After assignment, the copied list is ";
     copied.print();
     copied.clear();
-    copied.pushFront(42);
+    copied.push_front(42);
 
     std::cout << "The copied list now is ";
     copied.print();
