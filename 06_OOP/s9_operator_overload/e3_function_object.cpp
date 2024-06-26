@@ -5,17 +5,25 @@
  */
 #include <iostream>
 
-// A function object
+/**
+ * @brief a function object
+ */
 class Adder
 {
   private:
     const int addendum_;
 
   public:
+    /**
+     * @brief ctor
+     */
     Adder(int addendum) : addendum_(addendum)
     {
     }
 
+    /**
+     * @brief overload for the () operator
+     */
     int operator()(int value) const
     {
         return value + addendum_;
