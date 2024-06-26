@@ -36,8 +36,8 @@ class Square : public Shape
 
 enum class ShapeType
 {
-    CIRCLE,
-    SQUARE
+    circle,
+    square
 };
 
 class ShapeFactory
@@ -57,9 +57,9 @@ class StandardShapeFactory : public ShapeFactory
     {
         switch (type)
         {
-        case ShapeType::CIRCLE:
+        case ShapeType::circle:
             return std::make_unique<Circle>();
-        case ShapeType::SQUARE:
+        case ShapeType::square:
             return std::make_unique<Square>();
         default:
             throw std::invalid_argument("Bad shape");
@@ -71,8 +71,8 @@ int main()
 {
     std::unique_ptr<ShapeFactory> factory = std::make_unique<StandardShapeFactory>();
 
-    std::unique_ptr<Shape> circle = factory->create(ShapeType::CIRCLE);
-    std::unique_ptr<Shape> square = factory->create(ShapeType::SQUARE);
+    std::unique_ptr<Shape> circle = factory->create(ShapeType::circle);
+    std::unique_ptr<Shape> square = factory->create(ShapeType::square);
 
     circle->draw();
     square->draw();
