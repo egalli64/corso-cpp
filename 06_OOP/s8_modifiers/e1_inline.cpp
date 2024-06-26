@@ -41,10 +41,10 @@ class Player
     /**
      * @brief declaration only, explicit inline in definition
      */
-    void increaseScore(double delta);
+    void increase_score(double delta);
 };
 
-inline void Player::increaseScore(double delta)
+inline void Player::increase_score(double delta)
 {
     score_ += delta;
 }
@@ -60,7 +60,7 @@ inline void print(const Player &player)
 int main()
 {
     Player tom{42, 33.12};
-    tom.increaseScore(3.3);
+    tom.increase_score(3.3);
 
     print(tom);
 }
