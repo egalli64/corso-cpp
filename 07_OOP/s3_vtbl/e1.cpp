@@ -26,7 +26,7 @@ class Point
         return y_;
     }
 
-    virtual double distanceFromOrigin() const
+    virtual double distance_from_origin() const
     {
         return sqrt(x_ * x_ + y_ * y_);
     }
@@ -42,7 +42,7 @@ class Point3D : public Point
     {
     }
 
-    double distanceFromOrigin() const override
+    double distance_from_origin() const override
     {
         return sqrt(x() * x() + y() * y() + z_ * z_);
     }
@@ -51,12 +51,12 @@ class Point3D : public Point
 int main()
 {
     const Point a{8, 1};
-    std::cout << "Distance from origin is " << a.distanceFromOrigin() << '\n';
+    std::cout << "Distance from origin is " << a.distance_from_origin() << '\n';
 
     const Point3D b{8, 1, 5};
-    std::cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
+    std::cout << "Distance from origin is " << b.distance_from_origin() << '\n';
 
     Point *pp = new Point3D{8, 1, 5};
-    std::cout << "Distance from origin is " << pp->distanceFromOrigin() << '\n';
+    std::cout << "Distance from origin is " << pp->distance_from_origin() << '\n';
     delete pp;
 }
