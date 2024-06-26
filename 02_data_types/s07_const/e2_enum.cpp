@@ -10,42 +10,42 @@ namespace
 // simple enumeration
 enum Greek
 {
-    ALPHA,
-    BETA = 28
+    alpha,
+    beta = 28
 };
 
 enum
 {
-    SOME_VALUE = 99
+    some_value = 99
 };
 
 // improved enumeration - scoped and strongly typed
 enum class GreekLetter
 {
-    ALPHA,
-    BETA = 28
+    alpha,
+    beta = 28
 };
 
 Greek f()
 {
-    return ALPHA;
+    return alpha;
 }
 
 GreekLetter g()
 {
-    return GreekLetter::ALPHA;
+    return GreekLetter::alpha;
 }
 } // namespace
 
 int main()
 {
-    std::cout << "ALPHA is " << ALPHA << " and BETA is " << BETA << '\n';
-    std::cout << "ALPHA is " << static_cast<int>(GreekLetter::ALPHA);
-    std::cout << " and BETA is " << static_cast<int>(GreekLetter::BETA) << '\n';
+    std::cout << "alpha is " << alpha << " and beta is " << beta << '\n';
+    std::cout << "alpha is " << static_cast<int>(GreekLetter::alpha);
+    std::cout << " and beta is " << static_cast<int>(GreekLetter::beta) << '\n';
 
     Greek x = f();
     // warning - probably meaningless code
-    // if (x == SOME_VALUE){ std::cout << "Unexpected\n"; }
+    // if (x == some_value){ std::cout << "Unexpected\n"; }
 
     // no warning - probably meaningless code
     if (x == 42)
@@ -55,7 +55,7 @@ int main()
 
     GreekLetter y = g();
     // won't compile
-    // if (y == SOME_VALUE) {std::cout << "Unexpected\n";}
+    // if (y == some_value) {std::cout << "Unexpected\n";}
     // if (y == 42) {std::cout << "Unexpected\n";}
 
     // if really needed, an explicit cast is required
@@ -69,9 +69,9 @@ int main()
     // using an integral type different from int
     enum class WeekendDay : bool
     {
-        SAT,
-        SUN
+        sat,
+        sun
     };
-    std::cout << "SAT is " << static_cast<bool>(WeekendDay::SAT);
-    std::cout << " and SUN is " << static_cast<bool>(WeekendDay::SUN) << '\n';
+    std::cout << "sat is " << static_cast<bool>(WeekendDay::sat);
+    std::cout << " and sun is " << static_cast<bool>(WeekendDay::sun) << '\n';
 }
