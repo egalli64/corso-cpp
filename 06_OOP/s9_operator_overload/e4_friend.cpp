@@ -6,13 +6,13 @@
 #include <iostream>
 #include <string>
 
-class Dog
-{
-};
-
+/**
+ * @brief a class with a friend
+ */
 class Point
 {
-    friend std::ostream &operator<<(std::ostream &os, const Point &point);
+    // declaring that this overload of operator << is a friend
+    friend std::ostream &operator<<(std::ostream &, const Point &);
 
   private:
     int x_;
@@ -20,49 +20,73 @@ class Point
     const std::string label_;
 
   public:
+    /**
+     * @brief ctor
+     */
     Point(int x, int y, const std::string &label) : x_(x), y_(y), label_(label)
     {
     }
 
-    Point(const Dog &dog)
-    {
-        // ...
-    }
-
+    /**
+     * @brief x getter
+     */
     int x() const
     {
         return x_;
     }
+
+    /**
+     * @brief y getter
+     */
     int y() const
     {
         return y_;
     }
 
+    /**
+     * @brief x modifier
+     */
     void horMove(int delta)
     {
         x_ += delta;
     }
+
+    /**
+     * @brief y modifier
+     */
     void vertMove(int delta)
     {
         y_ += delta;
     }
 
+    /**
+     * @brief helper to avoid the need of friend
+     */
     std::ostream &write(std::ostream &os) const
     {
         return os << label_ << ": " << x_ << ", " << y_;
     }
 
+    /**
+     * @brief "type string" operator overload
+     */
     operator std::string() const
     {
         return label_ + ": " + std::to_string(x_) + ", " + std::to_string(y_);
     }
 
+    /**
+     * @brief "type int" operator overload
+     */
     operator int()
     {
         return x_ * y_;
     }
 };
 
+/**
+ * @brief the operator put-to overload for point
+ */
 std::ostream &operator<<(std::ostream &os, const Point &point)
 {
     // if << is not a friend, only public members are accessible
