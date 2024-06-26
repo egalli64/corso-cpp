@@ -5,6 +5,9 @@
  */
 #include <iostream>
 
+/**
+ * @brief a simple class
+ */
 class Player
 {
   private:
@@ -12,20 +15,33 @@ class Player
     double score_;
 
   public:
+    /**
+     * @brief ctor
+     */
     Player(int id, double score) : id_(id), score_(score)
     {
     }
 
+    /**
+     * @brief id getter
+     */
     int id() const
     {
         return id_;
     }
+
+    /**
+     * @brief score getter
+     */
     double score() const
     {
         return score_;
     }
-    // it could be invoked only on a non-const object
-    void increaseScore(double delta)
+
+    /**
+     * @brief it could be invoked only on a non-const object
+     */
+    void increase_score(double delta)
     {
         score_ += delta;
     }
@@ -34,7 +50,7 @@ class Player
 int main()
 {
     Player tom{1, 33.12};
-    tom.increaseScore(1.4);
+    tom.increase_score(1.4);
     std::cout << tom.id() << ' ' << tom.score() << '\n';
 
     const Player bob{2, 3.7};
