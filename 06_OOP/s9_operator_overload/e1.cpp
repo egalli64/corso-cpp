@@ -5,41 +5,48 @@
  */
 #include <iostream>
 
+/**
+ * @brief collect the days
+ */
 enum class Day
 {
-    MON = 0,
-    TUE,
-    WED,
-    THU,
-    FRI,
-    SAT,
-    SUN,
-    SZ = 7
+    mon = 0,
+    tue,
+    wed,
+    thu,
+    fri,
+    sat,
+    sun,
+    // having the size as "day" makes the code more compact, but maybe less readable
+    size = 7
 };
 
+/**
+ * @brief put to operator for days
+ */
 std::ostream &operator<<(std::ostream &os, const Day &day)
 {
     switch (day)
     {
-    case Day::MON:
+    case Day::mon:
         os << "Monday";
         break;
-    case Day::TUE:
+    case Day::tue:
         os << "Tuesday";
         break;
-    case Day::WED:
+    case Day::wed:
         os << "Wednesday";
         break;
-    case Day::THU:
+    case Day::thu:
         os << "Thursday";
         break;
-    case Day::FRI:
+    case Day::fri:
         os << "Friday";
         break;
-    case Day::SAT:
+    case Day::sat:
         os << "Saturday";
         break;
-    case Day::SUN:
+    case Day::sun:
         os << "Sunday";
         break;
     default:
@@ -49,39 +56,47 @@ std::ostream &operator<<(std::ostream &os, const Day &day)
     return os;
 }
 
-// prefix ++
+/**
+ * @brief prefix ++ operator
+ */
 Day &operator++(Day &day)
 {
-    day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::SZ)));
+    day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::size)));
     return day;
 }
 
-// postfix ++
+/**
+ * @brief postfix ++ operator
+ */
 Day operator++(Day &day, int)
 {
     Day cur = day;
-    day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::SZ)));
+    day = static_cast<Day>((static_cast<int>(day) + 1) % (static_cast<int>(Day::size)));
     return cur;
 }
 
-// prefix --
+/**
+ * @brief prefix ++ operator
+ */
 Day &operator--(Day &day)
 {
-    day = (day == Day::MON) ? Day::SUN : static_cast<Day>((static_cast<int>(day) - 1));
+    day = (day == Day::mon) ? Day::sun : static_cast<Day>((static_cast<int>(day) - 1));
     return day;
 }
 
-// postfix --
+/**
+ * @brief postfix ++ operator
+ */
 Day operator--(Day &day, int)
 {
     Day cur = day;
-    day = (day == Day::MON) ? Day::SUN : static_cast<Day>((static_cast<int>(day) - 1));
+    day = (day == Day::mon) ? Day::sun : static_cast<Day>((static_cast<int>(day) - 1));
     return cur;
 }
 
 int main()
 {
-    Day cur = Day::MON;
+    Day cur = Day::mon;
 
     std::cout << "Current day is " << cur << '\n';
     std::cout << "Pre-decrement of current day: " << --cur << '\n';
