@@ -32,7 +32,7 @@ class Animal
     /**
      * @brief a pure virtual method
      */
-    virtual std::string fullName() const = 0;
+    virtual std::string full_name() const = 0;
 
     /**
      * @brief dtor
@@ -61,7 +61,7 @@ class Dog : public Animal
     /**
      * @brief (re)define the pure abstract method from the base class
      */
-    std::string fullName() const override
+    std::string full_name() const override
     {
         return Animal::name() + " owned by " + owner_;
     }
@@ -74,9 +74,9 @@ int main()
 
     Dog bob{"Bob", "Robert Smith"};
     std::cout << bob.name() << '\n';
-    std::cout << bob.fullName() << '\n';
+    std::cout << bob.full_name() << '\n';
 
     std::cout << "It is a polimorphic dog\n";
     Animal *pa = &bob;
-    std::cout << pa->fullName() << '\n';
+    std::cout << pa->full_name() << '\n';
 }
