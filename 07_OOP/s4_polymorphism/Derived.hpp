@@ -3,8 +3,8 @@
  *
  * A simple class
  */
-#ifndef CORSO_CPP_7_OOP_VTBL_DERIVED
-#define CORSO_CPP_7_OOP_VTBL_DERIVED
+#ifndef CORSO_CPP_7_OOP_POLY_DERIVED
+#define CORSO_CPP_7_OOP_POLY_DERIVED
 
 #include "Base.hpp"
 #include <iostream>
@@ -24,4 +24,4 @@ class Derived : public Base
     }
 };
 
-#endif // CORSO_CPP_7_OOP_VTBL_DERIVED
+#endif // CORSO_CPP_7_OOP_POLY_DERIVED

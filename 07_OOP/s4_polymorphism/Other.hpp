@@ -3,8 +3,8 @@
  *
  * A simple class
  */
-#ifndef CORSO_CPP_7_OOP_VTBL_OTHER
-#define CORSO_CPP_7_OOP_VTBL_OTHER
+#ifndef CORSO_CPP_7_OOP_POLY_OTHER
+#define CORSO_CPP_7_OOP_POLY_OTHER
 
 /**
  * @brief Other is not a Base
@@ -20,4 +20,4 @@ struct Other
     }
 };
 
-#endif // CORSO_CPP_7_OOP_VTBL_OTHER
+#endif // CORSO_CPP_7_OOP_POLY_OTHER

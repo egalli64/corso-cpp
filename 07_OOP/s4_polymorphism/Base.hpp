@@ -3,8 +3,8 @@
  *
  * A simple class
  */
-#ifndef CORSO_CPP_7_OOP_VTBL_BASE
-#define CORSO_CPP_7_OOP_VTBL_BASE
+#ifndef CORSO_CPP_7_OOP_POLY_BASE
+#define CORSO_CPP_7_OOP_POLY_BASE
 
 /**
  * @brief base class
@@ -21,4 +21,4 @@ class Base
     }
 };
 
-#endif // CORSO_CPP_7_OOP_VTBL_BASE
+#endif // CORSO_CPP_7_OOP_POLY_BASE
