@@ -1,38 +1,54 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * virtual method
+ * no virtual method - method hiding
  */
 #include <iostream>
 
+/**
+ * @brief A base class - no virtual methods!
+ */
 class Animal
 {
   private:
     std::string name_;
 
   public:
+    /**
+     * @brief ctor
+     */
     Animal(const std::string &name) : name_(name)
     {
     }
 
-    // it is not virtual, not meant for overriding
+    /**
+     * @brief not virtual, not meant for overriding 
+     */
     std::string name() const
     {
         return "Animal " + name_;
     }
 };
 
+/**
+ * @brief probably a mistake NonPolimorphicDog IS-An Animal, but not in a polimorphic way
+ */
 class NonPolimorphicDog : public Animal
 {
   private:
     std::string owner_;
 
   public:
+    /**
+     * @brief ctor
+     */
     NonPolimorphicDog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
     {
     }
 
-    // it is _not_ an override!
+    /**
+     * @brief method hiding, this is _not_ an override!
+     */
     std::string name() const
     {
         return Animal::name() + " owned by " + owner_;
