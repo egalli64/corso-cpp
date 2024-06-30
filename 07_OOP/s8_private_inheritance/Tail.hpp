@@ -22,6 +22,7 @@ class Tail
      */
     Tail(int count) : count_{count}
     {
+        std::cout << "Tail ctor, count is " << count_ << '\n';
     }
 
     /**
@@ -29,6 +30,7 @@ class Tail
      */
     virtual ~Tail()
     {
+        std::cout << "Tail dtor, count is " << count_ << '\n';
     }
 
     /**
