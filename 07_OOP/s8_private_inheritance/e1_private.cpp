@@ -20,6 +20,15 @@ class Dog : private Tail
      */
     Dog(const std::string &name, int count) : Tail(count), name_(name)
     {
+        std::cout << "Dog ctor, name is " << name_ << '\n';
+    }
+
+    /**
+     * @brief dtor
+     */
+    ~Dog() override
+    {
+        std::cout << "Dog dtor, name is " << name_ << '\n';
     }
 
     /**
