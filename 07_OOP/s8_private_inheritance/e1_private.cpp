@@ -5,42 +5,65 @@
  */
 #include <iostream>
 
+/**
+ * @brief a class that could be derived from
+ */
 class Tail
 {
   private:
     int count_;
 
   public:
-    Tail(int count) : count_(count)
+    /**
+     * @brief ctor
+     */
+    Tail(int count) : count_{count}
     {
     }
 
-    void wag(const std::string &name) const
+    /**
+     * @brief dtor
+     */
+    virtual ~Tail()
     {
-        std::cout << name << ": ";
+    }
+
+    /**
+     * @brief a method
+     */
+    void wag() const
+    {
         for (int i = 0; i < count_; ++i)
         {
-            std::cout << "wag";
+            std::cout << "wag ";
         }
         std::cout << '\n';
     }
 };
 
-// Dog has-a Tail
+/**
+ * @brief Dog HAS-A Tail
+ */
 class Dog : private Tail
 {
   private:
-    std::string name_;
+    const std::string name_;
 
   public:
+    /**
+     * @brief ctor
+     */
     Dog(const std::string &name, int count) : Tail(count), name_(name)
     {
     }
 
+    /**
+     * @brief a method that uses its composed tail object
+     */
     void bark()
     {
-        std::cout << name_ << ": bark!\n";
-        wag(name_);
+        std::cout << name_ << ": bark! ";
+        wag();
     }
 };
 
