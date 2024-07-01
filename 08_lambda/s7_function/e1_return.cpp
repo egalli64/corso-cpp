@@ -8,6 +8,11 @@
 
 namespace
 {
+/**
+ * @brief a function returning a lambda
+ * @param base captured by the lambda
+ * @return the generated lambda as a function that takes and int and return an int
+ */
 std::function<int(int)> make_adder(int base)
 {
     auto result = [base](int x) { return base + x; };
