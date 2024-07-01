@@ -10,6 +10,9 @@
 
 namespace
 {
+/**
+ * @brief a function
+ */
 void print(const std::string &message)
 {
     std::cout << message << '\n';
@@ -20,6 +23,7 @@ int main()
 {
     print("A function is a callable");
 
+    // pf is a pointer to function returning void and accepting a const ref to string
     void (*pf)(const std::string &) = &print;
     pf("A pointer to function is commonly used in C");
 
