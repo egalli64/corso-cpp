@@ -10,10 +10,13 @@
 
 namespace
 {
-template <typename IT> void print(IT first, IT last, const std::string &message = "")
+/**
+ * @brief a utility function
+ */
+template <typename IT> void print(IT begin, IT end, const std::string &message = "")
 {
     std::cout << message << ": ";
-    std::copy(first, last, std::ostream_iterator<int>(std::cout, " "));
+    std::copy(begin, end, std::ostream_iterator<int>(std::cout, " "));
     std::cout << '\n';
 }
 } // namespace
