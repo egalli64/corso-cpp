@@ -11,6 +11,9 @@
 
 namespace
 {
+/**
+ * @brief a utility function
+ */
 void print(const std::string &message, const std::vector<int> &data)
 {
     std::cout << message << ": ";
