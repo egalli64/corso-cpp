@@ -5,8 +5,8 @@
  */
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 namespace
 {
@@ -36,8 +36,7 @@ int main()
     std::cout << "An uninitialized array of double on the stack: ";
     print(uninitialized, c_size);
 
-    // create an int array on the stack
-    // some elements explicitly initialized, the other ones are implicitly initialized to 0
+    // an array on the stack with some elements explicitly initialized, the other ones are implicitly set to 0
     double data[c_size]{1.0, 2.0, 3.0};
     std::cout << "An initialized array of double on the stack: ";
     print(data, c_size);
