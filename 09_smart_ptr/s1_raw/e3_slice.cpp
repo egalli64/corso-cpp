@@ -7,6 +7,9 @@
 #include <iostream>
 #include <memory>
 
+/**
+ * @brief a function showing the slice problem
+ */
 void slice()
 {
     std::cout << "The slicing problem\n";
@@ -20,7 +23,10 @@ void slice()
     t.hello();
 }
 
-void noSlice()
+/**
+ * @brief no slice when working with pointers
+ */
+void no_slice()
 {
     std::cout << "Solving the slicing problem\n";
 
@@ -33,5 +39,5 @@ void noSlice()
 int main()
 {
     slice();
-    noSlice();
+    no_slice();
 }
