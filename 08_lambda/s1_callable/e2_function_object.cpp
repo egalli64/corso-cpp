@@ -8,21 +8,33 @@
 #include <string>
 #include <vector>
 
+namespace
+{
+/**
+ * @brief a function object
+ */
 class Printer
 {
   private:
-    std::string prefix_;
+    const std::string prefix_;
 
   public:
-    Printer(const std::string &prefix = "") : prefix_(prefix)
+    /**
+     * @brief ctor with default argument
+     */
+    Printer(const std::string &prefix = "") : prefix_{prefix}
     {
     }
 
+    /**
+     * @brief the operator() on Printer requires a const ref to string
+     */
     void operator()(const std::string &message) const
     {
         std::cout << prefix_ << message << '\n';
     }
 };
+} // namespace
 
 int main()
 {
