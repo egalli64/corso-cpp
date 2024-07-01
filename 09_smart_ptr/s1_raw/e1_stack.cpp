@@ -29,7 +29,7 @@ int main()
     std::cout << "A char on the stack: " << c << '\n';
 
     // size for arrays
-    constexpr int c_size = 6;
+    constexpr size_t c_size = 6;
 
     // when not initialized, no assumption could be done on array elements
     double uninitialized[c_size];
