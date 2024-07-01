@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * A HOF with a std::function param
+ * HOF with a std::function param
  */
 #include <algorithm>
 #include <functional>
@@ -10,20 +10,31 @@
 
 namespace my
 {
-void for_each_vi(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end,
-                 std::function<void(int)> f)
+/**
+ * @brief a non-template HOF
+ * @param begin iterator to the first element to work on
+ * @param end iterator to the last plus one element to work on
+ * @param lambda the lambda that should operate on the elements in the passed interval
+ */
+void for_each_vi(std::vector<int>::iterator begin, std::vector<int>::iterator end, std::function<void(int)> &&lambda)
 {
     for (auto it = begin; it != end; ++it)
     {
-        f(*it);
+        lambda(*it);
     }
 }
 
-template <typename T, typename F> void for_each(const T &begin, const T &end, F f)
+/**
+ * @brief a template HOF
+ * @param begin iterator to the first element to work on
+ * @param end iterator to the last plus one element to work on
+ * @param lambda the lambda that should operate on the elements in the passed interval
+ */
+template <typename T, typename F> void for_each(T begin, T end, F&& lambda)
 {
     for (auto it = begin; it != end; ++it)
     {
-        f(*it);
+        lambda(*it);
     }
 }
 } // namespace my
