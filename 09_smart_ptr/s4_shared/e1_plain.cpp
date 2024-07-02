@@ -8,8 +8,8 @@
 
 int main()
 {
-    std::shared_ptr<int> spEmpty;
-    if (!spEmpty)
+    std::shared_ptr<int> shared_empty;
+    if (!shared_empty)
     {
         std::cout << "The current shared ptr is empty\n";
     }
