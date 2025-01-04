@@ -1,10 +1,13 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * by reference
+ * parameter - by reference
  */
 #include <iostream>
 
+/**
+ * @brief a function getting arguments by reference
+ */
 void swap(int &left, int &right)
 {
     std::cout << "Called by reference: left is " << left << " and right is " << right << '\n';
