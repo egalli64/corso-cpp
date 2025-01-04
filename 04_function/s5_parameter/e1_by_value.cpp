@@ -1,10 +1,13 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * by value
+ * parameter - by value
  */
 #include <iostream>
 
+/**
+ * @brief a function getting arguments by value
+ */
 void wontSwap(int left, int right)
 {
     std::cout << "Called by value: left is " << left << " and right is " << right << '\n';
