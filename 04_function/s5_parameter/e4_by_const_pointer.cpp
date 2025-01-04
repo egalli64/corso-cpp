@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * by constant pointer
+ * parameter - by constant pointer
  */
 #include <iostream>
 
