@@ -6,6 +6,9 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief A template function
+ */
 template <typename T> void print(const T &x)
 {
     std::cout << "The value is " << x << '\n';

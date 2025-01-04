@@ -6,6 +6,9 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Template sum function
+ */
 template <typename T> T sum(T values[], int size)
 {
     T result{};
@@ -18,6 +21,9 @@ template <typename T> T sum(T values[], int size)
     return result;
 }
 
+/**
+ * @brief Specialize the sum template function for strings
+ */
 template <> std::string sum(std::string values[], int size)
 {
     std::string result{};
