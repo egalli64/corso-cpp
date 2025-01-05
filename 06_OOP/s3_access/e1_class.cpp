@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * class
+ * OOP - access to class members
  */
 #include <iostream>
 
@@ -10,7 +10,7 @@
  */
 class Point
 {
-  private:
+  private: // "private" is optional but preferred, everything is private by default in a class
     int x_;
     int y_;
 
