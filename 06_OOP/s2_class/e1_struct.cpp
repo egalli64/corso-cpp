@@ -1,12 +1,12 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * struct
+ * OOP - struct
  */
 #include <iostream>
 
 /**
- * @brief A simple class
+ * @brief A simple class (by struct)
  */
 struct Point
 {
