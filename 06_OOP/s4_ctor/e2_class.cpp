@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * ctor / dtor on class
+ * OOP: ctor / dtor on class
  */
 #include <iostream>
 

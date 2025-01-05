@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * ctor / dtor on struct
+ * OOP: ctor / dtor on struct
  */
 #include <iostream>
 
@@ -39,4 +39,8 @@ int main()
     // point is created on stack, implicit call to default ctor
     Point a;
     std::cout << "See default ctor to see if the point is correctly initialized: " << a.x << ' ' << a.y << '\n';
+
+    // it would work if no ctor at all is provided, or if a ctor with matching parameters is available
+    Point b{2, 3};
+    std::cout << "See default ctor to see if the point is correctly initialized: " << b.x << ' ' << b.y << '\n';
 }
