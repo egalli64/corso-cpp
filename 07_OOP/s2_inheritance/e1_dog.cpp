@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * inheritance
+ * OOP: inheritance (Animal <- Dog)
  */
 #include <iostream>
 
@@ -12,6 +12,7 @@ class Animal
 
   public:
     Animal() : name_("Unkwnown"){};
+
     Animal(const std::string &name) : name_(name)
     {
     }
@@ -36,6 +37,7 @@ class Dog : public Animal
     Dog() : owner_("none")
     {
     }
+
     Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
     {
     }

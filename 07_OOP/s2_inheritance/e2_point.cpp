@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * inheritance
+ * OOP: inheritance (Couple <- Point)
  */
 #include <cmath>
 #include <iostream>
@@ -21,14 +21,17 @@ class Couple
     {
         return first_;
     }
+
     int second() const
     {
         return second_;
     }
+
     void first(const int first)
     {
         first_ = first;
     }
+
     void second(const int second)
     {
         second_ = second;
