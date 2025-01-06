@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * shallow vs deep copy
+ * OOP: shallow vs deep copy
  */
 #include <iostream>
 
@@ -15,6 +15,7 @@ class Point
     Point(int x, int y) : x_{x}, y_{y}
     {
     }
+
     ~Point()
     {
         std::cout << "dtor " << x_ << ", " << y_ << '\n';
@@ -27,10 +28,12 @@ class Point
     {
         return x_;
     }
+
     int y()
     {
         return y_;
     }
+
     void horizontalMove(int delta)
     {
         x_ += delta;
@@ -39,7 +42,7 @@ class Point
 
 int main()
 {
-    // no compiler generated default ctor
+    // won't compile: no default constructor exists for class "Point"
     // Point a;
 
     Point b{12, 23};

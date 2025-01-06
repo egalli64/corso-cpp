@@ -1,20 +1,27 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * shallow vs deep copy w/ resources
+ * OOP: shallow vs deep copy w/ resources
  */
 #include <iostream>
 
+/**
+ * @brief a very simple node implementation
+ */
 struct Node
 {
     int value;
     Node *next;
+
     ~Node()
     {
         std::cout << "Node " << value << " deleted\n";
     }
 };
 
+/**
+ * @brief a very simple toy container
+ */
 class SinglyLinkedList
 {
   private:
