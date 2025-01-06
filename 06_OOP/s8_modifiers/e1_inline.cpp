@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * inline
+ * OOP: inline
  */
 #include <iostream>
 
@@ -21,6 +21,7 @@ class Player
     {
         return id_;
     }
+
     double score() const
     {
         return score_;

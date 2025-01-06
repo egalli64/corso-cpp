@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * static
+ * OOP: static
  */
 #include <iostream>
 
@@ -29,10 +29,12 @@ class Player
     {
         return id_;
     }
+
     double score() const
     {
         return score_;
     }
+
     void increaseScore(double delta)
     {
         score_ += delta;

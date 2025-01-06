@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * const
+ * OOP: const
  */
 #include <iostream>
 
@@ -20,10 +20,12 @@ class Player
     {
         return id_;
     }
+
     double score() const
     {
         return score_;
     }
+
     // it could be invoked only on a non-const object
     void increaseScore(double delta)
     {
