@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * move is cheap
+ * OOP: move is cheap
  */
 #include <iostream>
 #include <string>
