@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * operator overloading
+ * OOP: operator overloading, put to
  */
 #include <iostream>
 

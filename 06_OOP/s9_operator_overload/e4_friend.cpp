@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * operator overloading + friend
+ * OOP: operator overloading + friend
  */
 #include <iostream>
 #include <string>
@@ -24,6 +24,7 @@ class Point
     {
         return x_;
     }
+
     int y() const
     {
         return y_;
@@ -33,6 +34,7 @@ class Point
     {
         x_ += delta;
     }
+
     void vertMove(int delta)
     {
         y_ += delta;
