@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * pure virtual / final method
+ * OOP: pure virtual / final method
  */
 #include <iostream>
 

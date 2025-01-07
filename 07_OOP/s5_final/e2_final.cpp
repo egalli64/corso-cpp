@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * final class
+ * OOP: final class
  */
 #include <iostream>
 
