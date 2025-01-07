@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Solving MI DDD problem by virtual inheritance
+ * OOP: Solving MI DDD problem by virtual inheritance
  */
 #include <iostream>
 
@@ -47,6 +47,7 @@ class Animal : virtual public Actor
     {
         std::cout << "Animal ctor for " << name << '\n';
     }
+
     ~Animal()
     {
         std::cout << "Animal dtor" << '\n';
