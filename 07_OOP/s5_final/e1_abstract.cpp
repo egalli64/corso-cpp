@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * abstract - virtual - concrete
+ * OOP: abstract - virtual - concrete
  */
 #include <iostream>
 
