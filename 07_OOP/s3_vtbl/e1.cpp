@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * virtual method
+ * OOP: virtual method
  */
 #include <cmath>
 #include <iostream>
@@ -21,6 +21,7 @@ class Point
     {
         return x_;
     }
+
     int y() const
     {
         return y_;
