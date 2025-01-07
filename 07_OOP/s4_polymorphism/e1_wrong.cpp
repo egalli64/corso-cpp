@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * virtual method
+ * OOP: virtual method - the method _must_ be tagged as virtual
  */
 #include <iostream>
 
