@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * virtual dtor (fix!)
+ * OOP: virtual dtor (fix!)
  */
 #include <iostream>
 
@@ -14,6 +14,7 @@ class Animal
     Animal(const std::string &name) : name_(name)
     {
     }
+
     // virtual, as it should be
     virtual ~Animal()
     {
@@ -36,6 +37,7 @@ class Dog : public Animal
     Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
     {
     }
+
     ~Dog()
     {
         std::cout << "Dog dtor, owner " << owner_ << '\n';

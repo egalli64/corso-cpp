@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * virtual dtor (missing!)
+ * OOP: virtual dtor (missing!)
  */
 #include <iostream>
 
@@ -66,8 +66,8 @@ int main()
     std::cout << chip->fullName() << '\n';
     delete chip;
 
-    BadVirtualAnimal *dick = new Dog{"Dick", "Douglas Adams"};
-    std::cout << dick->fullName() << '\n';
+    BadVirtualAnimal *fido = new Dog{"Fido", "Douglas Adams"};
+    std::cout << fido->fullName() << '\n';
     // The Dog dtor invocation usually is missing!
-    delete dick;
+    delete fido;
 }
