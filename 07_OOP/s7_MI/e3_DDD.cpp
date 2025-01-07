@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * MI with DDD problem
+ * OOP: MI with DDD problem
  */
 #include <iostream>
 
@@ -15,6 +15,7 @@ class Actor
     {
         std::cout << "Actor ctor for " << name << '\n';
     }
+
     ~Actor()
     {
         std::cout << "Actor dtor for " << name_ << '\n';
@@ -33,6 +34,7 @@ class Animal : public Actor
     {
         std::cout << "Animal ctor for " << name << '\n';
     }
+
     ~Animal()
     {
         std::cout << "Animal dtor" << '\n';
@@ -49,6 +51,7 @@ class Player : public Actor
     {
         std::cout << "Player ctor for " << game << '\n';
     }
+
     ~Player()
     {
         std::cout << "Player dtor for " << game_ << '\n';
