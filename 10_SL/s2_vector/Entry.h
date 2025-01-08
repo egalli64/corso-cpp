@@ -1,10 +1,10 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * A class meant to be derived
+ * SL vector: a class meant to be derived
  */
-#ifndef CORSO_CPP_B7_S4_ENTRY_H
-#define CORSO_CPP_B7_S4_ENTRY_H
+#ifndef CORSO_CPP_10_ENTRY_H
+#define CORSO_CPP_10_ENTRY_H
 
 #include <iostream>
 #include <string>
@@ -87,4 +87,4 @@ inline std::ostream &operator<<(std::ostream &os, const Entry &entry)
     return os << '{' << entry.key() << ", " << entry.value() << '}';
 }
 
-#endif // CORSO_CPP_B7_S4_ENTRY_H
+#endif // CORSO_CPP_10_ENTRY_H

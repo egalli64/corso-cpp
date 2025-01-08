@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - adding elements
+ * SL vector: adding elements
  */
 #include <iostream>
 #include <vector>

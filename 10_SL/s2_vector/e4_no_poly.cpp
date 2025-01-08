@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * no polymorphism on statically typed vector!
+ * SL vector: no polymorphism on statically typed vector!
  */
 #include <iostream>
 #include <memory>

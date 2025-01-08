@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - resize
+ * SL vector: resize
  */
 #include <iostream>
 #include <vector>

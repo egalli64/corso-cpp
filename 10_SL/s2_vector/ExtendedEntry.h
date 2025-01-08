@@ -1,14 +1,14 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * A derived class
+ * SL vector: a derived class
  */
-#ifndef CORSO_CPP_B7_S4_EXTENDED_ENTRY_H
-#define CORSO_CPP_B7_S4_EXTENDED_ENTRY_H
+#ifndef CORSO_CPP_10_EXTENDED_ENTRY_H
+#define CORSO_CPP_10_EXTENDED_ENTRY_H
 
 #include "Entry.h"
 
-class ExtendedEntry : public Entry
+class ExtendedEntry final : public Entry
 {
   private:
     std::string tag_;
@@ -35,4 +35,4 @@ class ExtendedEntry : public Entry
     }
 };
 
-#endif // CORSO_CPP_B7_S4_EXTENDED_ENTRY_H
+#endif // CORSO_CPP_10_EXTENDED_ENTRY_H

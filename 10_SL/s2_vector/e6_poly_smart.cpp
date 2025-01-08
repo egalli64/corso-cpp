@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL vector - achieving polymorphism by smart pointers (unique)
+ * SL vector: achieving polymorphism by smart pointers (unique)
  */
 #include <iostream>
 #include <memory>
