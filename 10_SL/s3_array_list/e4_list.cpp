@@ -25,7 +25,7 @@ int main()
     print(data);
 
     data.push_front("zoe");
-    data.push_back("dick");
+    data.push_back("jim");
     data.remove("bob");
     print(data);
 }
