@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL unordered_map
+ * SL unordered_map (hashtable based)
  */
 #include <iostream>
 #include <string>
