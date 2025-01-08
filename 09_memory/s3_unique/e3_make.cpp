@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * unique_ptr
+ * Memory: unique_ptr, make_unique
  */
 #include "../Thing.h"
 #include <iostream>

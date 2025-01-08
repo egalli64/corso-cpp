@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Beware of slicing!
+ * Memory: Beware of slicing!
  */
 #include "../ThingExt.h"
 #include <iostream>

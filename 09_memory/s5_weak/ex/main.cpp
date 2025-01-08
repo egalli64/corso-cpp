@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * weak_ptr exercise
+ * Memory: weak_ptr exercise
  */
 #include "Node.h"
 

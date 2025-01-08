@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * unique_ptr
+ * Memory: shared_ptr
  */
 #include "../Thing.h"
 #include <iostream>
@@ -9,7 +9,7 @@
 
 int main()
 {
-    std::unique_ptr<Thing> sp = std::make_unique<Thing>(1);
+    std::shared_ptr<Thing> sp = std::make_shared<Thing>(1);
 
     std::cout << "Resetting\n";
     sp.reset(new Thing{2});
@@ -17,7 +17,7 @@ int main()
     std::cout << "Resetting to nullptr: ";
     sp.reset();
 
-    std::cout << "Resetting on an empty unique ptr: ";
+    std::cout << "Resetting on an empty shared ptr: ";
     sp.reset(new Thing{3});
 
     std::cout << "Resetting to nullptr by assignment: ";

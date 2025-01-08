@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * shared_ptr
+ * Memory: shared_ptr
  */
 #include <iostream>
 #include <memory>

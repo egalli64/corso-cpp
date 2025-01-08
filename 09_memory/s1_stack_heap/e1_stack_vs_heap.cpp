@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * allocating variables on stack and heap
+ * Memory: allocating variables on stack and heap
  */
 #include <cstdlib>
 #include <ctime>

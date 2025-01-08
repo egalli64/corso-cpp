@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * weak_ptr
+ * Memory: weak_ptr
  */
 #ifndef CORSO_CPP_9_S5_WEAK_PROJECT
 #define CORSO_CPP_9_S5_WEAK_PROJECT

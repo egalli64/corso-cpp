@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * unique_ptr
+ * Memory: unique_ptr, move
  */
 #include "../ThingExt.h"
 #include <iostream>

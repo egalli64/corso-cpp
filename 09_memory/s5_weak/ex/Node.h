@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * Node for weak_ptr exercise
+ * Memory: Node for weak_ptr exercise
  */
 #ifndef CORSO_CPP_9_5_EX_NODE
 #define CORSO_CPP_9_5_EX_NODE

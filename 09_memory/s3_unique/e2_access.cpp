@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * unique_ptr
+ * Memory: unique_ptr
  *
  * In g++ compile with -std=c++20 for modern features
  */

@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * weak_ptr
+ * Memory: weak_ptr
  */
 #include "../Thing.h"
 #include <iostream>
