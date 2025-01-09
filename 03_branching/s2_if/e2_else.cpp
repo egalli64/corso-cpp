@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * if - else
+ * Branching: if - else
  */
 #include <iostream>
 
