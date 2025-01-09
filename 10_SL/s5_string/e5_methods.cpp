@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL string: a few mwthods
+ * SL string: a few methods
  */
 #include <iostream>
 #include <string>
