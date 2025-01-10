@@ -22,6 +22,6 @@ int main()
 {
     std::vector<std::string> data{"tom", "bob", "kim"};
     print(data, "A string vector");
-    reverse(data.begin(), data.end());
+    std::reverse(data.begin(), data.end());
     print(data, "Reversed");
 }
