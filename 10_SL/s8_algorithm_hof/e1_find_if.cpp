@@ -34,18 +34,36 @@ int main()
     std::vector<std::string> values{"Tom", "Kim", "Tony", "Liza"};
     std::cout << "Find first string sized 4\n";
 
+    // loop
+    std::cout << "No find_if (explicit loop): ";
+    auto it = values.begin();
+    while (it != values.end())
+    {
+        if ((*it).size() == 4)
+        {
+            std::cout << *it;
+            break;
+        }
+        it += 1;
+    }
+    if (it == values.end())
+    {
+        std::cout << "Not found!";
+    }
+    std::cout << '\n';
+
     // function
     std::cout << "By function: ";
-    auto it = find_if(values.begin(), values.end(), hasSizeEqualToFour);
+    it = std::find_if(values.begin(), values.end(), hasSizeEqualToFour);
     std::cout << (it != values.end() ? *it : "Not found!") << '\n';
 
     // function object
     std::cout << "By function object: ";
-    it = find_if(values.begin(), values.end(), HasSizeEqualTo(4));
+    it = std::find_if(values.begin(), values.end(), HasSizeEqualTo(4));
     std::cout << (it != values.end() ? *it : "Not found!") << '\n';
 
     // lambda
     std::cout << "By lambda expression: ";
-    it = find_if(values.begin(), values.end(), [](const std::string &x) { return x.size() == 4; });
+    it = std::find_if(values.begin(), values.end(), [](const std::string &x) { return x.size() == 4; });
     std::cout << (it != values.end() ? *it : "Not found!") << '\n';
 }
