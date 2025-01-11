@@ -13,8 +13,8 @@ int main()
 
     // accumulate (adding) in an interval starting from value zero
     std::cout << "Sum of values is ";
-    std::cout << accumulate(values.begin(), values.end(), 0) << '\n';
+    std::cout << std::accumulate(values.begin(), values.end(), 0) << '\n';
 
     std::cout << "Sum of internal values is ";
-    std::cout << accumulate(values.begin() + 1, values.end() - 1, 0) << '\n';
+    std::cout << std::accumulate(values.begin() + 1, values.end() - 1, 0) << '\n';
 }
