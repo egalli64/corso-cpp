@@ -39,12 +39,12 @@ int main()
     auto it = values.begin();
     while (it != values.end())
     {
-        if ((*it).size() == 4)
+        if (it->size() == 4)
         {
             std::cout << *it;
             break;
         }
-        it += 1;
+        ++it;
     }
     if (it == values.end())
     {
