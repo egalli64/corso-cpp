@@ -22,9 +22,10 @@ template <typename Iterable> void print(const Iterable &items, const std::string
 int main()
 {
     std::list<std::string> values{};
-    print(values, "The original vector: ");
+    print(values, "The original list: ");
 
     // notice: it doesn't make sense using inserters in this way
+    // see next examples to more real use cases
     *std::front_inserter(values) = "front_inserted";
     *std::back_inserter(values) = "back_inserted";
     *std::inserter(values, ++values.begin()) = "inserted@1";
