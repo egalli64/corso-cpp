@@ -1,7 +1,7 @@
 /*
  * Corso C++ https://github.com/egalli64/corso-cpp
  *
- * SL algorithm: C++20 erase()
+ * SL algorithm: C++20 erase(), erase_if()
  * g++ -std=c++20 e8_erase.cpp
  */
 #include <algorithm>
@@ -27,6 +27,9 @@ int main()
 #if __cplusplus >= 202002L
     std::erase(values, 1);
     print(values, "After erase 1: ");
+
+    std::erase_if(values, [](const int x) { return x % 2 == 0; });
+    print(values, "After erase_if even: ");
 #else
     std::cout << "std::erase requirese C++20\n";
 #endif
