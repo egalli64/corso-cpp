@@ -17,12 +17,19 @@ int main()
 
     std::cout << std::boolalpha;
 
-    std::cout << "both x and y are even: " << (x % 2 && y % 2) << '\n';
+    std::cout << "Both x and y are even: " << (x % 2 && y % 2) << '\n';
     std::cout << "x or y is even (or both): " << (x % 2 || y % 2) << '\n';
     std::cout << "y is not even: " << !(x % 2) << '\n';
 
+    bool bx = x;
+    std::cout << "With assignment, numbers are silently narrowed to boolean: " << bx << '\n';
+
+    // GNU just warns, to get an error: g++ -pedantic-errors e4_logical.cpp
+    // bool by{y};
+    // std::cout << "Uniform initializer helps identifying a possible issue: " << by << '\n';
+
     std::cout << std::noboolalpha;
 
-    std::cout << "True is actually " << true << '\n';
-    std::cout << "False is actually " << false << '\n';
+    std::cout << "true is actually " << true << '\n';
+    std::cout << "false is actually " << false << '\n';
 }
