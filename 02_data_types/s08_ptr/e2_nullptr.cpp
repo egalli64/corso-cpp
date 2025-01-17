@@ -12,6 +12,6 @@ int main()
     int *ptr = nullptr;
     std::cout << "An unused pointer: " << ptr << '\n';
     std::cout << "A null pointer can't be dereferenced ... " << '\n';
-    // Segmentation fault
-    // std::cout << *ptr << '\n';
+    // Runtime problem: segmentation fault
+    std::cout << *ptr << '\n';
 }
