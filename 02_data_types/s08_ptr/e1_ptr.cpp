@@ -19,15 +19,19 @@ int main()
     char c = 'x';
     char *pc = &c;
 
-    std::cout << c << ' ' << *pc << ' ' << static_cast<void *>(pc) << '\n';
+    std::cout << "A char variable: " << c << ", accessed by pointer: " << *pc << '\n'
+              << "The value in the pointer variable: " << static_cast<void *>(pc) << '\n';
+
     *pc = 'z';
-    std::cout << c << ' ' << *pc << '\n';
+    std::cout << "Value changed accessing the variable by pointer: " << c << "\n\n";
 
     // a double and a pointer to double
     double d = M_PI;
     double *pd = &d;
 
-    std::cout << d << ' ' << *pd << ' ' << pd << '\n';
+    std::cout << "A double variable: " << d << ", accessed by pointer: " << *pd << '\n'
+              << "The value in the pointer variable: " << static_cast<void *>(pd) << '\n';
+
     *pd = M_E;
-    std::cout << d << ' ' << *pd << '\n';
+    std::cout << "Value changed accessing the variable by pointer: " << d << '\n';
 }
