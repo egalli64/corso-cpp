@@ -22,4 +22,7 @@ int main()
     std::cout << "x ^ y is " << std::bitset<8>(x ^ y) << '\n';
     // '~' topleft on US keyboard, or alt-126, or altGr-ì
     std::cout << "~x is " << std::bitset<8>(~x) << '\n';
+
+    std::cout << "x << 1 is " << std::bitset<8>(x << 1) << '\n';
+    std::cout << "y >> 2 is " << std::bitset<8>(y >> 2) << '\n';
 }
