@@ -4,7 +4,6 @@
  * static cast
  */
 #include <iostream>
-#include <string>
 
 double f()
 {
