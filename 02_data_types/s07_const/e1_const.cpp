@@ -5,8 +5,6 @@
  */
 #include <iostream>
 
-namespace
-{
 constexpr int value()
 {
     return 42;
@@ -17,23 +15,24 @@ const int value2()
     return 42;
 }
 
-} // namespace
-
 int main()
 {
     // evaluated at compile time
     constexpr int x = value();
-    // cannot call non-constexpr function
+
+    // won't compile: cannot call non-constexpr function
     // constexpr int x2 = value2();
 
-    // error!
+    // won't compile: expression must be a modifiable lvalue
     // x += 1;
 
-    // won't change
+    // evaluated at runtime
     const int y = value();
     const int y2 = value2();
 
-    // y += 1; // error!
+    // won't compile: expression must be a modifiable lvalue
+    // y += 1;
+    // y2 += 1;
 
     std::cout << "Using constants: " << x + y + y2 << '\n';
 }
