@@ -13,5 +13,5 @@ int main()
     std::cout << "An unused pointer: " << ptr << '\n';
     std::cout << "A null pointer can't be dereferenced ... " << '\n';
     // Runtime problem: segmentation fault
-    std::cout << *ptr << '\n';
+    // std::cout << *ptr << '\n';
 }
