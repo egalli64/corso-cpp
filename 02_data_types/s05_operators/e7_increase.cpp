@@ -13,6 +13,9 @@ int main()
     std::cout << "x is " << x << '\n';
     std::cout << "y is " << y << '\n';
 
-    std::cout << "after ++x the value in x is " << ++x << '\n';
-    std::cout << "after --x the value in x is " << --x << '\n';
+    ++x;
+    std::cout << "after ++x the value in x is " << x << '\n';
+
+    --x;
+    std::cout << "after --x the value in x is " << x << '\n';
 }
