@@ -19,6 +19,7 @@ int main()
     char c = 'x';
     char *pc = &c;
 
+    // char * is a C-String, to print the ptr value, cast it to void *
     std::cout << "A char variable: " << c << ", accessed by pointer: " << *pc << '\n'
               << "The value in the pointer variable: " << static_cast<void *>(pc) << '\n';
 
@@ -29,8 +30,9 @@ int main()
     double d = M_PI;
     double *pd = &d;
 
+    // double * is non-ambiguous, printed as pointer
     std::cout << "A double variable: " << d << ", accessed by pointer: " << *pd << '\n'
-              << "The value in the pointer variable: " << static_cast<void *>(pd) << '\n';
+              << "The value in the pointer variable: " << pd << '\n';
 
     *pd = M_E;
     std::cout << "Value changed accessing the variable by pointer: " << d << '\n';
