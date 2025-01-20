@@ -5,20 +5,17 @@
  */
 #include <iostream>
 
-namespace
-{
 double value()
 {
     return 42.7;
 }
-} // namespace
 
 int main()
 {
     // implicit narrowing (could be a mistake!)
     int x = value();
     // uniform initialization here leads to error: explicit narrowing required (safer)
-    // int a {value()};
+    int a{value()};
 
     int y = 18;
 
