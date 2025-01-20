@@ -31,7 +31,10 @@ int main()
 
     // comparing values from different enum leads to a warning
     // code like this is error prone and difficult to mantain
-    // if (x == SOME_VALUE){ std::cout << "Unexpected\n"; }
+    if (x == SOME_VALUE)
+    {
+        std::cout << "Unexpected\n";
+    }
 
     // not even a warning when comparing an enum with a plain int!
     if (x == 42)
