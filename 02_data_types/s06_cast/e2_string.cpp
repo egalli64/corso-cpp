@@ -13,8 +13,8 @@ int main()
     std::cout << "From string to int (pre-incremented): " << ++i << '\n';
 
     s += ".27";
-    double d{std::stod(s)};
-    std::cout << "From string to double: " << d << '\n';
+    double d = std::stod(s);
+    std::cout << "From string to double (halved): " << d / 2 << '\n';
 
     std::cout << "From numeric to string, and concat: " << std::to_string(51) + std::to_string(8.931255) << '\n';
 }
