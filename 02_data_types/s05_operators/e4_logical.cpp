@@ -17,14 +17,16 @@ int main()
 
     std::cout << std::boolalpha;
 
-    std::cout << "Both x and y are even: " << (x % 2 && y % 2) << '\n';
-    std::cout << "x or y is even (or both): " << (x % 2 || y % 2) << '\n';
-    std::cout << "y is not even: " << !(x % 2) << '\n';
+    bool is_x_even = x % 2 == 0;
+    bool is_y_even = y % 2 == 0;
+    std::cout << "Both x and y are even: " << (is_x_even && is_y_even) << '\n';
+    std::cout << "x or y is even (or both): " << (is_x_even || is_y_even) << '\n';
+    std::cout << "y is not even: " << !is_y_even << '\n';
 
-    bool bx = x;
-    std::cout << "With assignment, numbers are silently narrowed to boolean: " << bx << '\n';
+    bool x_as_boolean = x;
+    std::cout << "With assignment, numbers are silently narrowed to boolean: " << x_as_boolean << '\n';
 
-    // GNU just warns, to get an error: g++ -pedantic-errors e4_logical.cpp
+    // GNU just warns about narrowing, to get an error: g++ -pedantic-errors e4_logical.cpp
     // bool by{y};
     // std::cout << "Uniform initializer helps identifying a possible issue: " << by << '\n';
 
