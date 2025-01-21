@@ -20,11 +20,16 @@ class Animal
     {
         return name_;
     }
-    // pure virtual method
+
+    /**
+     * @brief a pure virtual method
+     */
     virtual std::string fullName() const = 0;
 };
 
-// derives from an abstract class, to be concrete must override the inherited abstract methods
+/**
+ * derives from an abstract class, to be concrete must override the inherited abstract methods
+ */
 class Dog : public Animal
 {
   private:
@@ -35,6 +40,9 @@ class Dog : public Animal
     {
     }
 
+    /**
+     * @brief override a pure virtual method
+     */
     std::string fullName() const override
     {
         return Animal::name() + " owned by " + owner_;
