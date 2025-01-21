@@ -56,4 +56,8 @@ int main()
 
     Point3D b{8, 1, 5};
     std::cout << "Distance from origin is " << b.distanceFromOrigin() << '\n';
+
+    // a Point ptr referring to a Point3D, polimorphism in action
+    Point *c = new Point3D{1, 2, 3};
+    std::cout << c->distanceFromOrigin();
 }
