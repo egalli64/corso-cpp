@@ -16,10 +16,12 @@ class Point
     Point() : x_{0}, y_{0}
     {
     }
+
     // a plain explicit ctor
     explicit Point(int x) : x_{x}, y_{0}
     {
     }
+
     // another plain ctor
     Point(int x, int y) : x_{x}, y_{y}
     {
@@ -31,15 +33,25 @@ class Point
         std::cout << "dtor " << x_ << ' ' << y_ << '\n';
     }
 
+    // a getter
     int x()
     {
         return x_;
     }
+
+    // a setter
+    void x(int x)
+    {
+        x_ = x;
+    }
+
+    // a getter
     int y()
     {
         return y_;
     }
 
+    // a modifier
     void increaseX(int delta)
     {
         x_ += delta;
@@ -52,6 +64,7 @@ int main()
     Point a;
     std::cout << "a is " << a.x() << ' ' << a.y() << '\n';
 
+    // more readable invocation of default ctor
     Point b{};
     std::cout << "b is " << b.x() << ' ' << b.y() << '\n';
 
