@@ -5,7 +5,9 @@
  */
 #include <iostream>
 
-// Bad virtual class, the dtor is not virtual!
+/**
+ * @brief Bad virtual class, the dtor is not virtual!
+ */
 class BadVirtualAnimal
 {
   private:
@@ -17,7 +19,9 @@ class BadVirtualAnimal
         std::cout << "BadVirtualAnimal ctor " << name << '\n';
     }
 
-    // it should be virtual!
+    /**
+     * @brief it should be virtual! Fix in the next example
+     */
     ~BadVirtualAnimal()
     {
         std::cout << "BadVirtualAnimal dtor for " << name_ << '\n';
@@ -27,6 +31,7 @@ class BadVirtualAnimal
     {
         return name_;
     }
+
     virtual std::string fullName() const = 0;
 };
 
@@ -68,6 +73,6 @@ int main()
 
     BadVirtualAnimal *fido = new Dog{"Fido", "Douglas Adams"};
     std::cout << fido->fullName() << '\n';
-    // The Dog dtor invocation usually is missing!
+    // Undefined behavior - The Dog dtor invocation usually is missing!
     delete fido;
 }
