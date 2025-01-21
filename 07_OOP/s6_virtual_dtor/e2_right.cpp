@@ -15,7 +15,9 @@ class Animal
     {
     }
 
-    // virtual, as it should be
+    /**
+     * @brief virtual, as it should be
+     */
     virtual ~Animal()
     {
         std::cout << "Animal dtor for " << name_ << '\n';
@@ -25,6 +27,7 @@ class Animal
     {
         return name_;
     }
+
     virtual std::string fullName() const = 0;
 };
 
@@ -63,8 +66,8 @@ int main()
     std::cout << chip->fullName() << '\n';
     delete chip;
 
-    Animal *dick = new Dog{"Dick", "Douglas Adams"};
-    std::cout << dick->fullName() << '\n';
+    Animal *fido = new Dog{"Fido", "Douglas Adams"};
+    std::cout << fido->fullName() << '\n';
     // both dtor correctly called
-    delete dick;
+    delete fido;
 }
