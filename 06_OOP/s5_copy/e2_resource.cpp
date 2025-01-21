@@ -21,19 +21,27 @@ struct Node
 
 /**
  * @brief a very simple toy container
+ *
+ * TODO: keep tail as data member, simplify pushBack()
  */
 class SinglyLinkedList
 {
   private:
     Node *head;
-    // TODO: keep tail as data member, simplify pushBack()
+
   public:
-    SinglyLinkedList() : head(nullptr)
+    /**
+     * @brief Default ctor
+     */
+    SinglyLinkedList() : head{nullptr}
     {
         std::cout << "Default ctor\n";
     }
 
-    SinglyLinkedList(const SinglyLinkedList &other) : head(nullptr)
+    /**
+     * @brief Copy ctor
+     */
+    SinglyLinkedList(const SinglyLinkedList &other) : head{nullptr}
     {
         std::cout << "Copy ctor\n";
 
@@ -43,6 +51,9 @@ class SinglyLinkedList
         }
     }
 
+    /**
+     * @brief assignment operator
+     */
     SinglyLinkedList &operator=(const SinglyLinkedList &other)
     {
         std::cout << "Assignment operator\n";
@@ -57,6 +68,9 @@ class SinglyLinkedList
         return *this;
     }
 
+    /**
+     * @brief create a new node, place it at the list head
+     */
     void pushFront(int value)
     {
         Node *node = new Node{value, head};
@@ -64,6 +78,9 @@ class SinglyLinkedList
         std::cout << "New head is " << value << '\n';
     }
 
+    /**
+     * @brief create a new node, place it at the list tail
+     */
     void pushBack(int value)
     {
         if (head == nullptr)
@@ -84,6 +101,9 @@ class SinglyLinkedList
         }
     }
 
+    /**
+     * @brief print all the nodes in the list
+     */
     void print()
     {
         std::cout << "[ ";
@@ -94,6 +114,9 @@ class SinglyLinkedList
         std::cout << "]\n";
     }
 
+    /**
+     * @brief delete all the nodes in the list
+     */
     void clear()
     {
         int count = 0;
@@ -109,6 +132,9 @@ class SinglyLinkedList
         std::cout << count << " item(s) deleted\n";
     }
 
+    /**
+     * dtor
+     */
     ~SinglyLinkedList()
     {
         std::cout << "Dtor\n";
