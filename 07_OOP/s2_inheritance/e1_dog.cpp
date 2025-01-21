@@ -11,9 +11,9 @@ class Animal
     const std::string name_;
 
   public:
-    Animal() : name_("Unkwnown"){};
+    Animal() : name_("Unkwnown") {};
 
-    Animal(const std::string &name) : name_(name)
+    Animal(const std::string &name) : name_{name}
     {
     }
 
@@ -34,11 +34,11 @@ class Dog : public Animal
     const std::string owner_;
 
   public:
-    Dog() : owner_("none")
+    Dog() : owner_{"none"}
     {
     }
 
-    Dog(const std::string &name, const std::string &owner) : Animal(name), owner_(owner)
+    Dog(const std::string &name, const std::string &owner) : Animal{name}, owner_{owner}
     {
     }
 
@@ -61,6 +61,6 @@ int main()
     Dog bob{"Bob", "Robert Smith"};
     std::cout << bob << '\n';
 
-    Dog x;
+    Dog x{};
     std::cout << x << '\n';
 }
