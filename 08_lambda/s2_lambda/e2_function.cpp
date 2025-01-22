@@ -9,8 +9,6 @@
 #include <iterator>
 #include <vector>
 
-namespace
-{
 void print(const std::string &message, const std::vector<int> &data)
 {
     std::cout << message << ": ";
@@ -18,11 +16,13 @@ void print(const std::string &message, const std::vector<int> &data)
     std::cout << '\n';
 }
 
+/**
+ * @brief check if the first passed argument is greater of the second one
+ */
 bool largerFirst(int left, int right)
 {
     return left > right;
 }
-} // namespace
 
 int main()
 {
@@ -32,6 +32,6 @@ int main()
     std::sort(data.begin(), data.end());
     print("plain sort", data);
 
-    std::sort(data.begin(), data.end(), largerFirst);
+    std::sort(data.begin(), data.end(), &largerFirst);
     print("sort by function, larger first", data);
 }
