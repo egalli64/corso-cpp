@@ -8,6 +8,9 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief A function object
+ */
 class Printer
 {
   private:
@@ -26,10 +29,10 @@ class Printer
 
 int main()
 {
-    Printer printer;
+    Printer printer{};
     printer("A function object is a callable");
 
     std::vector<std::string> names{"Tom", "Bob", "Kim"};
     std::cout << "Passing a function object to a function:\n";
-    std::for_each(names.begin(), names.end(), Printer("-> "));
+    std::for_each(names.begin(), names.end(), Printer{"-> "});
 }
