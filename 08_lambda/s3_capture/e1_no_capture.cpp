@@ -8,8 +8,6 @@
 #include <iterator>
 #include <vector>
 
-namespace
-{
 void print(const std::vector<int> &data, const std::string &message = "")
 {
     std::cout << message << ": ";
@@ -21,7 +19,6 @@ void increase(int &value)
 {
     value += 1;
 }
-} // namespace
 
 int main()
 {
@@ -31,7 +28,7 @@ int main()
     std::cout << "Increase by function\n";
     for (int i = 0; i < 3; ++i)
     {
-        for_each(values.begin(), values.end(), increase);
+        for_each(values.begin(), values.end(), &increase);
         print(values);
     }
 
