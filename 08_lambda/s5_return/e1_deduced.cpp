@@ -8,31 +8,38 @@
 
 int main()
 {
+    // bool is deduced
+    auto b = [] { return true; }();
+    std::cout << "The returned bool: " << b << ", size: " << sizeof(b) << '\n';
+
     // char is deduced
-    auto v1 = [] { return 'x'; }();
-    std::cout << "The returned char: " << v1 << ", size: " << sizeof(v1) << '\n';
+    auto c = [] { return 'x'; }();
+    std::cout << "The returned char: " << c << ", size: " << sizeof(c) << '\n';
 
     // int is deduced
-    auto v2 = [] { return 42; }();
-    std::cout << "The returned int: " << v2 << ", size: " << sizeof(v2) << '\n';
+    auto vi = [] { return 42; }();
+    std::cout << "The returned int: " << vi << ", size: " << sizeof(vi) << '\n';
 
-    // long int is deduced
-    auto v2a = [] { return 5'000'000'000; }();
-    std::cout << "The returned long int: " << v2a << ", size: " << sizeof(v2a) << '\n';
+    // long is deduced
+    auto vl = [] { return 5'000'000'000; }();
+    std::cout << "The returned long: " << vl << ", size: " << sizeof(vl) << '\n';
+
+    auto vl2 = [] { return 42L; }();
+    std::cout << "The returned long: " << vl2 << ", size: " << sizeof(vl2) << '\n';
 
     // float is deduced
-    auto v3 = [] { return 3.6F; }();
-    std::cout << "The returned float: " << v3 << ", size: " << sizeof(v3) << '\n';
+    auto vf = [] { return 3.6F; }();
+    std::cout << "The returned float: " << vf << ", size: " << sizeof(vf) << '\n';
 
     // double is deduced
-    auto v3a = [] { return std::numeric_limits<double>::max(); }();
-    std::cout << "The returned double: " << v3a << ", size: " << sizeof(v3a) << '\n';
+    auto vd = [] { return std::numeric_limits<double>::max(); }();
+    std::cout << "The returned double: " << vd << ", size: " << sizeof(vd) << '\n';
 
     // long double is deduced
-    auto v4 = [] { return 1e400L; }();
-    std::cout << "The returned long double: " << v4 << ", size: " << sizeof(v4) << '\n';
+    auto vld = [] { return 1e400L; }();
+    std::cout << "The returned long double: " << vld << ", size: " << sizeof(vld) << '\n';
 
     // long double is deduced
-    auto v4a = [] { return std::numeric_limits<long double>::max(); }();
-    std::cout << "The returned long double: " << v4a << ", size: " << sizeof(v4a) << '\n';
+    auto vld2 = [] { return std::numeric_limits<long double>::max(); }();
+    std::cout << "The returned long double: " << vld2 << ", size: " << sizeof(vld2) << '\n';
 }
