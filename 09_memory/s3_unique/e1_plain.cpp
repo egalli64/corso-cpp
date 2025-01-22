@@ -8,7 +8,7 @@
 
 int main()
 {
-    std::unique_ptr<int> upEmpty;
+    std::unique_ptr<int> upEmpty{};
     if (!upEmpty)
     {
         std::cout << "The current unique ptr is empty\n";
@@ -19,7 +19,7 @@ int main()
     }
 
     // The factory function make_unique is preferred!
-    std::unique_ptr<int> up(new int{42});
+    std::unique_ptr<int> up{new int{42}};
     if (up)
     {
         std::cout << "The current unique ptr is _not_ empty\n";
