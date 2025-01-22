@@ -17,4 +17,7 @@ int main()
     std::vector<std::string> names{"Tom", "Bob", "Kim"};
     std::cout << "Passing a lambda to a function:\n";
     std::for_each(names.begin(), names.end(), print);
+
+    // usually a lambda expression is consumed in-place
+    std::for_each(names.begin(), names.end(), [](const std::string &s) { std::cout << "... " << s << '\n'; });
 }
