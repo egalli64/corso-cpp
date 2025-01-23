@@ -8,7 +8,8 @@
 
 int main()
 {
-    std::shared_ptr<int> spEmpty;
+    // check a shared ptr for emptiness
+    std::shared_ptr<int> spEmpty{};
     if (!spEmpty)
     {
         std::cout << "The current shared ptr is empty\n";
@@ -18,6 +19,7 @@ int main()
         std::cout << "Unexpected!\n";
     }
 
+    // check a shared ptr for containing a valid pointer
     std::shared_ptr<int> sp{new int{42}};
     if (sp)
     {
