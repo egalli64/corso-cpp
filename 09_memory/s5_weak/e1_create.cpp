@@ -8,11 +8,17 @@
 
 int main()
 {
+    // no use of weak ptr if there is no shared ptr around
     std::shared_ptr<int> sp = std::make_shared<int>(42);
 
-    std::weak_ptr<int> wpEmpty;
+    // an empty weak ptr
+    std::weak_ptr<int> wpEmpty{};
+
+    // a weak ptr directly associated to a shared ptr
     std::weak_ptr<int> wp{sp};
-    std::weak_ptr<int> wp2 = {wp};
+
+    // a weak ptr indirectly associated to a shared ptr (or empty)
+    std::weak_ptr<int> wp2{wp};
 
     // won't compile
     // wp2 = nullptr;
