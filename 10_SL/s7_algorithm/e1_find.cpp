@@ -14,7 +14,8 @@ int main()
     // find in an interval a value
     for (int target = 1; target <= 2; ++target)
     {
-        if (auto it = std::find(values.begin(), values.end(), target); it == values.end())
+        auto it = std::find(values.begin(), values.end(), target);
+        if (it == values.end())
         {
             std::cout << target << ": not found\n";
         }
